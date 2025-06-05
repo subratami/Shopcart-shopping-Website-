@@ -1,0 +1,16 @@
+.banner{
+  
+    top: 50%;
+}
+.banner .banner-img{
+  display: flex;
+  padding: 2% 10% 2% 10%;
+width: 80%;
+height: 60vh;
+}
+.banner .banner-Adv{
+  display: flex;
+  padding: 2% 10% 2% 10%;
+  width: 80%;
+  height: 18vh;
+}

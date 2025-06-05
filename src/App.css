@@ -1,0 +1,851 @@
+*{
+margin: 0;
+border: 0;
+}
+header{
+width: 100%;
+height:10px;
+background: #000000;
+color: #fff;
+padding: 10px 0 10px 0;
+text-align: center;
+font-family: Arial, sans-serif;
+
+}
+header .topleft{
+    left: 10%;
+    position: absolute;
+    font-size: 12px;
+}
+header .topright{
+    right: 10%;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    list-style: none;
+    font-size: 12px;
+}
+
+ .facebook{
+    top: -12%;
+    position: relative;
+    cursor: pointer;
+}
+.instagram{
+    top: -18%;
+    position: relative;
+    cursor: pointer;
+}
+.twitterX{
+    top: -18%;
+    left: -3px;
+    position: relative;
+    padding-right: 40px;
+    cursor: pointer;
+}
+nav{
+    width: 100%;
+    height: 50px;
+   box-shadow: rgba(26, 27, 27, 0.2) 0px 10px 10px -10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo{
+  padding-left: 50%;
+}
+nav .searchbar{
+    width: 30%;
+    height: 30px;
+}
+.list{
+display: flex;
+gap: 30px;
+height: 30px;
+right:10%;
+position: relative;
+}
+
+.list li{
+list-style:none;
+}
+
+.list li a{
+display:flex;
+font-size: 13px;  
+flex-direction: column;
+align-items: center;
+text-decoration:none;
+color: black;
+}
+
+.list li .dropdown .para1{
+color: gray;
+margin: 0px;
+padding: 5px;
+}
+
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: gray;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown .dropbtn img{
+height: 20px;
+}
+.list li a img{
+height:20px;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #FEFEFE ;
+  min-width: 300px;
+  box-shadow: 0px 8px 16px 0px rgba(117, 116, 116, 0.2);
+  z-index: 1;
+  top: 140%;
+  right: 3%;
+}
+.Account-blank{
+  display: none;
+  width: 43px;
+  height: 4px;
+  border-radius: 10px;
+  background-color: white;
+  overflow: hidden;
+
+}
+.Acblack-blank{
+  width: 51px;
+  height: 4px;
+  background-color: rgb(4, 4, 4);
+  position: relative;
+  animation: move 0.5s linear;
+}
+@keyframes move{
+           
+  0%{
+      left: -80px;
+      top: 0px;
+  }
+  
+  50%{
+      left: 0px;
+      top: 0px
+  
+}
+}
+.dropbtn:hover .Account-blank{
+  display: flex; 
+}
+
+.dropdown-content .dropdtn{
+display: flex;
+text-align: center;
+justify-content: space-between;
+}
+
+.dropdtn span{
+align-content: center;
+ color:gray;
+}
+.dropdown-content .button{
+width: 95px;
+padding: 2px;
+background-color: #e2e2e2b3;
+}
+.button:hover 
+{
+background-color: yellow;
+}
+.btnlink{
+display: flex;
+background-color: white;
+border-color:gray;
+}
+.btnlink a{
+text-decoration: none;
+color: white;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.droplink{
+padding-top: 30px;
+padding-bottom: 30px;
+}
+.droplink .hlink{
+float: none;
+  color: gray;
+  padding: 12px 8px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+.hlink:hover {
+color: black;
+}
+.third{ 
+overflow-x: scroll;
+}
+.third::-webkit-scrollbar{
+display: none;
+}
+.third ul{
+display: none;
+justify-content:space-between;
+padding-right:30px;
+padding-left:30px;
+}
+
+.third ul li{
+list-style:none;
+}
+.third ul li a{
+display:flex;
+flex-direction: column;
+align-items: center;
+text-decoration:none;
+font-size:16px;
+color: black;
+}
+.second{
+  height: 30px;
+}
+.second ul{
+display: flex;
+width: auto;
+gap: 2%;
+padding-left: 10%;
+font-weight: 500;
+padding-top: 10px;
+/*padding-right: 40px;*/
+}
+
+.second ul li{
+list-style:none;
+}
+.second ul li .hyperlink{
+text-decoration:none;
+font-size:15px;
+color: black;
+}
+.CONSUMER-ELECTRONICS-blank{
+  display: none;
+  width: 130px;
+  height: 4px;
+  border-radius: 10px;
+  background-color: white;
+  /*position: absolute;
+  left: 185px;*/
+  overflow: hidden;
+
+}
+.black-blank{
+  width: 130px;
+  height: 4px;
+  background-color: rgb(4, 4, 4);
+  position: relative;
+  animation: move 0.5s linear;
+}
+
+@keyframes move{
+           
+  0%{
+      left: -40px;
+      top: 0px;
+  }
+  
+  25%{
+      left: 0px;
+      top: 0px
+  
+}
+}
+.computerlist-blank{
+  display: none;
+  width: 150px;
+  height: 4px;
+  border-radius: 10px;
+  background-color: white;
+  overflow: hidden;
+
+}
+.black-blank1{
+  width: 150px;
+  height: 4px;
+  background-color: rgb(4, 4, 4);
+  position: relative;
+  animation: move 0.5s linear;
+}
+
+@keyframes move{
+           
+  0%{
+      left: -80px;
+      top: 0px;
+  }
+  
+  50%{
+      left: 0px;
+      top: 0px
+  
+}
+}
+.smarthomelist-blank{
+  display: none;
+  width: 125px;
+  height: 4px;
+  border-radius: 10px;
+  background-color: white;
+  overflow: hidden;
+
+}
+.black-blank2{
+  width: 125px;
+  height: 4px;
+  background-color: rgb(4, 4, 4);
+  position: relative;
+  animation: move 0.5s linear;
+}
+
+@keyframes move{
+           
+  0%{
+      left: -140px;
+      top: 0px;
+  }
+  
+  50%{
+      left: 0px;
+      top: 0px
+  
+}
+}
+
+.DIYcomponentlist-blank{
+  display: none;
+  width: 102px;
+  height: 4px;
+  border-radius: 10px;
+  background-color: white;
+  overflow: hidden;
+
+}
+.black-blank3{
+  width: 102px;
+  height: 4px;
+  background-color: rgb(4, 4, 4);
+  position: relative;
+  animation: move 0.5s linear;
+}
+@keyframes move{
+           
+  0%{
+      left: -140px;
+      top: 0px;
+  }
+  
+  50%{
+      left: 0px;
+      top: 0px
+  
+}
+}
+.homeappliancelist-blank{
+  display: none;
+  width: 105px;
+  height: 4px;
+  border-radius: 10px;
+  background-color: white;
+  /*position: absolute;
+  left: 662px;*/
+  overflow: hidden;
+
+}
+.black-blank4{
+  width: 105px;
+  height: 4px;
+  background-color: rgb(4, 4, 4);
+  position: relative;
+  animation: move 0.5s linear;
+}
+
+@keyframes move{
+           
+  0%{
+      left: -140px;
+      top: 0px;
+  }
+  
+  50%{
+      left: 0px;
+      top: 0px
+  
+}
+}
+
+
+.electronicslink{
+ display: none;
+  position: absolute;
+  margin: 0%;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  background-color: rgb(255, 237, 237) ;
+  min-width: 800px;
+  height: 50vh;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  left: 10%;
+  top: 114px;
+  }
+.hyperlist:hover .electronicslink{
+display: flex;
+} 
+.hyperlist:hover .CONSUMER-ELECTRONICS-blank{
+  display: flex;
+}
+.hyperlist:hover .computerlist-blank{
+    display: flex;
+}
+.hyperlist:hover .smarthomelist-blank{
+    display: flex;
+}
+.hyperlist:hover .DIYcomponentlist-blank{
+    display:flex;
+}
+.hyperlist:hover .homeappliancelist-blank{
+    display: flex;
+}
+
+.eletronicshlink {
+display: flex;
+flex-direction: column;
+max-width: fit-content;
+padding-left: 200px;
+padding-right: 40px;
+padding-top: 10px;
+padding-bottom: 10px;
+gap: 20px;
+z-index: 1;
+
+}
+
+.electronicshlink div a{
+text-decoration: none;
+color: gray;
+  }
+  .electronicshlink div a:hover{
+  color: black;
+  }
+  /* man watch By-Looks*/
+.electronicshlink .Smartphone{
+  display: flex;
+  flex-direction: column-reverse;
+  padding-top: 10px;
+  height: 20px;
+  font-size: 17px;
+  font-weight: 600;
+  padding-bottom: 15px;
+}
+.Smartphone .smartphone{
+  padding-left: 100px;
+}
+  .smartphonelist{
+  display: none;
+  flex-direction: column;
+color: gray;
+height: fit-content;
+position: relative;
+padding-left: 40px;
+top: 406px;
+left: 180px;
+font-weight: normal;
+
+ }
+.smartphonelist p{
+  padding-left: 40px; 
+  font-size: 20px;
+  margin-top: 15px; 
+  margin-bottom: 15px;
+  color: black;
+ }
+
+.smartphonelist ul{
+  float: right;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-left: 40px;
+  font-size: 15px;
+ }
+ 
+.smartphonelist ul li a{
+ text-decoration: none; 
+ color: gray;
+ }
+ .smartphonelist ul li a:hover {
+ color: black;
+ }
+
+ .Smartphone:hover .smartphonelist
+{ display: flex;
+}
+/* man watch By-color*/
+.electronicshlink .Tablets{
+  display: flex;
+  flex-direction: column-reverse;
+  width: fit-content;
+  padding-top: 0px;
+  height: 20px;
+  font-size: 17px;
+  font-weight: 600;
+  padding-bottom: 15px;
+}
+.Tablets .tablets{
+  padding-left: 140px;
+}
+  .tabletlist{
+  display: none;
+  flex-direction: column;
+color: gray;
+height: fit-content;
+position: relative;
+padding-left: 40px;
+top:260px;
+left: 180px;
+z-index: 1;
+font-size: 10px;
+font-weight: normal;
+ }
+  .tabletlist p{
+    padding-left: 40px; 
+    font-size: 20px;
+    margin-top: 15px; 
+    margin-bottom: 15px;
+    color: black;
+  }
+
+.tabletlist ul{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-left: 40px;
+  font-size: 15px;
+  }
+ 
+.tabletlist ul li a{
+ text-decoration: none; 
+ color: gray;
+ }
+ .tabletlist ul li a:hover {
+ color: black;
+ }
+ .Tablets:hover .tabletlist
+{ display: flex;
+}
+/* man watches by BRAND*/
+.electronicshlink .Headphone{
+  display: flex;
+  flex-direction: column-reverse;
+  width: fit-content;
+  padding-top: 0px;
+  height: 20px;
+  font-size: 17px;
+  font-weight: 600;
+  padding-bottom: 15px;
+}
+.Headphone .headphone{
+  padding-left: 27px;
+}
+  .headphonelist{
+  display: none;
+  flex-direction: column;
+color: gray;
+height: fit-content;
+position: relative;
+padding-left: 60px;
+top:300px;
+left: 180px;
+z-index: 1;
+font-size: 15px;
+font-weight: normal;
+ }
+.headphonelist p{
+  padding-left: 20px; 
+  font-size: 20px;
+  margin-top: 15px; 
+  margin-bottom: 15px;
+  color: black;
+ }  
+
+.headphonelist ul{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  }
+ 
+.headphonelist ul li a{
+ text-decoration: none; 
+ color: gray;
+ }
+ .headphonelist ul li a:hover {
+ color: black;
+ }
+ .Headphone:hover .headphonelist
+{ display: flex;
+}
+/* man watches By Collection*/
+.electronicshlink .Smartwatch{
+  display: flex;
+  flex-direction: column-reverse;
+  width: fit-content;
+  padding-top: 0px;
+  height: 20px;
+  font-size: 17px;
+  font-weight: 600;
+  padding-bottom: 15px;
+}
+.Smartwatch .smartwatch{
+  padding-left: 87px;
+}
+  .Smartwatchlist{
+  display: none;
+  flex-direction: column;
+color: gray;
+height: fit-content;
+position: relative;
+padding-left: 60px;
+top:340px;
+left: 180px;
+z-index: 1;
+font-size: 15px;
+font-weight: normal;
+ }
+ .Smartwatchlist p{
+  padding-left: 20px; 
+  font-size: 20px;
+  margin-top: 15px; 
+  margin-bottom: 15px;
+  color: black;
+ }  
+
+.Smartwatchlist ul{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  }
+ 
+.Smartwatchlist ul li a{
+ text-decoration: none; 
+ color: gray;
+ }
+ .Smartwatchlist ul li a:hover {
+ color: black;
+ }
+ .Smartwatch:hover .Smartwatchlist
+{ display: flex;
+}
+/* man watches by function*/
+.electronicshlink .Portablespeaker{
+  display: flex;
+  flex-direction: column-reverse;
+  width: fit-content;
+  padding-top: 0px;
+  height: 20px;
+  font-size: 17px;
+  font-weight: 600;
+  padding-bottom: 15px;
+}
+.Portablespeaker .portablespeaker{
+  padding-left: 56px;
+}
+  .Portablespeakerlist{
+  display: none;
+  flex-direction: column;
+color: gray;
+height: fit-content;
+position: relative;
+padding-left: 60px;
+top:342px;
+left: 180px;
+z-index: 1;
+font-size: 15px;
+font-weight: normal;
+ }
+ .Portablespeakerlist p{
+  padding-left: 20px; 
+  font-size: 20px;
+  margin-top: 15px; 
+  margin-bottom: 15px;
+  color: black;
+ }
+
+.Portablespeakerlist ul{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  }
+ 
+.Portablespeakerlist ul li a{
+ text-decoration: none; 
+ color: gray;
+ }
+ .Portablespeakerlist ul li a:hover {
+ color: black;
+ }
+ .Portablespeaker:hover .Portablespeakerlist
+{ display: flex;
+}
+/* men watches by movement*/
+.electronicshlink .Camera{
+  display: flex;
+  flex-direction: column-reverse;
+  width: fit-content;
+  padding-top: 0px;
+  height: 20px;
+  font-size: 17px;
+  font-weight: 600;
+  padding-bottom: 15px;
+}
+.Camera .camera{ 
+  padding-left: 76px;
+}
+  .Cameralist{
+  display: none;
+  flex-direction: column;
+color: gray;
+position: relative;
+padding-left: 60px;
+top: 460px;
+left: 180px;
+z-index: 1;
+font-size: 15px;
+font-weight: normal;
+ }
+ .Cameralist p{
+  padding-left: 20px; 
+  font-size: 20px;
+  margin-top: 15px; 
+  margin-bottom: 15px;
+  color: black;
+ }
+
+.Cameralist ul{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  }
+ 
+.Cameralist ul li a{
+ text-decoration: none; 
+ color: gray;
+ }
+ .Cameralist ul li a:hover {
+ color: black;
+ }
+ .Camera:hover .Cameralist
+{ display: flex;
+}
+.movelist-blank{
+  height: 189px;
+}
+.electronicslink a img{
+  width: 40%;
+  height: 30vh;
+  position: absolute;
+  left: 450px;
+  top: 20px;
+}
+
+@media screen and (max-width: 990px) {
+  header .topleft{
+    font-size: 10px;
+  }
+  header .topright{
+    font-size: 10px;
+    gap: 2px;
+  }
+  .twitterX{
+    padding-right: 10px;
+  }
+  .logo{
+    padding-left: 5%;
+  }
+  nav .searchbar{
+    width: 20%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+ 
+header{
+  display: none;
+}
+nav{
+  height: 10vh;
+  padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(66, 66, 66);
+    box-shadow: rgba(42, 0, 141, 0.993);
+  }
+  .logo{
+    background-color: rgb(53, 52, 52);
+  }
+  nav .searchbar{
+    width: 80%;
+    margin-bottom: 10px;
+    position: relative;
+  }
+.second ul{
+  display: none;
+}
+nav .list{
+  position: absolute;
+  right: 5%;
+}
+.list li a{
+  color: white;
+}
+.list li .dropdown-content .button a,link{
+  color: rgb(0, 0, 0);
+}
+footer {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+
+}
+footer h2,h3,p{
+  color: white;
+  text-align: center;
+}
+footer ul li{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+}
