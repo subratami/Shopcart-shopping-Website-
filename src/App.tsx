@@ -1,6 +1,3 @@
-
-import './App.css'
-
 //import * as React from "react";
 import "./App.css";
 import facebookLogo from ".//component/facebook logo.png";
