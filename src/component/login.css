@@ -7,15 +7,16 @@
 
 
 .auth-form {
-  position: relative;
+  position: fixed;
   top: 15%;
+  left: 40%;
   background-color: rgb(255, 255, 255);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(15, 15, 15, 0.4);
   margin: 20px auto;
   width: 300px;
-  z-index: 3;
+  z-index: 1;
 }
 
 .auth-form h2 {

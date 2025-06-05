@@ -5,7 +5,7 @@ const Login = () => {
   return (
     <>
     
-    <div className="login-container">
+    {//<div className="login-container">}
       <div className="auth-form">
         <h2>Log In</h2>
         <form>
@@ -24,9 +24,8 @@ const Login = () => {
           <button className="apple-login">Login with Apple</button>
         </div>
       </div>
-    </div>
-      
-</>
+}
+      </>
   )
 };
 
