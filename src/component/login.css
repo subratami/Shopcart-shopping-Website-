@@ -1,9 +1,8 @@
-.login-container {
+/*.login-container {
   font-family: Arial, sans-serif;
-  height: 80vh;
-  background-image: url('./nav\ logo\ 1.png');
+  /*height: 80vh;
   background-size: cover;
-}
+}*/
 
 
 
@@ -16,6 +15,7 @@
   box-shadow: 0 0 10px rgba(15, 15, 15, 0.4);
   margin: 20px auto;
   width: 300px;
+  z-index: 3;
 }
 
 .auth-form h2 {
@@ -70,7 +70,4 @@
   color: rgb(17, 0, 255);
 background-color: #82cef1;
 border-radius: 25px;
-}
-.banner{
-  display: none;
 }
