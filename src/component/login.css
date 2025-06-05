@@ -71,3 +71,6 @@
 background-color: #82cef1;
 border-radius: 25px;
 }
+.banner{
+  display: none;
+}
