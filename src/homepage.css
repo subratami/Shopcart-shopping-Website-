@@ -1,5 +1,5 @@
 .banner{
-  
+  display: flex;
     top: 50%;
 }
 .banner .banner-img{
