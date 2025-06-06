@@ -10,7 +10,8 @@ function App() {
   return (
     <> 
     
-<Layout children={
+<Layout 
+children={
 <Router>
   <Routes>
     <Route path="/" element={<Homepage />} />
