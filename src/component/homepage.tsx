@@ -1,5 +1,6 @@
-import banner from ".//component/pexels-fauxels-3183132.jpg";
-import Advertisment from ".//component/w69uo7lk.png";
+import banner from "./pexels-fauxels-3183132.jpg";
+import Advertisment from "./w69uo7lk.png";
+import './homepage.css'
 function homepage() {
   return (
   <>

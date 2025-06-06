@@ -1,16 +1,26 @@
 //import * as React from "react";
 import "./App.css";
-import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
-// Make sure the file exists as Homepage.tsx or Homepage.jsx in the same folder, or update the path accordingly.
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import Header from "./component/header";
 import Homepage from './component/homepage';
-import './homepage.css';
 import Footer from './/component/footer'
+import Layout from "./component/layout";
+import Login from "./component/login";
 function App() {
   return (
-    <>
+    <> 
     
-<Homepage />
-  <Footer />
+<Layout children={
+<Router>
+  <Routes>
+    <Route path="/header" element={<Header />} />
+    <Route path="/homepage" element={<Homepage />} />
+    <Route path="/footer" element={<Footer />} />
+    <Route path="/login" element={<Login />} />
+  </Routes>
+</Router>
+
+} />
 </>
   );
 }
