@@ -9,6 +9,7 @@ import Electronics from ".//component/pexels-fauxels-3183132.jpg";
 import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import Homepage from './homepage';
 import Login from "./login";
+import './header.css';
 
 function Header() {
     return (
