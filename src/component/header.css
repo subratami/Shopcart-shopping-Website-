@@ -248,8 +248,8 @@ font-size:15px;
 color: black;
 }
 .CONSUMER-ELECTRONICS-blank{
-  display: none;
-  width: 130px;
+  display: flex;
+  width: 145px;
   height: 4px;
   border-radius: 10px;
   background-color: white;
@@ -259,7 +259,7 @@ color: black;
 
 }
 .black-blank{
-  width: 130px;
+  width: 145px;
   height: 4px;
   background-color: rgb(4, 4, 4);
   position: relative;
@@ -281,7 +281,7 @@ color: black;
 }
 .computerlist-blank{
   display: none;
-  width: 150px;
+  width: 165px;
   height: 4px;
   border-radius: 10px;
   background-color: white;
@@ -289,7 +289,7 @@ color: black;
 
 }
 .black-blank1{
-  width: 150px;
+  width: 165px;
   height: 4px;
   background-color: rgb(4, 4, 4);
   position: relative;
@@ -311,7 +311,7 @@ color: black;
 }
 .smarthomelist-blank{
   display: none;
-  width: 125px;
+  width: 139px;
   height: 4px;
   border-radius: 10px;
   background-color: white;
@@ -319,7 +319,7 @@ color: black;
 
 }
 .black-blank2{
-  width: 125px;
+  width: 139px;
   height: 4px;
   background-color: rgb(4, 4, 4);
   position: relative;
@@ -342,7 +342,7 @@ color: black;
 
 .DIYcomponentlist-blank{
   display: none;
-  width: 102px;
+  width: 110px;
   height: 4px;
   border-radius: 10px;
   background-color: white;
@@ -350,7 +350,7 @@ color: black;
 
 }
 .black-blank3{
-  width: 102px;
+  width: 110px;
   height: 4px;
   background-color: rgb(4, 4, 4);
   position: relative;
@@ -371,7 +371,7 @@ color: black;
 }
 .homeappliancelist-blank{
   display: none;
-  width: 105px;
+  width: 112px;
   height: 4px;
   border-radius: 10px;
   background-color: white;
@@ -381,7 +381,7 @@ color: black;
 
 }
 .black-blank4{
-  width: 105px;
+  width: 112px;
   height: 4px;
   background-color: rgb(4, 4, 4);
   position: relative;
