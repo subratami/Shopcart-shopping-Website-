@@ -520,7 +520,7 @@ font-weight: normal;
   padding-bottom: 15px;
 }
 .Tablets .tablets{
-  padding-left: 140px;
+  padding-left: 143px;
 }
   .tabletlist{
   display: none;
@@ -573,7 +573,7 @@ font-weight: normal;
   padding-bottom: 15px;
 }
 .Headphone .headphone{
-  padding-left: 27px;
+  padding-left: 22px;
 }
   .headphonelist{
   display: none;
@@ -675,7 +675,7 @@ font-weight: normal;
   padding-bottom: 15px;
 }
 .Portablespeaker .portablespeaker{
-  padding-left: 56px;
+  padding-left: 54px;
 }
   .Portablespeakerlist{
   display: none;
@@ -714,7 +714,7 @@ font-weight: normal;
  .Portablespeaker:hover .Portablespeakerlist
 { display: flex;
 }
-/* Camera*/
+/* Digital Camera*/
 .electronicshlink .Camera{
   display: flex;
   flex-direction: column-reverse;
@@ -726,7 +726,7 @@ font-weight: normal;
   padding-bottom: 15px;
 }
 .Camera .camera{ 
-  padding-left: 76px;
+  padding-left: 82px;
 }
   .Cameralist{
   display: none;
