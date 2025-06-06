@@ -1,9 +1,9 @@
 //import * as React from "react";
 import "./App.css";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import Header from "./component/header";
+//import Header from "./component/header";
 import Homepage from './component/homepage';
-import Footer from './/component/footer'
+//import Footer from './/component/footer'
 import Layout from "./component/layout";
 import Login from "./component/login";
 function App() {
@@ -13,9 +13,7 @@ function App() {
 <Layout children={
 <Router>
   <Routes>
-    <Route path="/header" element={<Header />} />
     <Route path="/homepage" element={<Homepage />} />
-    <Route path="/footer" element={<Footer />} />
     <Route path="/login" element={<Login />} />
   </Routes>
 </Router>
