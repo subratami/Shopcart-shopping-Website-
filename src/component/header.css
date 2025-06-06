@@ -455,7 +455,7 @@ color: gray;
   .electronicshlink div a:hover{
   color: black;
   }
-  /* man watch By-Looks*/
+  /* Smartphone */
 .electronicshlink .Smartphone{
   display: flex;
   flex-direction: column-reverse;
@@ -508,7 +508,7 @@ font-weight: normal;
  .Smartphone:hover .smartphonelist
 { display: flex;
 }
-/* man watch By-color*/
+/* Tablets */
 .electronicshlink .Tablets{
   display: flex;
   flex-direction: column-reverse;
@@ -561,7 +561,7 @@ font-weight: normal;
  .Tablets:hover .tabletlist
 { display: flex;
 }
-/* man watches by BRAND*/
+/* Headphone */
 .electronicshlink .Headphone{
   display: flex;
   flex-direction: column-reverse;
@@ -612,7 +612,7 @@ font-weight: normal;
  .Headphone:hover .headphonelist
 { display: flex;
 }
-/* man watches By Collection*/
+/* Smartwatch */
 .electronicshlink .Smartwatch{
   display: flex;
   flex-direction: column-reverse;
@@ -663,7 +663,7 @@ font-weight: normal;
  .Smartwatch:hover .Smartwatchlist
 { display: flex;
 }
-/* man watches by function*/
+/* Portable Speaker*/
 .electronicshlink .Portablespeaker{
   display: flex;
   flex-direction: column-reverse;
@@ -684,7 +684,7 @@ color: gray;
 height: fit-content;
 position: relative;
 padding-left: 60px;
-top:342px;
+top:320px;
 left: 180px;
 z-index: 1;
 font-size: 15px;
@@ -714,7 +714,7 @@ font-weight: normal;
  .Portablespeaker:hover .Portablespeakerlist
 { display: flex;
 }
-/* men watches by movement*/
+/* Camera*/
 .electronicshlink .Camera{
   display: flex;
   flex-direction: column-reverse;
