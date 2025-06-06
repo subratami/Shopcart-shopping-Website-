@@ -1,5 +1,6 @@
 import './Footer.css'
 function Footer() {
+   return(
    <> <footer className="footer">
         <div>
           <h2>Shopcart</h2>
@@ -36,4 +37,6 @@ function Footer() {
         </div>
       </footer>
       </>
+   );
 }
+export default Footer;
