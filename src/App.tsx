@@ -13,7 +13,7 @@ function App() {
 <Layout children={
 <Router>
   <Routes>
-    <Route path="/homepage" element={<Homepage />} />
+    <Route path="/" element={<Homepage />} />
     <Route path="/login" element={<Login />} />
   </Routes>
 </Router>

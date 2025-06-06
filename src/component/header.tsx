@@ -28,7 +28,7 @@ function Header() {
     </header>
 <Router>
   <nav>
-    <Link to='/homepage'><img className="logo" src={navLogo} alt="Shopcart Logo"/></Link>
+    <Link to='/'><img className="logo" src={navLogo} alt="Shopcart Logo"/></Link>
     <input type="text" placeholder="Search for products, brands and more" className="searchbar"/>
     <ul className="list"> 
 <li><div className="dropdown">
@@ -150,7 +150,7 @@ function Header() {
 <li className="Nlist"> <div className="hyperlist"> <a className="hyperlink" href="#"> Home Appliances </a><div className="homeappliancelist-blank"><div className="black-blank4"></div></div></div></li>
 </ul>
 </div><Routes>
-  <Route path="/homepage" element={<Homepage />} />
+  <Route path="/" element={<Homepage />} />
   <Route path="/Login" element={<Login />} />
   </Routes> 
   </Router></>
