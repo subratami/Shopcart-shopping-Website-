@@ -248,7 +248,7 @@ font-size:15px;
 color: black;
 }
 .CONSUMER-ELECTRONICS-blank{
-  display: flex;
+  display: none;
   width: 145px;
   height: 4px;
   border-radius: 10px;
