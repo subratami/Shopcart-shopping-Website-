@@ -6,12 +6,12 @@ import person from "./person.png";
 import wishlist from "./wishlist.png";
 import shoppingBag from "./shopping-bag.png";
 import Electronics from "./pexels-fauxels-3183132.jpg";
-import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
-import Homepage from './homepage';
-import Login from "./login";
+import {Link} from "react-router-dom";
+//import Homepage from './homepage';
+//import Login from "./login";
 import './header.css';
 
-function Header() {
+const Header = () =>  {
     return (
         <><header>
        <span className="topleft">*Free Shipping Across India</span>
@@ -26,7 +26,6 @@ function Header() {
          
        </ul>
     </header>
-<Router>
   <nav>
     <Link to='/'><img className="logo" src={navLogo} alt="Shopcart Logo"/></Link>
     <input type="text" placeholder="Search for products, brands and more" className="searchbar"/>
@@ -149,11 +148,8 @@ function Header() {
 <li className="Nlist"><div className="hyperlist"> <a className="hyperlink" href="#"> DIY Components </a><div className="DIYcomponentlist-blank"><div className="black-blank3"></div></div></div></li>
 <li className="Nlist"> <div className="hyperlist"> <a className="hyperlink" href="#"> Home Appliances </a><div className="homeappliancelist-blank"><div className="black-blank4"></div></div></div></li>
 </ul>
-</div><Routes>
-  <Route path="/" element={<Homepage />} />
-  <Route path="/Login" element={<Login />} />
-  </Routes> 
-  </Router></>
+</div>
+</>
     );
-}
+};
 export default Header;
