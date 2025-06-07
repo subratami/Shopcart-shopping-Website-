@@ -795,7 +795,7 @@ font-weight: normal;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 850px) {
  
 header{
   display: none;
@@ -830,4 +830,25 @@ nav .list{
 .list li .dropdown-content .button a,link{
   color: rgb(0, 0, 0);
 }
+}
+@media screen and (max-width: 650px) {
+  .list .Wishlist, .Shoppingbag{
+    display: none;
+  }
+  /*.second ul{
+    display: flex;
+    flex-direction: column;
+    padding-left: 0px;
+    padding-right: 0px;
+    gap: 10px;
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    width: 100%;
+    background-color: rgb(66, 66, 66);
+  }
+  .second ul li a{
+    color: white;
+    padding-left: 20px;
+  }*/
 }

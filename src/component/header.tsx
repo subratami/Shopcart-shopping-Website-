@@ -30,7 +30,7 @@ const Header = () =>  {
     <Link to='/'><img className="logo" src={navLogo} alt="Shopcart Logo"/></Link>
     <input type="text" placeholder="Search for products, brands and more" className="searchbar"/>
     <ul className="list"> 
-<li><div className="dropdown">
+<li className="person"><div className="dropdown">
    <div className="dropbtn"> <a href="#"><img src={person} alt="not_load"/>Account<div className="Account-blank"><div className="Acblack-blank"></div></div></a>
    </div>
     <div className="dropdown-content">
@@ -44,8 +44,8 @@ const Header = () =>  {
     <a className="hlink" href="#">FAQ</a></div> 
     </div>
   </div></li>
-<li> <a href="#"><img src={wishlist} alt="not_load"/> Wishlist </a> </li>
-<li> <a href="#"> <img src={shoppingBag} alt="not_load"/>Cart </a> </li>
+<li className="Wishlist"> <a href="#"><img src={wishlist} alt="not_load"/> Wishlist </a> </li>
+<li className="Shoppingbag"> <a href="#"> <img src={shoppingBag} alt="not_load"/>Cart </a> </li>
 </ul>
 </nav>
 <div className="second">
