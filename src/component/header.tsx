@@ -35,7 +35,7 @@ const Header = () =>  {
    </div>
     <div className="dropdown-content">
 <p className="para1"><small>Signup/Login for best experience</small></p>
-<div className="dropdtn"><div className="button"><div className="btnlink"><a href="#">SIGNUP </a></div></div> <span>Or</span> <div className="button"><div className="btnlink"> <Link to="./login">&nbsp;LOGIN</Link></div></div></div>
+<div className="dropdtn"><div className="button"><div className="btnlink"><Link to="/signup">SIGNUP </Link></div></div> <span>Or</span> <div className="button"><div className="btnlink"> <Link to="./login">&nbsp;LOGIN</Link></div></div></div>
       <div className="droplink">
     <a className="hlink" href="#">Cart</a>
     <a className="hlink" href="#">Wishlist</a>
