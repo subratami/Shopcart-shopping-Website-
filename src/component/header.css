@@ -832,7 +832,11 @@ nav .list{
 }
 }
 @media screen and (max-width: 650px) {
-  .list .Wishlist, .Shoppingbag{
+   .logo{
+    width: 80%;
+  }
+  .list .Wishlist,
+  .list .Shoppingbag{
     display: none;
   }
   /*.second ul{
