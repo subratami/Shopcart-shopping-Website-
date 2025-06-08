@@ -9,7 +9,7 @@ function homepage() {
   <img className="banner-Adv" src={Advertisment} alt="banner Add"/>
 </div>
     
-      </>
+  </>
   );
   
 }
