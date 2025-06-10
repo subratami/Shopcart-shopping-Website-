@@ -5,7 +5,7 @@ interface ProductListProps {
 }
 
 interface Product {
-    Brand: string | number;
+    "Brand": string | number;
     Model: string;
     "Selling Price": number;
     "Original Price": number;

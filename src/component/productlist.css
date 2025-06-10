@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  padding: 5% 12% 0 12%;
+  padding: 5% 12% 5% 12%;
   list-style: none;
 }
 .product-list .product-item {
