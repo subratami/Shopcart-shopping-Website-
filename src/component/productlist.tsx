@@ -20,7 +20,7 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
 
     useEffect(() => {
          console.log("Fetching for query:", searchQuery);
-        fetch(`https://shopping-site-api-z8gg.onrender.com/search/?query=${searchQuery}`)
+        fetch(`/search/?query=${searchQuery}`)
             .then(response => response.json())
             .then(data => {console.log("API returned:", data);setProducts(data)});
     }, [searchQuery]); // Fetch new results when search changes

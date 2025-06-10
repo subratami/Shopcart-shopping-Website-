@@ -5,4 +5,13 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base:"/Shopcart-shopping-Website-",
+  server: {
+    proxy: {
+      '/search': {
+        target: 'https://shopping-site-api-z8gg.onrender.com',
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
 })
