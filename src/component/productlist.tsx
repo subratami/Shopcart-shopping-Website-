@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./product.css";
+import "./productlist.css";
 interface ProductListProps {
     searchQuery: string;
 }
