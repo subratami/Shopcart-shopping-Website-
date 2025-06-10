@@ -6,12 +6,34 @@ import person from "./person.png";
 import wishlist from "./wishlist.png";
 import shoppingBag from "./shopping-bag.png";
 import Electronics from "./pexels-fauxels-3183132.jpg";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import { useState } from "react";
+import { debounce } from "lodash";
 //import Homepage from './homepage';
 //import Login from "./login";
 import './header.css';
 
-const Header = () =>  {
+interface HeaderProps {
+    onSearch: (query: string) => void;
+}
+const debouncedSearch = debounce((query: string, onSearch: (query: string) => void) => {
+    onSearch(query);
+}, 300); // 300ms delay
+
+function Header({ onSearch }: HeaderProps) {
+    const [search, setSearch] = useState("");
+    const navigate = useNavigate();
+
+    const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearch(e.target.value);
+        debouncedSearch(e.target.value, onSearch); // Pass search query to parent
+    };
+      const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === "Enter") {
+            navigate("/search"); // Navigate to search results page
+        }
+    };
+
     return (
         <><header>
        <span className="topleft">*Free Shipping Across India</span>
@@ -28,7 +50,14 @@ const Header = () =>  {
     </header>
   <nav>
     <Link to='/'><img className="logo" src={navLogo} alt="Shopcart Logo"/></Link>
-    <input type="text" placeholder="Search for products, brands and more" className="searchbar"/>
+    <input 
+                    type="text" 
+                    className="searchbar" 
+                    placeholder="Search for products, brands and more"
+                    value={search}
+                    onChange={handleSearchChange}
+                    onKeyPress={handleKeyPress} // Handle Enter key press
+                />
     <ul className="list"> 
 <li className="person"><div className="dropdown">
    <div className="dropbtn"> <a href="#"><img src={person} alt="not_load"/>Account<div className="Account-blank"><div className="Acblack-blank"></div></div></a>
