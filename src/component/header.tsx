@@ -56,7 +56,7 @@ function Header({ onSearch }: HeaderProps) {
                     placeholder="Search for products, brands and more"
                     value={search}
                     onChange={handleSearchChange}
-                    onKeyPress={handleKeyPress} // Handle Enter key press
+                    onKeyDown={handleKeyPress} // Handle Enter key press
                 />
     <ul className="list"> 
 <li className="person"><div className="dropdown">

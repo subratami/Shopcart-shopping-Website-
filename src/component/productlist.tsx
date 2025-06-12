@@ -5,8 +5,8 @@ interface ProductListProps {
 }
 
 interface Product {
-    "Brand": string | number;
-    Model: string;
+    Brand: string;
+    Model: string | number;
     "Selling Price": number;
     "Original Price": number;
     Color: string;
@@ -19,8 +19,10 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
     const [products, setProducts] = useState<Product[]>([]);
 
     useEffect(() => {
+            // Clear previous products before fetching new ones
+    setProducts([]);
          console.log("Fetching for query:", searchQuery);
-        fetch(`/search/?query=${searchQuery}`)
+        fetch(`/search/?brand=${searchQuery}`)
             .then(response => response.json())
             .then(data => {console.log("API returned:", data);setProducts(data)});
     }, [searchQuery]); // Fetch new results when search changes
@@ -30,7 +32,7 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
             {products.map(product => (
                 <li key={`${product.Brand}-${product.Model}-${product.Color}`}>
                   <div className="product-item">{ product.Brand}&nbsp;{product.Model}&nbsp;{product.Color} <br /> {product.Memory}&nbsp; &nbsp;{product.Storage} 
-                  <br /> ₹{product["Selling Price"]} <br /> <span> <del>₹{product["Original Price"]} </del></span></div> <br /> {product.Rating} <br />
+                  <br /> ₹{product["Selling Price"]} <br /> <span> <del>₹{product["Original Price"]} </del></span></div> <br />Rating- {product.Rating} <br />
                     <button type="button" className="add-to-cart">Add to Cart</button>
                 </li>
                 
