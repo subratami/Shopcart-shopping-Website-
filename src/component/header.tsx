@@ -4,11 +4,13 @@ import twitterXLogo from "./twitterX logo.png";
 import navLogo from "./nav logo.png";
 import person from "./person.png";
 import wishlist from "./wishlist.png";
+import { useCart } from "../component/CartContext";
 import shoppingBag from "./shopping-bag.png";
 import Electronics from "./pexels-fauxels-3183132.jpg";
 import {Link, useNavigate} from "react-router-dom";
 import { useState } from "react";
 import { debounce } from "lodash";
+
 //import Homepage from './homepage';
 //import Login from "./login";
 import './header.css';
@@ -23,6 +25,7 @@ const debouncedSearch = debounce((query: string, onSearch: (query: string) => vo
 function Header({ onSearch }: HeaderProps) {
     const [search, setSearch] = useState("");
     const navigate = useNavigate();
+    const { cart } = useCart(); // Access cart from CartContext
 
     const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearch(e.target.value);
@@ -75,7 +78,7 @@ function Header({ onSearch }: HeaderProps) {
     </div>
   </div></li>
 <li className="Wishlist"> <a href="#"><img src={wishlist} alt="not_load"/> Wishlist </a> </li>
-<li className="Shoppingbag"> <a href="#"> <img src={shoppingBag} alt="not_load"/>Cart </a> </li>
+<li className="Shoppingbag"> <Link to="/cart"> <img src={shoppingBag} alt="not_load"/>Cart<span className="cart-count">{cart.length}</span></Link> </li>
 </ul>
 </nav>
 <div className="second">

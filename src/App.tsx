@@ -8,10 +8,13 @@ import Footer from "./component/footer";
 import Signup from "./component/signup";
 import { useState } from 'react'
 import ProductList from './component/productlist';
+import   { CartProvider } from "./component/CartContext";
+import CartPage from './component/cart'
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
   return (
     <> 
+<CartProvider>
     <Router basename="/Shopcart-shopping-Website-">
     <Header onSearch={setSearchQuery}/>
      <Routes>    
@@ -19,9 +22,12 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/search" element={<ProductList searchQuery={searchQuery} />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="*" element={<h1>Page Not Found</h1>} />
     </Routes>
     <Footer />
     </Router>
+</CartProvider>
 </>
   );
 }
