@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./productlist.css";
+import { useCart } from "../component/CartContext"
 interface ProductListProps {
     searchQuery: string;
 }
@@ -17,7 +18,7 @@ interface Product {
 
 const ProductList = ({ searchQuery }: ProductListProps) => {
     const [products, setProducts] = useState<Product[]>([]);
-
+    const { addToCart } = useCart(); // Access addToCart from CartContext
     useEffect(() => {
             // Clear previous products before fetching new ones
     setProducts([]);
@@ -33,7 +34,7 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
                 <li key={`${product.Brand}-${product.Model}-${product.Color}`}>
                   <div className="product-item">{ product.Brand}&nbsp;{product.Model}&nbsp;{product.Color} <br /> {product.Memory}&nbsp; &nbsp;{product.Storage} 
                   <br /> ₹{product["Selling Price"]} <br /> <span> <del>₹{product["Original Price"]} </del></span></div> <br />Rating- {product.Rating} <br />
-                    <button type="button" className="add-to-cart">Add to Cart</button> <br />
+                    <button type="button" className="add-to-cart" onClick={() => addToCart(product)}>Add to Cart</button> <br />
                 </li>
                 
             ))}
