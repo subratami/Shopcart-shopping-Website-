@@ -1,8 +1,17 @@
+.productlist-container {
+  background-color: #f8f8f8;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  width: 100%;
+overflow: wrap;
+  height: 100%;
+}
 .product-list {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  padding: 5% 12% 5% 12%;
+  padding: 5% 10% 5% 10%;
   list-style: none;
 }
 .product-list .product-item {
@@ -12,7 +21,7 @@
   font-size: 14px;
   padding: 140px 5px 20px 5px;
   width: 200px;
-  /*height: 180px;*/
+  height: 28%;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 .product-list span{
