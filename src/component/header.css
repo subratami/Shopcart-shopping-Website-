@@ -202,7 +202,24 @@ float: none;
 .hlink:hover {
 color: black;
 }
-.third{ 
+
+nav .list .Shoppingbag{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+}
+
+nav .list .Shoppingbag span{
+  font-size: 15px;
+  color: rgb(94, 15, 242);
+  font-weight: 600;
+  position: relative;
+  top: -38px;
+  left:12px;
+}
+/*.third{ 
 overflow-x: scroll;
 }
 .third::-webkit-scrollbar{
@@ -225,7 +242,7 @@ align-items: center;
 text-decoration:none;
 font-size:16px;
 color: black;
-}
+}*/
 .second{
   height: 30px;
 }

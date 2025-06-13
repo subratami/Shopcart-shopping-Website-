@@ -1,11 +1,10 @@
 import { useCart } from "../component/CartContext";
-
+import "./cart.css"; // Assuming you have a CSS file for styling
 const CartPage = () => {
   const { cart } = useCart();
 
   return (
-    <div>
-      <h2>Your Cart</h2>
+    <div className="cartlist">
       <ul>
         {cart.map((item, idx) => (
           <li key={idx}>
