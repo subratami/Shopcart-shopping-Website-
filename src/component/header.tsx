@@ -10,6 +10,7 @@ import Electronics from "./pexels-fauxels-3183132.jpg";
 import {Link, useNavigate} from "react-router-dom";
 import { useState } from "react";
 import { debounce } from "lodash";
+import menubar from "./menu-bar.png";
 
 //import Homepage from './homepage';
 //import Login from "./login";
@@ -82,7 +83,8 @@ function Header({ onSearch }: HeaderProps) {
 </ul>
 </nav>
 <div className="second">
-<ul> 
+ <button onclick=""><img src={menubar} className="menubar" alt="not load"/></button>
+<ul className="second-list"> 
 <li><div className="hyperlist"> <a className="hyperlink" href="#"> Consumer Electronics </a><div className="CONSUMER-ELECTRONICS-blank"><div className="black-blank"></div></div>
 <div className="electronicslink">
 <div className="electronicshlink">

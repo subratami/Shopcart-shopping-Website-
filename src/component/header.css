@@ -222,6 +222,9 @@ nav .list .Shoppingbag span{
 .second{
   height: 30px;
 }
+.second .menubar{
+  display: none;
+}
 .second ul{
 display: flex;
 width: auto;
@@ -437,7 +440,6 @@ padding-right: 40px;
 padding-top: 10px;
 padding-bottom: 10px;
 gap: 20px;
-/*z-index: 1;*/
 
 }
 
@@ -805,12 +807,42 @@ nav{
     background-color: rgb(53, 52, 52);
   }
   nav .searchbar{
-    width: 80%;
+    width: 70%;
     margin-bottom: 10px;
     position: relative;
   }
-.second ul{
+.second{
+  display: flex;
+}
+.second .menubar{
+  display:block;
+position: relative;
+background-color: bisque;
+top: -250%;
+left: 2%;
+width: 35px;
+height: 35px;
+}
+.second .second-list{
+  flex-direction: column;
+  z-index: 1;
+  padding: 20px;
+  position: relative;
+  left:-10%;
+  background-color: aquamarine;
+  width: 50%;
+  height: 200px;
+  gap: 20px;
+  align-items: center;
+}
+.second .second-list .hyperlink{
+  font-size: 18px;
+}
+.second .electronicslink{
   display: none;
+  position:absolute;
+  left:0%;
+  top:12%;
 }
 nav .list{
   position: absolute;
