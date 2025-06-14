@@ -219,30 +219,6 @@ nav .list .Shoppingbag span{
   top: -38px;
   left:12px;
 }
-/*.third{ 
-overflow-x: scroll;
-}
-.third::-webkit-scrollbar{
-display: none;
-}
-.third ul{
-display: none;
-justify-content:space-between;
-padding-right:30px;
-padding-left:30px;
-}
-
-.third ul li{
-list-style:none;
-}
-.third ul li a{
-display:flex;
-flex-direction: column;
-align-items: center;
-text-decoration:none;
-font-size:16px;
-color: black;
-}*/
 .second{
   height: 30px;
 }
@@ -253,7 +229,6 @@ gap: 2%;
 padding-left: 10%;
 font-weight: 500;
 padding-top: 10px;
-/*padding-right: 40px;*/
 }
 
 .second ul li{
