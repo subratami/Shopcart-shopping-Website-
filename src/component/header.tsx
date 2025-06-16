@@ -37,7 +37,19 @@ function Header({ onSearch }: HeaderProps) {
             navigate("/search"); // Navigate to search results page
         }
     };
+    /*  collaspible side menu */
+     const [isOpen, setIsOpen] = useState(false);
+    const [activeMenu, setActiveMenu] = useState<string | null>(null);
+    const [activeSubMenu, setActiveSubMenu] = useState<string | null>(null);
 
+    const toogleMenu = () => setIsOpen(!isOpen);
+    const toogleSubmenu = (menu: string) => {
+      setActiveMenu(activeMenu === menu ? null : menu);
+      setActiveSubMenu(null); // Reset sub-menu when main menu is toggled
+    };
+    const toogleInnerSubmenu = (submenu: string) => {
+      setActiveSubMenu(activeSubMenu === submenu ? null : submenu);
+    };
     return (
         <><header>
        <span className="topleft">*Free Shipping Across India</span>
@@ -83,12 +95,194 @@ function Header({ onSearch }: HeaderProps) {
 </ul>
 </nav>
 <div className="second">
- <button onclick=""><img src={menubar} className="menubar" alt="not load"/></button>
+ <button className="toogle-btn" onClick={toogleMenu}>
+ <img src={menubar} className="menubar" alt="not load"/>
+ </button>
+ <div className={`side-menu ${isOpen ? "open" : ""}`}>
+<ul className="menu-list">
+ {/* Level 1 - side Menu */}
+  <li>
+   <button className="menu-item" onClick={() => toogleSubmenu("electronics")}>
+    Consumer Electronics {activeMenu === "electronics" ? "▲" : "▼"}
+    </button>
+    {activeMenu === "electronics" && (
+  <ul className="submenu">
+  <li>
+    <button onClick={() => toogleInnerSubmenu("smartphones")}>
+     Smartphones {activeSubMenu === "smartphones" ? "▲" : "▼"}
+    </button>
+    {activeSubMenu === "smartphones" && (
+   <ul className="inner-submenu">
+        <li><a href="#"> Apple</a></li>
+        <li> <a href="#">Samsung</a></li>
+        <li> <a href="#">Xiaomi</a></li>
+        <li> <a href="#">Oppo</a></li>
+        <li> <a href="#">Vivo</a></li>
+        <li> <a href="#">Oppo</a></li>
+        <li> <a href="#">Realme</a></li>
+        <li> <a href="#">Oneplus</a></li>
+        <li> <a href="#">Honor</a></li>
+        <li> <a href="#">Iqoo</a></li>
+    </ul>
+    )}
+    </li>
+    <li>
+    <button onClick={() => toogleInnerSubmenu("tablets")}>
+    Tablets {activeSubMenu === "tablets" ? "▲" : "▼"}
+    </button>
+    {activeSubMenu === "tablets" && (
+    <ul className="inner-submenu">
+    <li><a href="#"> Apple Ipad Tablet</a></li>
+          <li> <a href="#">Samsung Tablet</a></li>
+          <li> <a href="#">Xiaomi Tablet</a></li>
+          <li> <a href="#">Oppo Tablet</a></li>
+          <li> <a href="#">Realme Tablet</a></li>
+          <li> <a href="#">Oneplus Tablet</a></li>
+          <li> <a href="#">Honor Tablet</a></li>
+    </ul>
+   )}
+  </li>
+   <li>
+    <button onClick={() => toogleInnerSubmenu("Headphone")}>
+    Headphone & Earbuds {activeSubMenu === "Headphone" ? "▲" : "▼"}
+    </button>
+    {activeSubMenu === "Headphone" && (
+    <ul className="inner-submenu">
+    <li><a href="#"> Bose</a></li>
+          <li> <a href="#">Sony</a></li>
+          <li> <a href="#">Apple</a></li>
+          <li> <a href="#">Sennheiser</a></li>
+          <li> <a href="#">JBL</a></li>
+          <li> <a href="#">Beat</a></li>
+          <li> <a href="#">Realme</a></li>
+          <li> <a href="#">Oneplus</a></li>
+          <li> <a href="#">Mi</a></li>
+    </ul>
+   )}
+  </li>
+  <li>
+    <button onClick={() => toogleInnerSubmenu("smartwatches")}>
+    Smartwatches {activeSubMenu === "smartwatches" ? "▲" : "▼"}
+    </button>
+    {activeSubMenu === "smartwatches" && (
+    <ul className="inner-submenu">
+    <li><a href="#">Samsung Galaxy watch</a></li>
+          <li> <a href="#">Apple Watch</a></li>
+          <li> <a href="#">Huawei Smartwatch</a></li>
+          <li> <a href="#">Amazfit Smartwatch</a></li>
+          <li> <a href="#">Oneplus watch</a></li>
+          <li> <a href="#">Xiaomi watch</a></li>
+          <li> <a href="#">Noise Smartwatch</a></li>
+          <li> <a href="#">FireBoltt Smartwatch</a></li>
+          <li> <a href="#">Boat Smartwatch</a></li>
+          <li> <a href="#">FireBoltt Smartwatch</a></li>
+          <li> <a href="#">Hammer Smartwatch</a></li>
+    </ul>
+   )}
+  </li>
+  <li>
+    <button onClick={() => toogleInnerSubmenu("portable speakers")}>
+    Portable Speakers {activeSubMenu === "portable speakers" ? "▲" : "▼"}
+    </button>
+    {activeSubMenu === "portable speakers" && (
+    <ul className="inner-submenu">
+    <li><a href="#">Tribit Speaker</a></li>
+          <li> <a href="#">Marshall Speaker</a></li>
+          <li> <a href="#">Anker Soundcore Speaker</a></li>
+          <li> <a href="#">JBL Speaker</a></li>
+          <li> <a href="#">Harman Kardon Speaker</a></li>
+          <li> <a href="#">Bose Speaker</a></li>
+          <li> <a href="#">Noise Speaker</a></li>
+          <li> <a href="#">Boat Speaker</a></li>
+          <li> <a href="#">Boult Speaker</a></li>
+          <li> <a href="#">Mivi Speaker</a></li>
+          <li> <a href="#">pTron Speaker</a></li>
+    </ul>
+   )}
+  </li>
+  <li>
+    <button onClick={() => toogleInnerSubmenu("digital camera")}>
+   Digital Camera {activeSubMenu === "digital camera" ? "▲" : "▼"}
+    </button>
+    {activeSubMenu === "digital camera" && (
+    <ul className="inner-submenu">
+      <li><a href="#">Canon</a></li>
+        <li> <a href="#">Nikion</a></li>
+        <li> <a href="#">Sony</a></li>
+        <li> <a href="#">Fujifilm</a></li>
+        <li> <a href="#">Panasonic Lumix</a></li>
+        <li> <a href="#">Olympus</a></li>
+        <li> <a href="#">GoPro</a></li>
+        <li> <a href="#">DJI</a></li>
+        <li> <a href="#">Insta360</a></li>
+        <li> <a href="#">Kodak</a></li>
+        <li> <a href="#">Leica</a></li>
+    </ul>
+   )}
+  </li>
+  </ul>
+)}
+  </li>
+
+  <li>
+   <button className="menu-item" onClick={() => toogleSubmenu("computers")}>
+   Computers & Peripherals {activeMenu === "computers" ? "▲" : "▼"}
+  </button>
+  {activeMenu === "computers" && (
+  <ul className="submenu">
+  <li>Laptops</li>
+  <li>Monitors</li>
+  <li>Keyboards</li>
+  <li>Mouse</li>
+  <li>Graphic Card</li>
+  <li>RAM</li>
+  <li>Storage Drive</li>
+  </ul>
+  )}
+ </li>
+ <li>
+   <button className="menu-item" onClick={() => toogleSubmenu("smarthome")}>
+   Smart Home Devices {activeMenu === "smarthome" ? "▲" : "▼"}
+  </button>
+  {activeMenu === "smarthome" && (
+  <ul className="submenu">
+  <li>Laptops</li>
+  <li>Monitors</li>
+  <li>Keyboards</li>
+  </ul>
+  )}
+ </li>
+ <li>
+   <button className="menu-item" onClick={() => toogleSubmenu("DIY")}>
+   DIY Components {activeMenu === "DIY" ? "▲" : "▼"}
+  </button>
+  {activeMenu === "DIY" && (
+  <ul className="submenu">
+  <li>Laptops</li>
+  <li>Monitors</li>
+  <li>Keyboards</li>
+  </ul>
+  )}
+ </li>
+ <li>
+   <button className="menu-item" onClick={() => toogleSubmenu("home appliance")}>
+   Home Appliance {activeMenu === "home appliance" ? "▲" : "▼"}
+  </button>
+  {activeMenu === "home appliance" && (
+  <ul className="submenu">
+  <li>Refrigerator</li>
+  <li>AC</li>
+  <li>Oven</li>
+  <li>Kitechen Chimeny</li>
+  </ul>
+  )}
+ </li>
+  </ul>
+  </div>
 <ul className="second-list"> 
 <li><div className="hyperlist"> <a className="hyperlink" href="#"> Consumer Electronics </a><div className="CONSUMER-ELECTRONICS-blank"><div className="black-blank"></div></div>
 <div className="electronicslink">
 <div className="electronicshlink">
-   
     <div className="Smartphone"> <a href="#">Smartphones<span className="smartphone"><b>&gt;</b></span></a>
       <div className="smartphonelist"><p> Smartphones Brands</p>
         <ul>

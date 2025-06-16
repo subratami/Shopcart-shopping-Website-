@@ -222,10 +222,16 @@ nav .list .Shoppingbag span{
 .second{
   height: 30px;
 }
-.second .menubar{
+.second .toogle-btn{
   display: none;
 }
-.second ul{
+.second .menubar{
+display: none;
+}
+.second .side-menu{
+  display: none;
+}
+.second .second-list{
 display: flex;
 width: auto;
 gap: 2%;
@@ -238,6 +244,8 @@ padding-top: 10px;
 list-style:none;
 }
 .second ul li .hyperlink{
+  padding: 0%;
+  background-color: white;
 text-decoration:none;
 font-size:15px;
 color: black;
@@ -814,36 +822,95 @@ nav{
 .second{
   display: flex;
 }
+.second .toogle-btn{
+  display: block;
+   position: absolute; 
+  top: 1.2%;
+  width: fit-content;
+  height: fit-content;
+  left: 2%;
+  cursor: pointer;
+  background-color: none;
+  border-radius: 10%;
+}
 .second .menubar{
-  display:block;
-position: relative;
-background-color: bisque;
-top: -250%;
-left: 2%;
-width: 35px;
-height: 35px;
+  display: block;
+  width: 38px;
+  height: 38px;
 }
 .second .second-list{
-  flex-direction: column;
-  z-index: 1;
-  padding: 20px;
-  position: relative;
-  left:-10%;
-  background-color: aquamarine;
-  width: 50%;
-  height: 200px;
-  gap: 20px;
-  align-items: center;
-}
-.second .second-list .hyperlink{
-  font-size: 18px;
-}
-.second .electronicslink{
   display: none;
-  position:absolute;
-  left:0%;
-  top:12%;
 }
+.second .side-menu{
+  display: block;
+  position: relative;
+  top: 11%;
+  left: -100%;
+  width: 60%;
+  height: fit-content;
+  background-color: rgb(236, 232, 232);
+   transition: left 0.3s ease-in-out;
+  padding: 20px;
+  z-index: 1;
+}
+.side-menu.open {
+    left: 0; /* Moves into view */
+}
+
+.menu-list {
+  display: flex;
+  flex-direction: column;
+    list-style: none;
+    padding: 0px;
+}
+.menu-list li{
+  align-content: center;
+  padding: 0%;
+}
+.menu-item {
+    background: none;
+    border: none;
+    color: rgb(3, 2, 2);
+    font-size: 18px;
+    padding: 5% 20%  5% 20%;
+    cursor: pointer;
+}
+
+.submenu {
+  display: flex;
+  flex-direction: column;
+    background-color: #444;
+    padding-left: 15px;
+    margin-top: 5px;
+    list-style: none;
+     padding: 5% 20%  5% 20%;
+}
+.submenu li{
+  text-decoration: none;
+  color:aqua;
+}
+.submenu button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.inner-submenu {
+  display: flex;
+  flex-direction: column;
+    background-color: #555;
+    padding-left: 15px;
+    list-style: none;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.inner-submenu li a{
+  color: aqua;
+  text-decoration: none;
+}
+
 nav .list{
   position: absolute;
   right: 5%;
@@ -859,24 +926,20 @@ nav .list{
    .logo{
     width: 80%;
   }
-  .list .Wishlist,
-  .list .Shoppingbag{
+  
+  .list .Wishlist{
     display: none;
   }
-  /*.second ul{
-    display: flex;
-    flex-direction: column;
-    padding-left: 0px;
-    padding-right: 0px;
-    gap: 10px;
-    position: absolute;
-    top: 50px;
-    left: 0px;
-    width: 100%;
-    background-color: rgb(66, 66, 66);
+  
+  nav .list .Shoppingbag{
+    display: none;
   }
-  .second ul li a{
-    color: white;
-    padding-left: 20px;
-  }*/
+  .second .menubar{
+    width: 32px;
+    height: 32px;
+  }
+  .second .side-menu{
+    width: 100%;
+    
+  }
 }
