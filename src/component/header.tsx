@@ -82,7 +82,7 @@ function Header({ onSearch }: HeaderProps) {
 <p className="para1"><small>Signup/Login for best experience</small></p>
 <div className="dropdtn"><div className="button"><div className="btnlink"><Link to="/signup">SIGNUP </Link></div></div> <span>Or</span> <div className="button"><div className="btnlink"> <Link to="./login">&nbsp;LOGIN</Link></div></div></div>
       <div className="droplink">
-    <a className="hlink" href="#">Cart</a>
+    <Link className="hlink" to="/cart">Cart</Link>
     <a className="hlink" href="#">Wishlist</a>
       <a className="hlink" href="#">eGift Cards</a>
       <a className="hlink" href="#">Find A Store</a>
