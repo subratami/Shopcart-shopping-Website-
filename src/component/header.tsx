@@ -51,28 +51,23 @@ function Header({ onSearch }: HeaderProps) {
       setActiveSubMenu(activeSubMenu === submenu ? null : submenu);
     };
     return (
-        <><header>
+        <>
+        <header>
        <span className="topleft">*Free Shipping Across India</span>
        <ul className="topright">
         <li>Follow us:</li>
          <li><img className="facebook" src={facebookLogo} alt="not support"/></li> 
              <li><img className="instagram" src={instagramLogo}alt="not support"/></li>
              <li><img className="twitterX" src={twitterXLogo} alt="not support"/></li>
-            <li>Email: Shopcart@gmail.com &nbsp; &nbsp;</li>
-            <li>Call: +91 1234567890 &nbsp; &nbsp;</li>
-            <li>Location: India</li>
+             <li>Email: Shopcart@gmail.com &nbsp; &nbsp;</li>
+             <li>Call: +91 1234567890 &nbsp; &nbsp;</li>
+             <li>Location: India</li>
          
        </ul>
     </header>
   <nav>
     <Link to='/'><img className="logo" src={navLogo} alt="Shopcart Logo"/></Link>
-    <input 
-                    type="text" 
-                    className="searchbar" 
-                    placeholder="Search for products, brands and more"
-                    value={search}
-                    onChange={handleSearchChange}
-                    onKeyDown={handleKeyPress} // Handle Enter key press
+    <input  type="text" className="searchbar" placeholder="Search for products, brands and more" value={search} onChange={handleSearchChange} onKeyDown={handleKeyPress} // Handle Enter key press
                 />
     <ul className="list"> 
 <li className="person"><div className="dropdown">
@@ -100,7 +95,7 @@ function Header({ onSearch }: HeaderProps) {
  </button>
  <div className={`side-menu ${isOpen ? "open" : ""}`}>
 <ul className="menu-list">
- {/* Level 1 - side Menu */}
+ {/* side Menu */}
   <li>
    <button className="menu-item" onClick={() => toogleSubmenu("electronics")}>
     Consumer Electronics {activeMenu === "electronics" ? "▲" : "▼"}
@@ -258,9 +253,9 @@ function Header({ onSearch }: HeaderProps) {
   </button>
   {activeMenu === "DIY" && (
   <ul className="submenu">
-  <li>Laptops</li>
-  <li>Monitors</li>
-  <li>Keyboards</li>
+    <li>Laptops</li>
+    <li>Monitors</li>
+    <li>Keyboards</li>
   </ul>
   )}
  </li>
@@ -270,10 +265,10 @@ function Header({ onSearch }: HeaderProps) {
   </button>
   {activeMenu === "home appliance" && (
   <ul className="submenu">
-  <li>Refrigerator</li>
-  <li>AC</li>
-  <li>Oven</li>
-  <li>Kitechen Chimeny</li>
+    <li>Refrigerator</li>
+    <li>AC</li>
+    <li>Oven</li>
+    <li>Kitechen Chimeny</li>
   </ul>
   )}
  </li>
@@ -355,17 +350,18 @@ function Header({ onSearch }: HeaderProps) {
       <div className="Cameralist"><p>Digital Camera </p>
         <ul>
           <li><a href="#">Canon</a></li>
-        <li> <a href="#">Nikion</a></li>
-        <li> <a href="#">Sony</a></li>
-        <li> <a href="#">Fujifilm</a></li>
-        <li> <a href="#">Panasonic Lumix</a></li>
-        <li> <a href="#">Olympus</a></li>
-        <li> <a href="#">GoPro</a></li>
-        <li> <a href="#">DJI</a></li>
-        <li> <a href="#">Insta360</a></li>
-        <li> <a href="#">Kodak</a></li>
-        <li> <a href="#">Leica</a></li>
-        </ul><div className="movelist-blank"></div></div></div>
+          <li> <a href="#">Nikion</a></li>
+          <li> <a href="#">Sony</a></li>
+          <li> <a href="#">Fujifilm</a></li>
+          <li> <a href="#">Panasonic Lumix</a></li>
+          <li> <a href="#">Olympus</a></li>
+          <li> <a href="#">GoPro</a></li>
+          <li> <a href="#">DJI</a></li>
+          <li> <a href="#">Insta360</a></li>
+          <li> <a href="#">Kodak</a></li>
+          <li> <a href="#">Leica</a></li>
+        </ul>
+        <div className="movelist-blank"></div></div></div>
   
 
 </div>
