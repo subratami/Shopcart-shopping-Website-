@@ -1,12 +1,15 @@
 .shop-by-categories {
   margin: 32px 0;
+  padding: 2%;
 }
 .categories-list {
   display: flex;
   gap: 16px;
+  overflow-x: hidden;
+  padding: 2%;
 }
 .category-card {
-  padding: 16px 32px;
+  padding: px 32px;
   background: #f5f5f5;
   border-radius: 8px;
   text-decoration: none;

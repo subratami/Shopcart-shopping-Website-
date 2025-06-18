@@ -42,8 +42,8 @@ header .topright{
 }
 nav{
     width: 100%;
-    height: 50px;
-   box-shadow: rgba(26, 27, 27, 0.2) 0px 10px 10px -10px;
+    height: 3rem;
+   box-shadow: rgba(16, 17, 17, 0.4) 0px 10px 10px -10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -54,6 +54,7 @@ nav{
 nav .searchbar{
     width: 30%;
     height: 30px;
+    border-radius: 1.9rem;
 }
 .list{
 display: flex;
@@ -107,7 +108,7 @@ height:20px;
   position: absolute;
   padding-left: 10px;
   padding-right: 10px;
-  background-color: #FEFEFE ;
+  background-color: #d3e5f3 ;
   min-width: 300px;
   box-shadow: 0px 8px 16px 0px rgba(117, 116, 116, 0.2);
   z-index: 1;
@@ -160,7 +161,8 @@ align-content: center;
 .dropdown-content .button{
 width: 95px;
 padding: 2px;
-background-color: #e2e2e2b3;
+border-radius: .5rem;
+background-color: #0c0b0bb3;
 }
 .button:hover 
 {
@@ -169,6 +171,7 @@ background-color: yellow;
 .btnlink{
 display: flex;
 background-color: white;
+border-radius: .5rem;
 border-color:gray;
 }
 .btnlink a{
@@ -412,9 +415,9 @@ color: black;
   margin: 0%;
   padding-top: 10px;
   padding-bottom: 30px;
-  background-color: rgb(255, 237, 237) ;
-  min-width: 800px;
-  height: 500px;
+  background-color: rgb(235, 212, 212) ;
+  min-width: 50rem;
+  height: 31.25rem;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   left: 10%;
   top: 114px;
@@ -771,8 +774,8 @@ font-weight: normal;
   height: 189px;
 }
 .electronicslink a img{
-  width: 40%;
-  height: 30vh;
+  width: 20rem;
+  height: 13.75rem;
   position: absolute;
   left: 470px;
   top: 20px;
@@ -791,6 +794,9 @@ font-weight: normal;
   }
   .logo{
     padding-left: 5%;
+  }
+  nav{
+    height: 3rem;
   }
   nav .searchbar{
     width: 20%;
@@ -942,6 +948,9 @@ nav .list{
   .dropdown-content{
   top: 255%;
   right:-30%;
+  }
+  .second{
+    height: 10px;
   }
   .second .menubar{
     width: 32px;

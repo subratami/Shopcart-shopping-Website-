@@ -13,3 +13,32 @@ height: 60vh;
   width: 80%;
   height: 18vh;
 }
+@media  screen and (max-width: 900px) {
+  .banner .banner-img{
+    height: 50vh;
+  }
+    .banner .banner-Adv{
+    height: 8vh;
+  }
+}
+@media  screen and (max-width: 750px) {
+  .banner .banner-img{
+    height: 40vh;
+  }
+}
+
+@media  screen and (max-width: 450px) {
+  .banner .banner-img{
+    width: 96%;
+    height: 10vh;
+    padding-left: 2%;
+  padding-right: 2%;
+  }
+  .banner .banner-Adv{
+  width: 96%;
+  padding-left: 2%;
+  padding-right: 2%;
+    height: 7vh;
+  }
+  
+}
