@@ -881,6 +881,9 @@ nav{
   align-content: center;
   padding: 0%;
 }
+.menu-list .User{
+  display: none;
+}
 .menu-item {
     background: none;
     border: none;
@@ -938,14 +941,16 @@ nav .list{
    .logo{
     width: 80%;
   }
-  
+  .list .person{
+    display: none;
+  }
   .list .Wishlist{
     display: none;
   }
+.menu-list .User{
+  display: block;
+}
 
-  nav .list .Shoppingbag{
-    display: none;
-  }
   .dropdown-content{
   top: 255%;
   right:-30%;

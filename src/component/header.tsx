@@ -50,6 +50,11 @@ function Header({ onSearch }: HeaderProps) {
     const toogleInnerSubmenu = (submenu: string) => {
       setActiveSubMenu(activeSubMenu === submenu ? null : submenu);
     };
+    const handleLinkClick = () => {
+  setIsOpen(false); // close side menu
+  setActiveMenu(null); // optionally close submenu
+  setActiveSubMenu(null); // optionally close inner submenu
+};
     return (
         <>
         <header>
@@ -96,6 +101,7 @@ function Header({ onSearch }: HeaderProps) {
  <div className={`side-menu ${isOpen ? "open" : ""}`}>
 <ul className="menu-list">
  {/* side Menu */}
+ <li className="User" style={{ padding:"1rem", textAlignLast: "end"}}><Link to="/login" onClick={handleLinkClick} style={{textDecoration:"NONE", color: "black"}}> Your Account <img src={person} alt="not support" style={{width:"1.5rem"}}/></Link></li>
   <li>
    <button className="menu-item" onClick={() => toogleSubmenu("electronics")}>
     Consumer Electronics {activeMenu === "electronics" ? "▲" : "▼"}
@@ -274,6 +280,7 @@ function Header({ onSearch }: HeaderProps) {
  </li>
   </ul>
   </div>
+  {/*main menu*/}
 <ul className="second-list"> 
 <li><div className="hyperlist"> <a className="hyperlink" href="#"> Consumer Electronics </a><div className="CONSUMER-ELECTRONICS-blank"><div className="black-blank"></div></div>
 <div className="electronicslink">
