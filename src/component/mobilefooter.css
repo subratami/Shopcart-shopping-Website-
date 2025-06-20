@@ -1,0 +1,43 @@
+
+.collapsible-btn {
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+}
+
+.menu {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 8px;
+}
+
+.menu li {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+  color: black;
+}
+
+.triangle-right {
+  width: 0;
+  height: 0;
+  border-left: 8px solid black;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  margin-left: 10px;
+}
+
+.triangle-down {
+  width: 0;
+  height: 0;
+  border-top: 8px solid black;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  margin-left: 10px;
+}

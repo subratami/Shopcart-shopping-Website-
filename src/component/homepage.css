@@ -1,5 +1,6 @@
 .banner{
     top: 50%;
+    min-height: 100vh;
 }
 .banner .banner-img{
   display: flex;
