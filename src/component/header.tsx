@@ -11,6 +11,7 @@ import {Link, useNavigate} from "react-router-dom";
 import { useState } from "react";
 import { debounce } from "lodash";
 import menubar from "./menu-bar.png";
+import close from "./close.png"
 
 //import Homepage from './homepage';
 //import Login from "./login";
@@ -99,6 +100,7 @@ function Header({ onSearch }: HeaderProps) {
  <img src={menubar} className="menubar" alt="not load"/>
  </button>
  <div className={`side-menu ${isOpen ? "open" : ""}`}>
+  <button className="closebtn" onClick={handleLinkClick} style={{padding: '5% 48%', backgroundColor: "rgb(184 183 183 / 62%)"}}> <img src={close} alt="close icon" style={{width: "1.5rem"}}/> </button>
 <ul className="menu-list">
  {/* side Menu */}
  <li className="User" style={{ padding:"1rem", textAlignLast: "end"}}><Link to="/login" onClick={handleLinkClick} style={{textDecoration:"NONE", color: "black"}}> Your Account <img src={person} alt="not support" style={{width:"1.5rem"}}/></Link></li>

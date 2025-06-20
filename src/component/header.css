@@ -869,7 +869,9 @@ nav{
 .side-menu.open {
     left: 0; /* Moves into view */
 }
-
+.side-menu.open .closebtn{
+display: none;
+}
 .menu-list {
   background-color: rgb(236, 232, 232);
   display: flex;
@@ -946,6 +948,12 @@ nav .list{
   }
   .list .Wishlist{
     display: none;
+  }
+  .second .side-menu{
+    top: 0%;
+  }
+  .side-menu.open .closebtn{
+    display: block;
   }
 .menu-list .User{
   display: block;
