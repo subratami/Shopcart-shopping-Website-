@@ -22,10 +22,24 @@ height: 60vh;
     height: 8vh;
   }
 }
+@media  screen and (max-width: 850px) {
+.banner{
+  position: relative;
+  top: 6%; 
+  z-index: -1;
+}
+}
 @media  screen and (max-width: 750px) {
   .banner .banner-img{
     height: 40vh;
   }
+}
+@media  screen and (max-width: 650px) {
+  .banner{
+  position: relative;
+  top: 8%; 
+  z-index: -1;
+}
 }
 
 @media  screen and (max-width: 450px) {

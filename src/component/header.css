@@ -813,6 +813,7 @@ nav{
   padding-top: 10px;
     display: flex;
     flex-direction: column;
+    position: fixed;
     align-items: center;
     background-color: rgb(184, 183, 183);
     box-shadow: rgba(42, 0, 141, 0.993);
@@ -836,7 +837,7 @@ nav{
 }
 .second .toogle-btn{
   display: block;
-   position: absolute; 
+   position: fixed; 
   top: 1.2%;
   width: fit-content;
   height: fit-content;
@@ -855,8 +856,8 @@ nav{
 }
 .second .side-menu{
   display: block;
-  position: relative;
-  top: 0%;
+  position: fixed;
+  top: 11.5%;
   left: -100%;
   width: 60%;
   height: fit-content;
