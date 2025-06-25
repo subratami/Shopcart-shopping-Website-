@@ -10,19 +10,19 @@ const Login = () => {
         <p style={{padding: '10px'}}>New User? <Link to="/signup">Sign Up</Link></p>
         <h2>Log In</h2>
         <form>
-          <label>Email Address</label>
-          <input type="email" required />
+          <label title='Email Address'>Email Address</label>
+          <input placeholder="Email" type="text" required />
 
-          <label>Password</label>
-          <input type="password" required />
+          <label title='Password'>Password</label>
+          <input placeholder="Password" type="Password" required />
 
           <button type="submit">LOG IN</button>
           <p><a href="#">Forget Password?</a></p>
         </form>
         <div className="social-login">
           <p>or</p>
-          <button className="google-login">Login with Google</button>
-          <button className="apple-login">Login with Apple</button>
+          <button className="google-login">Google</button>
+          <button className="apple-login">Apple</button>
         </div>
       </div>
 

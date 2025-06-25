@@ -1,4 +1,3 @@
-import React from "react";
 import CollapsibleSection from "./mobilefooter";
 import './Footer.css'
 function Footer() {

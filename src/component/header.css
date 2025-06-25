@@ -817,6 +817,7 @@ nav{
     align-items: center;
     background-color: rgb(184, 183, 183);
     box-shadow: rgba(42, 0, 141, 0.993);
+    z-index: 1;
   }
   .logo{
     width: 85%;
@@ -845,6 +846,7 @@ nav{
   cursor: pointer;
   background-color: none;
   border-radius: 10%;
+  z-index: 500;
 }
 .second .menubar{
   display: block;

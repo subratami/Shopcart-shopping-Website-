@@ -1,7 +1,8 @@
 .login-container {
   font-family: Arial, sans-serif;
-  height: 110vh;
+  height: 80vh;
   background-size: cover;
+  align-content: center;
 }
 
 .auth-form {
@@ -13,7 +14,6 @@
   box-shadow: 0 0 10px rgba(25, 24, 24, 0.571);
   margin: 20px auto;
   width: 300px;
-  z-index: -1;
 }
 
 
@@ -38,7 +38,12 @@
   color: white;
   cursor: pointer;
 }
-
+.auth-form p{
+  color: black;
+}
+/*.auth-form p a{
+  float: right;
+}*/
 .social-login {
   text-align: center;
 }

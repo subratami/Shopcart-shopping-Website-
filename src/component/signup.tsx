@@ -11,16 +11,16 @@ const Signin = () => {
         <h2>Create Account</h2>
         <form>
             <label>Name</label>
-          <input type="name" required />
+          <input placeholder="Name" type="name" required />
           
           <label>Email Address</label>
-          <input type="email" required />
+          <input placeholder='Email' type="email" required />
 
           <label>Password</label>
-          <input type="password" required />
+          <input placeholder='Password' type="password" required />
 
           <label>Confirm Password</label>
-          <input type="password" required />
+          <input placeholder='Password' type="password" required />
 
           <button type="submit">SIGN UP</button>
            <input style={{width: '10%'}} type="checkbox" id="terms" required />
@@ -29,8 +29,8 @@ const Signin = () => {
         </form>
         <div className="social-login">
           <p>or</p>
-          <button className="google-signup">Signup with Google</button>
-          <button className="apple-signup">Signup with Apple</button>
+          <button className="google-signup">Google</button>
+          <button className="apple-signup">Apple</button>
         </div>
       </div>
 
