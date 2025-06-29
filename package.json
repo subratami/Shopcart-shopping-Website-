@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "start": "vite preview --port $PORT --host"
+    "start": "vite preview --port $PORT --host",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
