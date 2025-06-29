@@ -29,14 +29,16 @@ const Login = () => {
       });
 
       const data = await res.json();
+      
       if (res.ok) {
-        console.log("Access token:", data.access_token);
-        console.log("Refresh token:", data.refresh_token);
-        localStorage.setItem("isLoggedIn", "true");
-        localStorage.setItem("userName", data.name); // Save user name if available
-        alert("Login successful!");
-        navigate('/dashboard'); // Redirect to dashboard
-      } else {
+  localStorage.setItem("isLoggedIn", "true");
+  localStorage.setItem("userName", data.name); // Save user name if available
+  localStorage.setItem("access_token", data.access_token); // Save access token
+  localStorage.setItem("refresh_token", data.refresh_token); // Save refresh token
+  alert("Login successful!");
+  navigate('/dashboard');
+}
+       else {
         alert(data.detail || "Login failed");
       }
     } catch (err) {

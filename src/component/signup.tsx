@@ -46,7 +46,7 @@ const Signin = () => {
       const data = await res.json();
       if (res.ok) {
         alert('Signup successful!');
-        navigate('/login');
+        navigate('/dashboard');
       } else {
         alert(data.detail || 'Signup failed');
       }

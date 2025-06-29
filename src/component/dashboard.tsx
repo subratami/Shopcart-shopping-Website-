@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { authFetch } from '../utils/authFetch.ts';
+import { authFetch } from '../utils/authFetch';
 
 const Dashboard = () => {
   useEffect(() => {

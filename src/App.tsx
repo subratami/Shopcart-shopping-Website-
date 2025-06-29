@@ -6,7 +6,8 @@ import Header from "./component/header";
 import Footer from "./component/footer";
 import Signup from "./component/signup";
 import Dashboard from './component/dashboard';
-import ProtectedRoute from './component/ProtectedRoute';
+import ProtectedRoute from './utils/ProtectedRoute';
+import PublicRoute from './utils/PublicRoute';
 import { useState } from 'react'
 import ProductList from './component/productlist';
 import   { CartProvider } from "./component/CartContext";
@@ -20,11 +21,9 @@ function App() {
     <Header onSearch={setSearchQuery}/>
      <Routes>    
           <Route path="/" element={<Homepage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route
-        path="/dashboard"
-        element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+          <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
+          <Route path="/signup" element={<PublicRoute><Signup /></PublicRoute>} />
+          <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
           <Route path="/search" element={<ProductList searchQuery={searchQuery} />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="*" element={<h1>Page Not Found</h1>} />
