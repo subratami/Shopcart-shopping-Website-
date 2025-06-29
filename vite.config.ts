@@ -7,6 +7,8 @@ export default defineConfig({
   base:"/Shopcart-shopping-Website-",
   server: {
     host: true, // This makes it listen on 0.0.0.0
+    port: Number(process.env.PORT) || 3000,
+  allowedHosts: ['shopcart-shopping-website.onrender.com'],
     proxy: {
       '/search': {
         target: 'https://shopping-site-api-z8gg.onrender.com',
