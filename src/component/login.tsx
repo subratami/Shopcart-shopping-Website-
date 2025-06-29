@@ -1,34 +1,90 @@
-import { Link } from 'react-router-dom';
-import './login.css'; 
+import { useState, type ChangeEvent, type FormEvent } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import './login.css';
+
+interface LoginForm {
+  email: string;
+  password: string;
+}
 
 const Login = () => {
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState<LoginForm>({ email: '', password: '' });
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    try {
+      const res = await fetch('http://127.0.0.1:8000/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        console.log("Access token:", data.access_token);
+        console.log("Refresh token:", data.refresh_token);
+        localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("userName", data.name); // Save user name if available
+        alert("Login successful!");
+        navigate('/dashboard'); // Redirect to dashboard
+      } else {
+        alert(data.detail || "Login failed");
+      }
+    } catch (err) {
+      console.error("Login error:", err);
+      alert("Something went wrong. Please try again.");
+    }
+  };
+
   return (
-    <>
-    
     <div className="login-container">
       <div className="auth-form">
-        <p style={{padding: '10px'}}>New User? <Link to="/signup">Sign Up</Link></p>
+        <p style={{ padding: '10px' }}>
+          New User? <Link to="/signup">Sign Up</Link>
+        </p>
         <h2>Log In</h2>
-        <form>
-          <label title='Email Address'>Email Address</label>
-          <input placeholder="Email" type="text" required />
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="email">Email Address</label>
+          <input
+            placeholder="Email"
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
 
-          <label title='Password'>Password</label>
-          <input placeholder="Password" type="Password" required />
+          <label htmlFor="password">Password</label>
+          <input
+            placeholder="Password"
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
 
           <button type="submit">LOG IN</button>
-          <p><a href="#">Forget Password?</a></p>
+          <p><a href="#">Forgot Password?</a></p>
         </form>
+
         <div className="social-login">
           <p>or</p>
           <button className="google-login">Google</button>
           <button className="apple-login">Apple</button>
         </div>
       </div>
-
-      </div>
-    </>
+    </div>
   );
-}
+};
 
 export default Login;

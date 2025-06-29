@@ -23,6 +23,7 @@ interface HeaderProps {
 const debouncedSearch = debounce((query: string, onSearch: (query: string) => void) => {
     onSearch(query);
 }, 300); // 300ms delay
+const userName = localStorage.getItem("userName");
 
 function Header({ onSearch }: HeaderProps) {
     const [search, setSearch] = useState("");
@@ -81,7 +82,35 @@ function Header({ onSearch }: HeaderProps) {
    </div>
     <div className="dropdown-content">
 <p className="para1"><small>Signup/Login for best experience</small></p>
-<div className="dropdtn"><div className="button"><div className="btnlink"><Link to="/signup">SIGNUP </Link></div></div> <span>Or</span> <div className="button"><div className="btnlink"> <Link to="./login">&nbsp;LOGIN</Link></div></div></div>
+{localStorage.getItem("isLoggedIn") === "true" ? (
+  <div className="button">
+    <span>Welcome, {userName || "User"}!</span>
+    <button
+      className="btnlink"
+      onClick={() => {
+        localStorage.removeItem("isLoggedIn");
+        window.location.reload();
+      }}
+      style={{ width: "100%", background: "none", border: "none", color: "purple", cursor: "pointer", fontWeight: "bold" }}
+    >
+      LOGOUT
+    </button>
+  </div>
+) : (
+  <div className="dropdtn">
+    <div className="button">
+      <div className="btnlink">
+        <Link to="/signup">SIGNUP </Link>
+      </div>
+    </div>
+    <span>Or</span>
+    <div className="button">
+      <div className="btnlink">
+        <Link to="./login">&nbsp;LOGIN</Link>
+      </div>
+    </div>
+  </div>
+)}
       <div className="droplink">
     <Link className="hlink" to="/cart">Cart &nbsp;<span className="cart-count" style={{ color:"purple", fontWeight:'bold'}}>{cart.length}</span></Link>
     <a className="hlink" href="#">Wishlist</a>
