@@ -26,6 +26,9 @@ border-radius: 25px;
 .footer2{
   display: none;
 }
+.socialmedia li img{
+  align-items: center;
+}
 
 @media screen and (max-width: 768px){
   .footer-data {
@@ -39,6 +42,14 @@ footer ul li{
   font-size: 12px;
   display: flex;
   flex-direction: column;
+}
+.socialmedia .facebook{
+  width: 30px;
+  height: 30px;
+}
+.socialmedia .instagram{
+  width: 30px;
+  height: 30px;
 }
 }
 @media  screen and (max-width: 500px) {
@@ -56,5 +67,11 @@ footer ul li{
   }
   .footer2 ul li{
     align-items: center;
+  }
+  .footer2 .socialmedia1{
+    display: flex;
+    padding-top: 10px;
+    color: white;
+    gap: 5px;
   }
 }

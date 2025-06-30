@@ -1,5 +1,8 @@
 import CollapsibleSection from "./mobilefooter";
 import './Footer.css'
+import facebookLogo from "./facebook logo.png"
+import instagramLogo from "./instagram logo.png"
+import twitterXLogo from "./twitterX logo.png"
 function Footer() {
    return(
    <> 
@@ -33,6 +36,12 @@ function Footer() {
             <li>Customer Help</li>
           </ul>
         </div>
+        <ul className="socialmedia">
+        <li>Follow us:</li>
+         <li><img className="facebook" src={facebookLogo} alt="not support"/></li> 
+             <li><img className="instagram" src={instagramLogo}alt="not support"/></li>
+             <li><img className="twitterX" src={twitterXLogo} alt="not support"/></li>
+      </ul>
         <div className='download-app'>
           <h3>Download App</h3>
           <button>Get it now on Google Play</button>
@@ -70,6 +79,12 @@ function Footer() {
           <li>Customer Help</li>
         </ul>
       </CollapsibleSection>
+      <ul className="socialmedia1">
+        <li>Follow us:</li>
+         <li><img className="facebook" src={facebookLogo} alt="not support"/></li> 
+             <li><img className="instagram" src={instagramLogo}alt="not support"/></li>
+             <li><img className="twitterX" src={twitterXLogo} alt="not support"/></li>
+      </ul>
       <div className='download-app'>
           <h3>Download App</h3>
           <button>Get it now on Google Play</button>
