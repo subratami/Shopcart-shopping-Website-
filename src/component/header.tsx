@@ -8,10 +8,11 @@ import { useCart } from "../component/CartContext";
 import shoppingBag from "./shopping-bag.png";
 import Electronics from "./pexels-fauxels-3183132.jpg";
 import {Link, useNavigate} from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { debounce } from "lodash";
 import menubar from "./menu-bar.png";
 import close from "./close.png"
+import { logoutUser } from "../utils/logout.ts";
 
 //import Homepage from './homepage';
 //import Login from "./login";
@@ -25,6 +26,13 @@ const debouncedSearch = debounce((query: string, onSearch: (query: string) => vo
 }, 300); // 300ms delay
 
 function Header({ onSearch }: HeaderProps) {
+
+  const [userName, setUserName] = useState<string | null>(null);
+
+  useEffect(() => {
+    const name = localStorage.getItem("userName");
+    setUserName(name);
+  }, []);
     const [search, setSearch] = useState("");
     const navigate = useNavigate();
     const { cart } = useCart(); // Access cart from CartContext
@@ -79,17 +87,46 @@ function Header({ onSearch }: HeaderProps) {
 <li className="person"><div className="dropdown">
    <div className="dropbtn"> <a href="#"><img src={person} alt="not_load"/>Account<div className="Account-blank"><div className="Acblack-blank"></div></div></a>
    </div>
-    <div className="dropdown-content">
+<div className="dropdown-content">
+{/*
 <p className="para1"><small>Signup/Login for best experience</small></p>
-<div className="dropdtn"><div className="button"><div className="btnlink"><Link to="/signup">SIGNUP </Link></div></div> <span>Or</span> <div className="button"><div className="btnlink"> <Link to="./login">&nbsp;LOGIN</Link></div></div></div>
-      <div className="droplink">
-    <Link className="hlink" to="/cart">Cart &nbsp;<span className="cart-count" style={{ color:"purple", fontWeight:'bold'}}>{cart.length}</span></Link>
-    <a className="hlink" href="#">Wishlist</a>
-      <a className="hlink" href="#">eGift Cards</a>
-      <a className="hlink" href="#">Find A Store</a>
-    <a className="hlink" href="#">Help & Contact</a>
-    <a className="hlink" href="#">FAQ</a></div> 
+*/}
+<span style={{paddingTop: "20px"}}>Welcome, {userName || "User"}!</span>
+{localStorage.getItem("isLoggedIn") === "true" ? (
+  <div className="button">
+    <button
+      className="btnlink"
+      onClick={async () => {
+      logoutUser();
+      }}
+      style={{ width: "100%", height: "40px", background: "gray", border: "none", color: "purple", cursor: "pointer", fontWeight: "bold", paddingTop: "11px", paddingLeft: "15px" }}>
+      LOGOUT
+    </button>
+  </div>
+) : (
+  <div className="dropdtn">
+    <div className="button">
+      <div className="btnlink">
+        <Link to="/signup">SIGNUP </Link>
+      </div>
     </div>
+    <span>Or</span>
+    <div className="button">
+      <div className="btnlink">
+        <Link to="./login">&nbsp;LOGIN</Link>
+      </div>
+    </div>
+  </div>
+)}
+<div className="droplink">
+  <Link className="hlink" to="/cart">Cart &nbsp;<span className="cart-count" style={{ color:"purple", fontWeight:'bold'}}>{cart.length}</span></Link>
+  <a className="hlink" href="#">Wishlist</a>
+  <a className="hlink" href="#">eGift Cards</a>
+  <a className="hlink" href="#">Find A Store</a>
+  <a className="hlink" href="#">Help & Contact</a>
+  <a className="hlink" href="#">FAQ</a>
+</div>
+</div>
   </div></li>
 <li className="Wishlist"> <a href="#"><img src={wishlist} alt="not_load"/> Wishlist </a> </li>
 <li className="Shoppingbag"> <Link to="/cart"> <img src={shoppingBag} alt="not_load"/>Cart<span className="cart-count">{cart.length}</span></Link> </li>
