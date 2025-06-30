@@ -20,7 +20,7 @@ export const authFetch = async (
   }
 
   // Try to refresh the token
-  const refreshResponse = await fetch('http://0.0.0.0:8000/refresh', {
+  const refreshResponse = await fetch('https://authapi-wpe9.onrender.com/refresh', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ refresh_token: refreshToken })

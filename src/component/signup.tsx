@@ -33,7 +33,7 @@ const Signin = () => {
     }
 
     try {
-      const res = await fetch('http://0.0.0.0:8000/signup', {
+      const res = await fetch('https://authapi-wpe9.onrender.com/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

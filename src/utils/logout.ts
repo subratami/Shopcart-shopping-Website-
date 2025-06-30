@@ -4,7 +4,7 @@ export const logoutUser = async (): Promise<void> => {
 
   try {
     if (token) {
-      await fetch("http://0.0.0.0:8000/logout", {
+      await fetch("https://authapi-wpe9.onrender.com/logout", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
