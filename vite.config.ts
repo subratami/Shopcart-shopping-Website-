@@ -20,11 +20,6 @@ server: {
       changeOrigin: true,
       secure: false,
     },
-    '/signup': {
-      target: 'http://0.0.0.0:8000',
-      changeOrigin: true,
-      secure: false,
-    },
   },
 },
 
