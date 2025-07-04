@@ -1,5 +1,6 @@
 import React from "react";
 import { useCart,type CartItem } from "./CartContext";
+import "./cart.css"
 
 const Cart: React.FC = () => {
   const { cart, loading, error, removeFromCart, clearCart, checkout } = useCart();
@@ -9,7 +10,7 @@ const Cart: React.FC = () => {
   if (!cart.length) return <div>Your cart is empty.</div>;
 
   return (
-    <div>
+    <div className="cartlist">
       <h2>Your Cart</h2>
       <ul>
         {cart.map((item: CartItem) => (
