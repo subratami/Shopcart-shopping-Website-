@@ -25,9 +25,10 @@ function App() {
           <Route path="/signup" element={<PublicRoute><Signup /></PublicRoute>} />
           <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
           <Route path="/search" element={<ProductList searchQuery={searchQuery} />} />
-          <Route path="/cart" element={<CartPage />} />
+          {/*<Route path="/cart" element={<CartPage />} />*/ }
           <Route path="*" element={<h1>Page Not Found</h1>} />
     </Routes>
+    <CartPage />
     <Footer />
     </Router>
 </CartProvider>
