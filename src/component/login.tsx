@@ -1,5 +1,6 @@
 import { useState, type ChangeEvent, type FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useCart } from "../component/CartContext";
 import './login.css';
 
 interface LoginForm {
@@ -9,6 +10,7 @@ interface LoginForm {
 
 const Login = () => {
   const navigate = useNavigate();
+  const { refreshCart } = useCart();
   const [formData, setFormData] = useState<LoginForm>({ email: '', password: '' });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -35,6 +37,7 @@ const Login = () => {
   localStorage.setItem("userName", data.name); // Save user name if available
   localStorage.setItem("access_token", data.access_token); // Save access token
   localStorage.setItem("refresh_token", data.refresh_token); // Save refresh token
+  await refreshCart();
   alert("Login successful!");
   navigate('/dashboard');
 }

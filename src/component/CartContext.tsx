@@ -37,14 +37,14 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [error, setError] = useState<string | null>(null);
 
   // Adjust this if your backend is hosted elsewhere
-  const API_BASE = "https://shopping-site-api-z8gg.onrender.com"; // e.g., "http://localhost:8000"
+  const API_BASE = "https://shopping-site-api-z8gg.onrender.com"; 
 
   // --- Fetch Cart ---
   const refreshCart = async () => {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch(`${API_BASE}/cart`, {
+      const res = await authFetch(`${API_BASE}/cart`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,
         },
@@ -92,7 +92,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   // --- Remove from Cart ---
   const removeFromCart = async (productId: string) => {
     setError(null);
-    const res = await fetch(`${API_BASE}/cart/remove`, {
+    const res = await authFetch(`${API_BASE}/cart/remove`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

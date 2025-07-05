@@ -1,10 +1,12 @@
+import { authFetch } from "./authFetch";
+
 // src/utils/logoutUser.ts
 export const logoutUser = async (): Promise<void> => {
   const token = localStorage.getItem("access_token");
 
   try {
     if (token) {
-      await fetch("https://shopping-site-api-z8gg.onrender.com/logout", {
+      await authFetch("https://shopping-site-api-z8gg.onrender.com/logout", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
