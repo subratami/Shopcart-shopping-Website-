@@ -34,7 +34,7 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
   const navigate = useNavigate();
 
   const [products, setProducts] = useState<Product[]>([]);
-  const [total, setTotal] = useState(0);
+  const [,setTotal] = useState(0);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
 
