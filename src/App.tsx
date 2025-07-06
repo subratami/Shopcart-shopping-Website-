@@ -8,7 +8,7 @@ import Signup from "./component/signup";
 import Dashboard from './component/dashboard';
 import ProtectedRoute from './utils/ProtectedRoute';
 import PublicRoute from './utils/PublicRoute';
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import ProductList from './component/productlist';
 import   { CartProvider } from "./component/CartContext";
 import CartPage from './component/cart'
@@ -16,6 +16,20 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
+   const [toastPosition, setToastPosition] = useState<"top-right" | "bottom-center">("top-right");
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 600) {
+        setToastPosition("bottom-center");
+      } else {
+        setToastPosition("top-right");
+      }
+    };
+    handleResize(); // Set on mount
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <> 
 <CartProvider>
@@ -33,7 +47,7 @@ function App() {
     <Footer />
     </Router>
 </CartProvider>
-<ToastContainer position="top-right" autoClose={3000} />
+<ToastContainer position={toastPosition} autoClose={5000} />
 </>
   );
 }

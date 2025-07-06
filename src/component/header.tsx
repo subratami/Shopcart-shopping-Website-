@@ -137,10 +137,29 @@ function Header({ onSearch }: HeaderProps) {
  <img src={menubar} className="menubar" alt="not load"/>
  </button>
  <div className={`side-menu ${isOpen ? "open" : ""}`}>
-  <button className="closebtn" onClick={handleLinkClick} style={{padding: '5% 48%', backgroundColor: "rgb(184 183 183 / 62%)"}}> <img src={close} alt="close icon" style={{width: "1.5rem"}}/> </button>
+  <button className="closebtn" onClick={handleLinkClick} style={{padding: '5% 48%', backgroundColor: "rgb(142 122 122)"}}> <img src={close} alt="close icon" style={{width: "1.5rem"}}/> </button>
 <ul className="menu-list">
  {/* side Menu */}
- <li className="User" style={{ padding:"1rem", textAlignLast: "end"}}><Link to="/login" onClick={handleLinkClick} style={{textDecoration:"NONE", color: "black"}}> Your Account <img src={person} alt="not support" style={{width:"1.5rem"}}/></Link></li>
+ <li className="User" style={{ padding:"1rem", textAlignLast: "end"}}>
+  {localStorage.getItem("isLoggedIn") === "true" ? (
+  <button
+      className="btnlink"
+      onClick={async () => {
+      logoutUser();
+      handleLinkClick();
+      }}
+      style={{width: "30%", height: "40px", background: "gray", border: "none", color: "purple", cursor: "pointer", fontWeight: "bold", paddingTop: "11px", paddingLeft: "15px" }}>
+      LOGOUT
+    </button>
+): (<button
+      className="btnlink"
+      onClick={async () => {
+      logoutUser();
+      }}
+      style={{ display: "none" }}>
+      LOGOUT
+    </button>)}
+    <Link to="/login" onClick={handleLinkClick} style={{textDecoration:"NONE", color: "black"}}> Your Account <img src={person} alt="not support" style={{width:"1.5rem"}}/></Link></li>
   <li>
    <button className="menu-item" onClick={() => toogleSubmenu("electronics")}>
     Consumer Electronics {activeMenu === "electronics" ? "▲" : "▼"}

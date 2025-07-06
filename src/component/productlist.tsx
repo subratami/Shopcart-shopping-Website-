@@ -145,7 +145,7 @@ const [sortBy, setSortBy] = useState<string>("");
         className="filter-toggle-btn"
         onClick={() => setIsFilterOpen(prev => !prev)}
       >
-        {isFilterOpen ? "Hide Filters" : "Show Filters"}
+        {isFilterOpen ? "Filters" : "Filters"}
       </button>
 
       {isFilterOpen && (
