@@ -1,6 +1,8 @@
 import { useState, type ChangeEvent, type FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './signup.css';
+import { toast } from "react-toastify";
+
 
 interface FormData {
   name: string;
@@ -45,14 +47,14 @@ const Signin = () => {
 
       const data = await res.json();
       if (res.ok) {
-        alert('Signup successful!');
+        toast.success('Signup successful!');
         navigate('/dashboard');
       } else {
-        alert(data.detail || 'Signup failed');
+        toast.error(data.detail || 'Signup failed');
       }
     } catch (error) {
       console.error('Signup error:', error);
-      alert('Server error. Please try again.');
+      toast.error('Server error. Please try again.');
     }
   };
 

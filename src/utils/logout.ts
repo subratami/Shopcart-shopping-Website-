@@ -1,6 +1,6 @@
 import { authFetch } from "./authFetch";
+import { toast } from "react-toastify";
 
-// src/utils/logoutUser.ts
 export const logoutUser = async (): Promise<void> => {
   const token = localStorage.getItem("access_token");
 
@@ -13,9 +13,11 @@ export const logoutUser = async (): Promise<void> => {
           "Authorization": `Bearer ${token}`,
         },
       });
-    }
+      }
+    toast.success("Logged out successfully!");
   } catch (err) {
     console.error("Logout request failed:", err);
+    toast.error("Logged out reduest failed!");
     // Silently fail if server is down or token is bad—client will still log out
   }
 
@@ -24,14 +26,8 @@ export const logoutUser = async (): Promise<void> => {
   localStorage.removeItem("refresh_token");
   localStorage.removeItem("isLoggedIn");
   localStorage.removeItem("userName");
-
+  
   // Optional: reload or redirect
   window.location.href="/";
 };
-{/*export const logoutUser = () => {
-  localStorage.removeItem("isLoggedIn");
-  localStorage.removeItem("userName");
-  localStorage.removeItem("access_token");
-  localStorage.removeItem("refresh_token");
-  window.location.href = "/";
-};*/}
+

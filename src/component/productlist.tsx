@@ -44,6 +44,8 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
   const [selectedRam, setSelectedRam] = useState("");
 
   const [isFilterOpen, setIsFilterOpen] = useState(window.innerWidth >= 900);
+const [sortBy, setSortBy] = useState<string>("");
+  const [order, setOrder] = useState<"asc" | "desc">("asc");
 
   useEffect(() => {
     const handleResize = () => setIsFilterOpen(window.innerWidth >= 900);
@@ -90,6 +92,21 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
           const ramMatch = !selectedRam || p.Memory === selectedRam;
           return priceMatch && storageMatch && ramMatch;
         });
+        
+         // Sorting logic
+        if (sortBy === "price") {
+          filtered = filtered.sort((a: Product, b: Product) =>
+            order === "asc"
+              ? a["Selling Price"] - b["Selling Price"]
+              : b["Selling Price"] - a["Selling Price"]
+          );
+        } else if (sortBy === "rating") {
+          filtered = filtered.sort((a: Product, b: Product) =>
+            order === "asc"
+              ? a.Rating - b.Rating
+              : b.Rating - a.Rating
+          );
+        }
 
         setProducts(filtered);
         setTotal(filtered.length); // Since backend doesn't return total
@@ -105,7 +122,24 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
     fetchProducts();
   }, [searchQuery, selectedBrand, selectedPrice, selectedStorage, selectedRam, page]);
 
-  return (
+  return (<>
+    <div className="sort" style={{ display: "flex", gap: 8 }}>
+          <label>
+            Sort by:
+            <select value={sortBy} onChange={e => setSortBy(e.target.value)}>
+              <option value="">None</option>
+              <option value="price">Price</option>
+              <option value="rating">Rating</option>
+            </select>
+          </label>
+          <label>
+            Order:
+            <select value={order} onChange={e => setOrder(e.target.value as "asc" | "desc") }>
+              <option value="asc">Ascending</option>
+              <option value="desc">Descending</option>
+            </select>
+          </label>
+        </div>
     <div className="productlist-wrapper" style={{ display: "flex" }}>
       <button
         className="filter-toggle-btn"
@@ -269,7 +303,8 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
           </div>
         )}
       </div>
-    </div>
+    </div>\
+  </>
   );
 };
 

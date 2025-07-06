@@ -12,6 +12,8 @@ import { useState } from 'react'
 import ProductList from './component/productlist';
 import   { CartProvider } from "./component/CartContext";
 import CartPage from './component/cart'
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
   return (
@@ -31,6 +33,7 @@ function App() {
     <Footer />
     </Router>
 </CartProvider>
+<ToastContainer position="top-right" autoClose={3000} />
 </>
   );
 }

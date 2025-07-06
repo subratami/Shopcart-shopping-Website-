@@ -1,6 +1,8 @@
 import { useState, type ChangeEvent, type FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from "../component/CartContext";
+import { toast } from "react-toastify";
+
 import './login.css';
 
 interface LoginForm {
@@ -38,15 +40,15 @@ const Login = () => {
   localStorage.setItem("access_token", data.access_token); // Save access token
   localStorage.setItem("refresh_token", data.refresh_token); // Save refresh token
   await refreshCart();
-  alert("Login successful!");
+  toast.success("Login successful!");
   navigate('/dashboard');
 }
        else {
-        alert(data.detail || "Login failed");
+        toast.error(data.detail || "Login failed");
       }
     } catch (err) {
       console.error("Login error:", err);
-      alert("Something went wrong. Please try again.");
+      toast.error("Something went wrong. Please try again.");
     }
   };
 
