@@ -6,6 +6,10 @@ export interface CartItem {
   _id: string;
   Brand?: string;
   Model?: string;
+  Color?: string;
+  Memory?: string;
+  Storage?: string;
+  "Selling Price"?:number;
   quantity: number;
   [key: string]: any; // For additional product fields
 }
@@ -15,6 +19,7 @@ interface CartContextType {
   loading: boolean;
   error: string | null;
   addToCart: (productId: string, quantity?: number) => Promise<void>;
+  updateCartItem: (productId: string, quantity: number) => Promise<void>;
   removeFromCart: (productId: string) => Promise<void>;
   clearCart: () => Promise<void>;
   checkout: () => Promise<void>;
@@ -89,6 +94,32 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
+  // --- Update Cart Item ---
+  const updateCartItem = async (productId: string, quantity: number) => {
+    setError(null);
+    if (quantity < 1){
+      setError("Quantity must be at least 1.");
+      return;
+    }
+    const res = await authFetch(`${API_BASE}/cart/add`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+      },
+      body: JSON.stringify({ product_id: productId, quantity }),
+    });
+    if (res.ok) {
+      await refreshCart();
+    } else if (res.status === 401) {
+      setError("Please log in to update your cart.");
+    }else if (res.status === 404) {
+    setError("Product not found.");
+    } else {
+      setError("Failed to update cart item.");
+    }
+  };
+
   // --- Remove from Cart ---
   const removeFromCart = async (productId: string) => {
     setError(null);
@@ -154,6 +185,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         loading,
         error,
         addToCart,
+        updateCartItem,
         removeFromCart,
         clearCart,
         checkout,

@@ -125,7 +125,7 @@ const [sortBy, setSortBy] = useState<string>("");
   return (<>
     <div className="sort" style={{ display: "flex", gap: 8 }}>
           <label>
-            Sort by:
+            Sort:
             <select value={sortBy} onChange={e => setSortBy(e.target.value)}>
               <option value="">None</option>
               <option value="price">Price</option>
