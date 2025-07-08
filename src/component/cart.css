@@ -25,9 +25,11 @@
     border-radius: 8px;
     padding: 10px;
     width: 80%;
-    height: 7vh;
+    height: 8vh;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     display: flex;
+    flex-direction: row;
+    gap: 10px;
     justify-content: space-between;
     align-items: center;
 }
