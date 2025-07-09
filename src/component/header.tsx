@@ -13,9 +13,6 @@ import { debounce } from "lodash";
 import menubar from "./menu-bar.png";
 import close from "./close.png"
 import { logoutUser } from "../utils/logout.ts";
-
-//import Homepage from './homepage';
-//import Login from "./login";
 import './header.css';
 
 interface HeaderProps {
@@ -171,18 +168,17 @@ function Header({ onSearch }: HeaderProps) {
      Smartphones {activeSubMenu === "smartphones" ? "▲" : "▼"}
     </button>
     {activeSubMenu === "smartphones" && (
-   <ul className="inner-submenu">
-        <li><a href="#"> Apple</a></li>
-        <li> <a href="#">Samsung</a></li>
-        <li> <a href="#">Xiaomi</a></li>
-        <li> <a href="#">Oppo</a></li>
-        <li> <a href="#">Vivo</a></li>
-        <li> <a href="#">Oppo</a></li>
-        <li> <a href="#">Realme</a></li>
-        <li> <a href="#">Oneplus</a></li>
-        <li> <a href="#">Honor</a></li>
-        <li> <a href="#">Iqoo</a></li>
-    </ul>
+   <ul>
+  <li><Link to={`/search?brand=Apple`} onClick={handleLinkClick}>Apple</Link></li>
+  <li><Link to={`/search?brand=Samsung`} onClick={handleLinkClick}>Samsung</Link></li>
+  <li><Link to={`/search?brand=Xiaomi`} onClick={handleLinkClick}>Xiaomi</Link></li>
+  <li><Link to={`/search?brand=Oppo`} onClick={handleLinkClick}>Oppo</Link></li>
+  <li><Link to={`/search?brand=Vivo`} onClick={handleLinkClick}>Vivo</Link></li>
+  <li><Link to={`/search?brand=Realme`} onClick={handleLinkClick}>Realme</Link></li>
+  <li><Link to={`/search?brand=Oneplus`} onClick={handleLinkClick}>Oneplus</Link></li>
+  <li><Link to={`/search?brand=Honor`} onClick={handleLinkClick}>Honor</Link></li>
+  <li><Link to={`/search?brand=Iqoo`} onClick={handleLinkClick}>Iqoo</Link></li>
+</ul>
     )}
     </li>
     <li>
@@ -346,27 +342,26 @@ function Header({ onSearch }: HeaderProps) {
     <div className="Smartphone"> <a href="#">Smartphones<span className="smartphone"><b>&gt;</b></span></a>
       <div className="smartphonelist"><p> Smartphones Brands</p>
         <ul>
-          <li><a href="#"> Apple</a></li>
-        <li> <a href="#">Samsung</a></li>
-        <li> <a href="#">Xiaomi</a></li>
-        <li> <a href="#">Oppo</a></li>
-        <li> <a href="#">Vivo</a></li>
-        <li> <a href="#">Oppo</a></li>
-        <li> <a href="#">Realme</a></li>
-        <li> <a href="#">Oneplus</a></li>
-        <li> <a href="#">Honor</a></li>
-        <li> <a href="#">Iqoo</a></li>
-        </ul></div></div>
+  <li><Link to={`/search?brand=Apple`} onClick={handleLinkClick}>Apple</Link></li>
+  <li><Link to={`/search?brand=Samsung`} onClick={handleLinkClick}>Samsung</Link></li>
+  <li><Link to={`/search?brand=Xiaomi`} onClick={handleLinkClick}>Xiaomi</Link></li>
+  <li><Link to={`/search?brand=Oppo`} onClick={handleLinkClick}>Oppo</Link></li>
+  <li><Link to={`/search?brand=Vivo`} onClick={handleLinkClick}>Vivo</Link></li>
+  <li><Link to={`/search?brand=Realme`} onClick={handleLinkClick}>Realme</Link></li>
+  <li><Link to={`/search?brand=Oneplus`} onClick={handleLinkClick}>Oneplus</Link></li>
+  <li><Link to={`/search?brand=Honor`} onClick={handleLinkClick}>Honor</Link></li>
+  <li><Link to={`/search?brand=Iqoo`} onClick={handleLinkClick}>Iqoo</Link></li>
+</ul></div></div>
     <div className="Tablets"> <a href="#"> Tablets <span className="tablets"><b>&gt;</b></span></a>
       <div className="tabletlist"><p>Tablets</p>
         <ul>
-          <li><a href="#"> Apple Tablet</a></li>
-          <li> <a href="#">Samsung Tablet</a></li>
-          <li> <a href="#">Xiaomi Tablet</a></li>
-          <li> <a href="#">Oppo Tablet</a></li>
-          <li> <a href="#">Realme Tablet</a></li>
-          <li> <a href="#">Oneplus Tablet</a></li>
-          <li> <a href="#">Honor Tablet</a></li>
+          <Link to={`/search?brand=Apple Ipad`} onClick={handleLinkClick}>Apple Ipad</Link>
+          <Link to={`/search?brand=Samsung tab`} onClick={handleLinkClick}>Samsung Tablet</Link>
+          <Link to={`/search?brand=Mi tab`} onClick={handleLinkClick}>Xiaomi Tablet</Link>
+          <Link to={`/search?brand=Oppo tab`} onClick={handleLinkClick}>Oppo Tablet</Link>
+          <Link to={`/search?brand=Realme tab`} onClick={handleLinkClick}>Realme Tablet</Link>
+          <Link to={`/search?brand=Oneplus tab`} onClick={handleLinkClick}>Oneplus Tablet</Link>
+          <Link to={`/search?brand=Honor tab`} onClick={handleLinkClick}>Honor Tablet</Link>
         </ul></div></div>
     <div className="Headphone"> <a href="#">Headphone & Earbuds <span className="headphone"><b>&gt;</b></span></a>
       <div className="headphonelist"><p> Headphone & Earbuds</p>

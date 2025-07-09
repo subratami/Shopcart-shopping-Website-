@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../component/CartContext";
+import { useLocation } from "react-router-dom";
 import "./productlist.css";
 
 interface ProductListProps {
@@ -47,13 +48,23 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
 const [sortBy, setSortBy] = useState<string>("");
   const [order, setOrder] = useState<"asc" | "desc">("asc");
 
+const location = useLocation();
+const params = new URLSearchParams(location.search);
+const brandFromQuery = params.get("brand"); // e.g. "Samsung"
+
   useEffect(() => {
     const handleResize = () => setIsFilterOpen(window.innerWidth >= 900);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Reset page to 1 when filters change
+  useEffect(() => {
+  if (brandFromQuery) {
+    setSelectedBrand(brandFromQuery); // or filter frontend list
+  }
+}, [brandFromQuery]);   // Fetch products based on category from URL params
+
+// Reset page to 1 when filters change
   useEffect(() => {
     setPage(1);
     // eslint-disable-next-line
