@@ -20,7 +20,7 @@ interface Product {
   Rating: number;
 }
 
-const BRANDS = ["Apple", "Samsung", "Realme", "Xiaomi", "Oppo", "Vivo"];
+const BRANDS = ["Apple", "Samsung", "Realme", "Xiaomi"];
 const PRICE_RANGES = [
   { label: "Below ₹10,000", min: 0, max: 10000 },
   { label: "₹10,000 - ₹20,000", min: 10000, max: 20000 },
