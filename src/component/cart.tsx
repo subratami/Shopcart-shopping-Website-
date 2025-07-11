@@ -67,7 +67,7 @@ const Cart: React.FC = () => {
           );
         })}
       </ul>
-      <div  className="subtotal" style={{ textAlign: "right", fontWeight: "bold", margin: "1em 0" }}>
+      <div  className="subtotal">
   Subtotal: ₹
   {cart.reduce(
     (sum, item) =>
@@ -76,10 +76,10 @@ const Cart: React.FC = () => {
   )}
 </div>
       <div className="cart-bottom">
-      <button className="cart-checkout-btn" onClick={clearCart} style={{ marginRight: "1em" }}>
+      <button className="cart-clear-btn" onClick={clearCart} style={{ marginRight: "1em" }}>
         Clear Cart
       </button>
-      <button onClick={checkout}>Checkout</button>
+      <button className="cart-checkout-btn" onClick={checkout}>Checkout</button>
       </div>
     </div>
     </div>
