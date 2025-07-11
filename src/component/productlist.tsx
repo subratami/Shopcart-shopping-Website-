@@ -269,11 +269,9 @@ const brandFromQuery = params.get("brand"); // e.g. "Samsung"
 
       <div className="productlist-container" style={{ flex: 1 }}>
         {loading ? (
-          <p>⏳ Loading products...</p>
+          <div className="producterror"><span>⏳ Loading Product...</span></div>
         ) : products.length === 0 ? (
-          <p style={{ padding: "1rem", color: "#666" }}>
-            😕 No products match your search or filters.
-          </p>
+          <div className="producterror"><span>😕 No products match your search or filters.</span></div>
         ) : (
           <ul className="product-list">
             {products.map((product) => (

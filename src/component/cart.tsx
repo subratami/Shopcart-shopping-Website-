@@ -5,9 +5,9 @@ import "./cart.css"
 const Cart: React.FC = () => {
   const { cart, loading, error, removeFromCart, updateCartItem, clearCart, checkout } = useCart();
 
-  if (loading) return <div>Loading cart...</div>;
-  if (error) return <div style={{ color: "red" }}>{error}</div>;
-  if (!cart.length) return <div>Your cart is empty.</div>;
+  if (loading) return <div className='carterror'><span>⏳ Loading cart...</span></div>;
+  if (error) return <div className='carterror' style={{ color: "red" }}>{error}</div>;
+  if (!cart.length) return <div className="carterror">😕 Your cart is empty.<br/> &nbsp;Refresh or Add 😕</div>
   
   const handleQuantityChange = (id: string, newQuantity: number) => {
     if (newQuantity < 1) return;
@@ -18,45 +18,40 @@ const Cart: React.FC = () => {
     <div className="cart-container">
     <div className="cartlist">
       <h2>Your Cart</h2>
-      <ul>
+      <ul className="cart-ul-reset">
         {cart.map((item: CartItem) => {
           const id = item.product_id || item._id; // <-- Add this line
           return (
-            <li key={id} style={{ marginBottom: "0.5em" }}>
-              <div style={{display: "block", flexDirection: "column"}}>
-                <span style={{width:"100px", height: "100px"}}><img src="#" alt="Product" style={{width:"100px", height: "100px"}} /> </span></div>
-                <div>
+            <li key={id} className="cart-li-reset">{/*style={{ marginBottom: "0.5em" }} */}
+              <div className="product-photo"> {/* style={{display: "block", flexDirection: "column"}} */}
+                <img src="#" alt="Product" /> </div>
+                <div className="cart-description">
+                  <div className="cart-item-name">
                 <strong>
                   {item.Brand ? item.Brand : ""}&nbsp;&nbsp;{item.Model ? item.Model : ""}&nbsp;&nbsp;{item.Color ? item.Color: ""}
                 </strong>
                 <br />
                 {item.Memory ? item.Memory : ""}&nbsp;&nbsp;{item.Storage ? item.Storage : ""}
                 <br/>
-                 <span style={{padding: '2px 4px 4px 4px', borderRadius: '4px', display: 'flex', flexDirection: 'row'}}> <button
-                    onClick={() => handleQuantityChange(id, item.quantity - 1)}
-                    /*disabled={item.quantity <= 1} */
-                    style={{ width: 30, backgroundColor:'black', color:'white' }}
-                  >
+                </div>
+                 <span className="cart-qty-btn"> 
+                  <button className="cart-qty-btn-minus"
+                    onClick={() => handleQuantityChange(id, item.quantity - 1)}>
                     -
                   </button>
-                  <input
+                  <input className="cart-qty-input"
                     type="number"
                     min="1"
                     value={item.quantity}
                     onChange={(e) =>
                       updateCartItem(id, parseInt(e.target.value)) 
-                    }
-                    style={{ width: "30px", padding: '0px 4px', textAlign: 'center' }}
-                  />
-                  <button
-                    onClick={() => handleQuantityChange(id, item.quantity + 1)}
-                    style={{ width: 30, backgroundColor:'black', color:'white'}}
-                  >
+                    } />
+                  <button className="cart-qty-btn-plus"
+                    onClick={() => handleQuantityChange(id, item.quantity + 1)}>
                     +
                   </button><br/>
                 
-                  <button
-                  style={{ marginLeft: "2em" }}
+                  <button className="cart-delete-btn"
                   onClick={() => removeFromCart(id)}
                 >
                   Delete
@@ -72,7 +67,7 @@ const Cart: React.FC = () => {
           );
         })}
       </ul>
-      <div style={{ textAlign: "right", fontWeight: "bold", margin: "1em 0" }}>
+      <div  className="subtotal" style={{ textAlign: "right", fontWeight: "bold", margin: "1em 0" }}>
   Subtotal: ₹
   {cart.reduce(
     (sum, item) =>
@@ -81,7 +76,7 @@ const Cart: React.FC = () => {
   )}
 </div>
       <div className="cart-bottom">
-      <button onClick={clearCart} style={{ marginRight: "1em" }}>
+      <button className="cart-checkout-btn" onClick={clearCart} style={{ marginRight: "1em" }}>
         Clear Cart
       </button>
       <button onClick={checkout}>Checkout</button>
