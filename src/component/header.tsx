@@ -1,11 +1,15 @@
 import facebookLogo from "./facebook logo.png";
 import instagramLogo from "./instagram logo.png";
 import twitterXLogo from "./twitterX logo.png";
-import navLogo from "./nav logo.png";
-import person from "./person.png";
-import wishlist from "./wishlist.png";
+import navlogolight from "./nav logo2 .png";
+import navlogodark from "./nav logo3.png";
+import personlight from "./person.png";
+import persondark from "./person2.png";
+import wishlistlight from "./wishlist.png";
+import wishlistdark from "./wishlist2.png";
 import { useCart } from "../component/CartContext";
-import shoppingBag from "./shopping-bag.png";
+import shoppingBaglight from "./shopping-bag.png";
+import shoppingBagdark from "./shopping-bag2.png";
 import Electronics from "./pexels-fauxels-3183132.jpg";
 import {Link, useNavigate} from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -14,6 +18,8 @@ import menubar from "./menu-bar.png";
 import close from "./close.png"
 import { logoutUser } from "../utils/logout.ts";
 import './header.css';
+import { useTheme } from "./themeContext"; 
+import { MdDarkMode, MdLightMode } from "react-icons/md";
 
 interface HeaderProps {
     onSearch: (query: string) => void;
@@ -23,7 +29,7 @@ const debouncedSearch = debounce((query: string, onSearch: (query: string) => vo
 }, 300); // 300ms delay
 
 function Header({ onSearch }: HeaderProps) {
-
+  const { darkMode, toggleDarkMode } = useTheme();
   const [userName, setUserName] = useState<string | null>(null);
 
   useEffect(() => {
@@ -61,6 +67,10 @@ function Header({ onSearch }: HeaderProps) {
   setActiveMenu(null); // optionally close submenu
   setActiveSubMenu(null); // optionally close inner submenu
 };
+const logo = darkMode ? navlogodark : navlogolight;
+const person = darkMode ? persondark : personlight;
+const wishlist = darkMode ? wishlistdark : wishlistlight;
+const shoppingBag = darkMode ? shoppingBagdark : shoppingBaglight;
     return (
         <>
         <header>
@@ -76,8 +86,8 @@ function Header({ onSearch }: HeaderProps) {
          
        </ul>
     </header>
-  <nav>
-    <Link to='/'><img className="logo" src={navLogo} alt="Shopcart Logo"/></Link>
+  <nav className={`navbar ${darkMode ? "dark" : "light"}`}>
+    <Link to='/'><img className="logo" src={logo} alt="Shopcart Logo"/></Link>
     <input  type="text" className="searchbar" placeholder="Search for products, brands and more" value={search} onChange={handleSearchChange} onKeyDown={handleKeyPress} // Handle Enter key press
                 />
     <ul className="list"> 
@@ -128,6 +138,9 @@ function Header({ onSearch }: HeaderProps) {
 <li className="Wishlist"> <a href="#"><img src={wishlist} alt="not_load"/> Wishlist </a> </li>
 <li className="Shoppingbag"> <Link to="/cart"> <img src={shoppingBag} alt="not_load"/>Cart<span className="cart-count">{cart.length}</span></Link> </li>
 </ul>
+<button onClick={toggleDarkMode} className="theme-toggle-btn">
+          {darkMode ? <MdLightMode size={24} /> : <MdDarkMode size={24} />}
+        </button>
 </nav>
 <div className="second">
  <button className="toogle-btn" onClick={toogleMenu}>
@@ -156,6 +169,9 @@ function Header({ onSearch }: HeaderProps) {
       style={{ display: "none" }}>
       LOGOUT
     </button>)}
+    <button onClick={toggleDarkMode} className="theme-toggle-btn2">
+          {darkMode ? <MdLightMode size={24} /> : <MdDarkMode size={24} />}
+        </button>
     <Link to="/login" onClick={handleLinkClick} style={{textDecoration:"NONE", color: "black"}}> Your Account <img src={person} alt="not support" style={{width:"1.5rem"}}/></Link></li>
   <li>
    <button className="menu-item" onClick={() => toogleSubmenu("electronics")}>

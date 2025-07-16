@@ -1,7 +1,7 @@
 header{
 width: 100%;
 height:10px;
-background: #000000;
+background: #190588;
 color: #fff;
 padding: 10px 0 10px 0;
 text-align: center;
@@ -41,12 +41,15 @@ header .topright{
     cursor: pointer;
 }
 nav{
-    width: 100%;
-    height: 3rem;
-   box-shadow: rgba(16, 17, 17, 0.4) 0px 10px 10px -10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 100%;
+  height: 3rem;
+  background-color: var(--bg-color);
+  box-shadow: var(--box-shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 .logo{
   padding-left: 50%;
@@ -74,7 +77,7 @@ font-size: 13px;
 flex-direction: column;
 align-items: center;
 text-decoration:none;
-color: black;
+color: var(--text-color);
 }
 
 .list li .dropdown .para1{
@@ -120,14 +123,14 @@ height:20px;
   width: 43px;
   height: 4px;
   border-radius: 10px;
-  background-color: white;
+  background-color: none;
   overflow: hidden;
 
 }
 .Acblack-blank{
   width: 51px;
   height: 4px;
-  background-color: rgb(4, 4, 4);
+  background-color: var(--bg-color2);
   position: relative;
   animation: move 0.5s linear;
 }
@@ -222,6 +225,18 @@ nav .list .Shoppingbag span{
   top: -38px;
   left:12px;
 }
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-color);
+  transition: transform 0.3s ease;
+  padding-right: 20px;
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.1);
+}
 .second{
   height: 30px;
 }
@@ -238,9 +253,11 @@ display: none;
 display: flex;
 width: auto;
 gap: 2%;
+/*background-color: var(--bg-color); */
 padding-left: 10%;
 font-weight: 500;
 padding-top: 10px;
+padding-bottom: 2px;
 }
 
 .second ul li{
@@ -248,17 +265,17 @@ list-style:none;
 }
 .second ul li .hyperlink{
   padding: 0%;
-  background-color: white;
+  background-color: none;
 text-decoration:none;
 font-size:15px;
-color: black;
+color: var(--text-color);
 }
 .CONSUMER-ELECTRONICS-blank{
   display: none;
   width: 145px;
   height: 4px;
   border-radius: 10px;
-  background-color: white;
+  background-color: none;
   /*position: absolute;
   left: 185px;*/
   overflow: hidden;
@@ -267,7 +284,7 @@ color: black;
 .black-blank{
   width: 145px;
   height: 4px;
-  background-color: rgb(4, 4, 4);
+  background-color: var(--bg-color2);
   position: relative;
   animation: move 0.5s linear;
 }
@@ -290,14 +307,14 @@ color: black;
   width: 165px;
   height: 4px;
   border-radius: 10px;
-  background-color: white;
+  background-color: none;
   overflow: hidden;
 
 }
 .black-blank1{
   width: 165px;
   height: 4px;
-  background-color: rgb(4, 4, 4);
+  background-color: var(--bg-color2);
   position: relative;
   animation: move 0.5s linear;
 }
@@ -320,14 +337,14 @@ color: black;
   width: 139px;
   height: 4px;
   border-radius: 10px;
-  background-color: white;
+  background-color: none;
   overflow: hidden;
 
 }
 .black-blank2{
   width: 139px;
   height: 4px;
-  background-color: rgb(4, 4, 4);
+  background-color: var(--bg-color2);
   position: relative;
   animation: move 0.5s linear;
 }
@@ -351,14 +368,14 @@ color: black;
   width: 110px;
   height: 4px;
   border-radius: 10px;
-  background-color: white;
+  background-color: none;
   overflow: hidden;
 
 }
 .black-blank3{
   width: 110px;
   height: 4px;
-  background-color: rgb(4, 4, 4);
+  background-color: var(--bg-color2);
   position: relative;
   animation: move 0.5s linear;
 }
@@ -380,7 +397,7 @@ color: black;
   width: 112px;
   height: 4px;
   border-radius: 10px;
-  background-color: white;
+  background-color: none;
   /*position: absolute;
   left: 662px;*/
   overflow: hidden;
@@ -389,7 +406,7 @@ color: black;
 .black-blank4{
   width: 112px;
   height: 4px;
-  background-color: rgb(4, 4, 4);
+  background-color: var(--bg-color2);
   position: relative;
   animation: move 0.5s linear;
 }
@@ -834,6 +851,9 @@ nav{
 .dropdown-content{
   top: 120%;
 }
+.theme-toggle-btn{
+  display: none;
+}
 .second{
   display: flex;
 }
@@ -940,6 +960,17 @@ nav .list{
 }
 .list li .dropdown-content .button a,link{
   color: rgb(0, 0, 0);
+}
+.theme-toggle-btn2 {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-color);
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle-btn2:hover {
+  transform: scale(1.1);
 }
 }
 @media screen and (max-width: 650px) {

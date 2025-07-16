@@ -312,7 +312,7 @@ const brandFromQuery = params.get("brand"); // e.g. "Samsung"
           </div>
         )}
       </div>
-    </div>\
+    </div>
   </>
   );
 };
