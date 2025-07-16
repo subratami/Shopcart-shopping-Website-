@@ -33,7 +33,17 @@ border-radius: 25px;
 .socialmedia li img{
   align-items: center;
 }
-
+.download-app img{
+  width: 100px;
+  height: 30px;
+  cursor: pointer;
+}
+.download-app img:hover{
+  transform: scale(1.1);
+}
+.socialmedia li img:hover{
+  transform: scale(1.1);
+}
 @media screen and (max-width: 768px){
   .footer-data {
  padding: 10px;
@@ -59,15 +69,18 @@ footer ul li{
 @media  screen and (max-width: 500px) {
   footer{
     align-content: center;
+    z-index: 500;
   }
   .footer-data{
     display: none;
   }
   .footer2{
   padding: 1rem 2.6rem;
-    background-color: #000000;
+    background-color: var(--bg-color2);
     display: block;
     max-width: 80%;
+    position: sticky;
+    z-index: 500;
   }
   .footer2 ul li{
     align-items: center;
@@ -77,5 +90,8 @@ footer ul li{
     padding-top: 10px;
     color: white;
     gap: 5px;
+  }
+  .socialmedia1 li img:hover{
+    transform: (1.1);
   }
 }

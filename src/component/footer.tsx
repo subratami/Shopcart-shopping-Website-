@@ -1,9 +1,17 @@
 import CollapsibleSection from "./mobilefooter";
-import './Footer.css'
+import './Footer.css' 
+import { useTheme } from "./themeContext"; 
 import facebookLogo from "./facebook logo.png"
 import instagramLogo from "./instagram logo.png"
 import twitterXLogo from "./twitterX logo.png"
+import playstoredark from "./playstoredark.png"
+import playstorelight from "./playstorelight.png"
+import appstoredark from "./appstoredark.png"
+import appstorelight from "./appstorelight.png"
 function Footer() {
+  const { darkMode } = useTheme();
+  const playstore = darkMode ? playstorelight: playstoredark;
+  const appstore = darkMode ? appstorelight : appstoredark;
    return(
    <> 
 <footer className="footer">
@@ -44,8 +52,8 @@ function Footer() {
       </ul>
         <div className='download-app'>
           <h3>Download App</h3>
-          <button>Get it now on Google Play</button>
-          <button>Get it now on App Store</button>
+          <img src={playstore} alt="playstore" />
+          <img src={appstore} alt="appstore" />
         </div>
      </div>
      <div className="footer2">
@@ -87,8 +95,8 @@ function Footer() {
       </ul>
       <div className='download-app'>
           <h3>Download App</h3>
-          <button>Get it now on Google Play</button>
-          <button>Get it now on App Store</button>
+          <img src={playstore} alt="playstore" />
+          <img src={appstore} alt="appstore" />
         </div>
     </div>
 </footer>
