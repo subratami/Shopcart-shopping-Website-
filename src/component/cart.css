@@ -1,5 +1,4 @@
 .cart-container{
-    background-color: #f8f8f8;
     min-height: 90vh;
     padding: 20px;
     margin-bottom: 80px;
@@ -16,7 +15,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-   /* gap: 5px; */
+    color: #000;
 }
 .cartlist li{
     background-color: #fff;

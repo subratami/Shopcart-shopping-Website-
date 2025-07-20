@@ -13,6 +13,7 @@
   box-shadow: 0 0 10px rgba(25, 24, 24, 0.571);
   margin: 20px auto;
   width: 300px;
+  color: black;
 }
 
 
@@ -46,4 +47,6 @@
   width: 35%;
   margin: 5px 2.5%;
 }
-
+#terms{
+  width: 10px;
+}
