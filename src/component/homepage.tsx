@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { useTheme } from "./themeContext";
-import banner from "./pexels-fauxels-3183132.jpg";
 import Advertisment from "./w69uo7lk.png";
 import './homepage.css';
 import computers from "./laptop & computer.png";
@@ -8,19 +7,126 @@ import homeKitchen from "./home Appliances.png";
 import TV from "./TV & speakers.png";
 import smartphone from "./Smartphone.jpg";
 import { Link } from "react-router-dom";
+import samsungtv from "./samsungTV.png";
+import samsungtv1 from "./samsungtv1 (1).jpg";
+import lgwashing from "./lg washing machine.png";
+import lgwashing1 from "./lg washing machine2.jpg";
+import refigerator from "./whirpool refrigirator.gif";
+import refigerator1 from "./whirpool refrigirator1.gif";
+import { useState, useEffect } from "react";
 
 function Homepage() {
   const { darkMode } = useTheme();
-  return (
+  const images: string[] = [
+    samsungtv,lgwashing,refigerator
+  ];
+  const image: string[] = [
+    samsungtv1,lgwashing1,refigerator1
+  ];
+const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Auto-slide effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 10000);
+
+     return () => clearInterval(interval);
+  }, []);
+
+    // Manual navigation
+  const goToPrevious = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  // Dot navigation
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+  };
+
+  return (<>
     <div className={`homepage ${darkMode ? "dark" : "light"}`}>
+      <motion.div className="desktop-banner"
+      initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.5, delay: 0.5 }}>
+        <button className="goToPrevious"
+          onClick={goToPrevious}>
+          ◀
+        </button>
       <motion.img
         className="banner-img"
-        src={banner}
+        src={images[currentIndex]}
+        alt="Banner Text"/>
+        {/* Manual Buttons */}
+        
+        <button className="goToNext"
+          onClick={goToNext}>
+          ▶
+        </button>
+        {/* Dots */}
+        <div className="Dots">
+          {images.map((_, index) => (
+            <span
+              key={index}
+              onClick={() => goToSlide(index)}
+              style={{
+                width: '12px',
+                height: '12px',
+                borderRadius: '50%',
+                backgroundColor: currentIndex === index ? '#333' : '#ccc',
+                cursor: 'pointer',
+              }}
+            />
+          ))}
+        </div>
+      </motion.div>
+      <motion.div className="mobile-banner">
+      <motion.img
+        className="banner-img"
+        src={image[currentIndex]}
         alt="Banner Text"
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1.5, delay: 0.2 }}
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
       />
+        {/* Manual Buttons */}
+        <button className="goToPrevious"
+          onClick={goToPrevious}
+        >
+          ◀
+        </button>
+        <button className="goToNext"
+          onClick={goToNext}>
+          ▶
+        </button>
+        {/* Dots */}
+        <div className="Dots">
+          {images.map((_, index) => (
+            <span
+              key={index}
+              onClick={() => goToSlide(index)}
+              style={{
+                width: '12px',
+                height: '12px',
+                borderRadius: '50%',
+                backgroundColor: currentIndex === index ? '#333' : '#ccc',
+                cursor: 'pointer',
+              }}
+            />
+          ))}
+        </div>
+      </motion.div>
 
       <motion.img
         className="banner-Adv"
@@ -106,6 +212,7 @@ function Homepage() {
         </ul>
       </div>
     </div>
+    </>
   );
 }
 

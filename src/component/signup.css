@@ -1,6 +1,6 @@
 .Signup-container {
   font-family: Arial, sans-serif;
-  height: 110vh;
+  min-height: 100vh;
   background-size: cover;
 }
 
@@ -49,4 +49,19 @@
 }
 #terms{
   width: 10px;
+}
+@media screen and (max-width: 850px){
+  .Signup-container{
+    position: relative;
+    top: 8%;
+    
+  }
+  
+}
+@media screen  and (max-height: 400px){
+  .Signup-container{
+    min-height: 210vh;
+    position: relative;
+    top: 8%;
+  }
 }

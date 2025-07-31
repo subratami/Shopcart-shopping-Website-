@@ -1,6 +1,7 @@
 footer{
   background-color: var(--bg-color2);
-  
+  position: relative;
+  z-index: 500;
 }
 .footer-data {
   display: flex;
