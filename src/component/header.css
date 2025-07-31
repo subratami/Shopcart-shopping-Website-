@@ -117,6 +117,10 @@ height:20px;
   z-index: 1;
   top: 140%;
   right: 3%;
+  color: black;
+}
+.button .btnlink a{
+  color: black;
 }
 .Account-blank{
   display: none;
