@@ -16,7 +16,7 @@ server: {
   allowedHosts,
   proxy: {
     '/search': {
-      target: 'https://shopping-site-api-z8gg.onrender.com',
+      target: 'https://new-shopping-api.onrender.com',
       changeOrigin: true,
       secure: false,
     },
