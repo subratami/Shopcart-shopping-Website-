@@ -20,6 +20,7 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: black;
   background: #fafafa;
   padding: 15px;
   margin-bottom: 12px;
@@ -74,4 +75,33 @@ h2 {
 .wishlist-error {
   color: red;
   text-align: center;
+
+}
+@media screen and (max-width: 850px) {
+  .wishlist-container{
+    position: relative;
+    top: 50px;  
+}
+}
+
+@media screen and (max-width: 769px) {
+  .wishlist-item, h3, p{
+    color: #000;
+  }
+  
+}
+
+@media screen and (max-width: 650px) {
+  .wishlist-container{
+    position: relative;
+    top: 70px;  
+}
+.wishlist-actions{
+    flex-direction: column;
+    gap: 8px;
+}
+.move-to-cart-btn, .remove-btn{
+    padding: 5px 5px;
+    font-size: 10px;
+}
 }

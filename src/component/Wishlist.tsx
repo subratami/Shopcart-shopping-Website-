@@ -16,6 +16,7 @@ const Wishlist = () => {
 
   return (
     <div className="wishlist-container">
+        
       <h2>My Wishlist ❤️</h2>
 
       {wishlist.length === 0 ? (
@@ -25,6 +26,8 @@ const Wishlist = () => {
           <ul className="wishlist-list">
             {wishlist.map((item) => (
               <li key={item._id} className="wishlist-item">
+                <div className="product-photo"> {/* style={{display: "block", flexDirection: "column"}} */}
+                <img src="#" alt="Product" /> </div>
                 <div className="wishlist-info">
                   <h3>
                     {item.Brand} {item.Model} {item.Color}

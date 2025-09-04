@@ -1,13 +1,13 @@
 .cart-container{
     min-height: 90vh;
     padding: 20px;
-    margin-bottom: 80px;
+    margin: auto;
+    max-width: 1000px;
 }
 .cartlist{
     padding: 20px 20px 0px 20px;
     min-height: 180vh;   
 }
-
 .cartlist ul{
     list-style: none;
     padding: 0;
