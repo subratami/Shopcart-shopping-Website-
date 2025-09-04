@@ -884,7 +884,7 @@ nav{
 .second .side-menu{
   display: block;
   position: fixed;
-  top: 11.5%;
+  top: 0%;
   left: -110%;
   width: 60%;
   height: fit-content;
@@ -897,7 +897,7 @@ nav{
     left: 0; /* Moves into view */
 }
 .side-menu.open .closebtn{
-display: none;
+width: 100%;
 }
 .menu-list {
   background-color: #adaaaa;
@@ -981,12 +981,14 @@ nav .list{
    .logo{
     width: 80%;
   }
+  .list{
+    gap: 15px;
+  }
+
   .list .person{
     display: none;
   }
-  .list .Wishlist{
-    display: none;
-  }
+  
   .second .toogle-btn{
     padding: 2px;
   }
