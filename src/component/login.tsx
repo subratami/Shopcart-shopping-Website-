@@ -26,7 +26,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch('https://shopping-site-api-z8gg.onrender.com/login', {
+      const res = await fetch('https://new-shopping-api.onrender.com/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
