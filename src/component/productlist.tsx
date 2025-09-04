@@ -150,7 +150,47 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
         <button className="filter-toggle-btn" onClick={() => setIsFilterOpen((prev) => !prev)}>
           {isFilterOpen ? "Filters" : "Filters"}
         </button>
+{isFilterOpen && ( 
+  <aside className="filter-panel" style={{ width: 220, padding: 16 }}>
+     <h4>Filter By</h4> 
+     <div> 
+      <strong>Brand</strong> 
+      {BRANDS.map((brand) => ( 
+        <label key={brand}> 
+        <input type="radio" 
+        name="brand" 
+        checked={selectedBrand === brand}
+         onChange={() => { setSelectedBrand(brand); setPage(1);
 
+          }} 
+          /> 
+          {brand} 
+          </label> 
+        ))} 
+        <label> 
+          <input type="radio" name="brand" checked={selectedBrand === ""} 
+          onChange={() => { setSelectedBrand(""); setPage(1); }} /> All </label> 
+          </div> <div style={{ marginTop: 12 }}> 
+            <strong>Price</strong> {PRICE_RANGES.map((range, idx) => ( <label key={range.label}>
+               <input type="radio" name="price" checked={selectedPrice === idx} onChange={() => setSelectedPrice(idx)} /> 
+               {range.label} </label> 
+              ))} 
+               <label> 
+                <input type="radio" name="price" checked={selectedPrice === -1} onChange={() => setSelectedPrice(-1)} /> All </label>
+                 </div> <div style={{ marginTop: 12 }}>
+                   <strong>Storage</strong> {STORAGES.map((s) => ( <label key={s}> 
+                    <input type="radio" name="storage" checked={selectedStorage === s} onChange={() => setSelectedStorage(s)} /> {s} </label>
+                     ))} 
+                     <label> 
+                      <input type="radio" name="storage" checked={selectedStorage === ""} onChange={() => setSelectedStorage("")} /> All </label> 
+                      </div> <div style={{ marginTop: 12 }}> 
+                        <strong>RAM</strong> {RAMS.map((r) => ( <label key={r}> <input type="radio" name="ram" checked={selectedRam === r} onChange={() => setSelectedRam(r)} /> {r} </label>
+                       ))} 
+                       <label> 
+                        <input type="radio" name="ram" checked={selectedRam === ""} onChange={() => setSelectedRam("")} /> All </label> 
+                        </div> 
+                        </aside> 
+                      )}
         <div className="productlist-container" style={{ flex: 1 }}>
           {loading ? (
             <div className="producterror">
@@ -196,6 +236,19 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
               })}
             </ul>
           )}
+          {/* Pagination */} 
+          {products.length > 0 && (
+             <div style={{ marginTop: "1.5rem", textAlign: "center" 
+        }}> 
+        <button style={{padding: "5px"}} disabled={page <= 1} onClick={() => 
+          setPage(page - 1)}> 
+          ⬅️ Prev 
+          </button>
+           <span style={{ margin: "0 1rem" }}>Page {page}
+            </span>
+             <button style={{padding: "5px"}} onClick={() => setPage(page + 1)}>Next ➡️</button> 
+             </div>
+             )}
         </div>
       </div>
     </>
