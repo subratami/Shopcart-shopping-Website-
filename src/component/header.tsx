@@ -135,7 +135,7 @@ const shoppingBag = darkMode ? shoppingBagdark : shoppingBaglight;
 </div>
 </div>
   </div></li>
-<li className="Wishlist"> <a href="#"><img src={wishlist} alt="not_load"/> Wishlist </a> </li>
+<li className="Wishlist"> <Link to="/wishlist"><img src={wishlist} alt="not_load"/> Wishlist </Link> </li>
 <li className="Shoppingbag"> <Link to="/cart"> <img src={shoppingBag} alt="not_load"/>Cart<span className="cart-count">{cart.length}</span></Link> </li>
 </ul>
 <button onClick={toggleDarkMode} className="theme-toggle-btn">

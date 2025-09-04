@@ -150,6 +150,25 @@ float: right;
     padding: 20%;
     font-size: 30px;
 }
+.add-to-wishlist {
+  background-color: #ba2525;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-left: 8px;
+}
+
+.add-to-wishlist:hover {
+  background-color: #e91e63;
+}
+
+.add-to-wishlist.disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
 
 @media (max-width: 900px) {
   .filter-panel {
@@ -218,6 +237,11 @@ float: right;
   } 
   .productlist-container{
     margin-bottom: 40px;
+  }
+  .add-to-wishlist {
+    padding: 6px 12px;
+    font-size: 13px;
+    margin-left: 4px;
   }
 
 }

@@ -41,7 +41,7 @@ const Login = () => {
   localStorage.setItem("refresh_token", data.refresh_token); // Save refresh token
   await refreshCart();
   toast.success("Login successful!");
-  navigate('/dashboard');
+  navigate('/');
 }
        else {
         toast.error(data.detail || "Login failed");
