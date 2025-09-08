@@ -17,6 +17,8 @@ import { debounce } from "lodash";
 import menubar from "./menu-bar.png";
 import close from "./close.png"
 import { logoutUser } from "../utils/logout.ts";
+import finddark from "./magnifying-glass.png";
+import findlight from "./magnifying-glass2.png";
 import './header.css';
 import { useTheme } from "./themeContext"; 
 import { MdDarkMode, MdLightMode } from "react-icons/md";
@@ -31,6 +33,8 @@ const debouncedSearch = debounce((query: string, onSearch: (query: string) => vo
 function Header({ onSearch }: HeaderProps) {
   const { darkMode, toggleDarkMode } = useTheme();
   const [userName, setUserName] = useState<string | null>(null);
+  const [suggestions, setSuggestions] = useState<string[]>([]);
+  const [showSuggestions, setShowSuggestions] = useState(false); 
 
   useEffect(() => {
     const name = localStorage.getItem("userName");
@@ -40,10 +44,32 @@ function Header({ onSearch }: HeaderProps) {
     const navigate = useNavigate();
     const { cart } = useCart(); // Access cart from CartContext
 
-    const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSearch(e.target.value);
-        debouncedSearch(e.target.value, onSearch); // Pass search query to parent
-    };
+    const handleSearchChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+       const value = e.target.value;
+  setSearch(value);
+  debouncedSearch(value, onSearch);
+
+  if (value.trim().length > 0) {
+    try {
+      const response = await fetch(`http://127.0.0.1:8000/suggestions?q=${value}`);
+      const data: string[] = await response.json(); // 👈 TypeScript expects an array of strings
+      setSuggestions(data);
+      setShowSuggestions(true);
+    } catch (error) {
+      console.error("Error fetching suggestions:", error);
+      setSuggestions([]);
+      setShowSuggestions(false);
+    }
+  } else {
+    setSuggestions([]);
+    setShowSuggestions(false);
+  }
+};
+    const handleSuggestionClick = (suggestion: string): void => {
+    setSearch(suggestion);
+    setShowSuggestions(false);
+    navigate("/search");
+  };
       const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === "Enter") {
             navigate("/search"); // Navigate to search results page
@@ -71,6 +97,7 @@ const logo = darkMode ? navlogodark : navlogolight;
 const person = darkMode ? persondark : personlight;
 const wishlist = darkMode ? wishlistdark : wishlistlight;
 const shoppingBag = darkMode ? shoppingBagdark : shoppingBaglight;
+const find = darkMode ? findlight: finddark;
     return (
         <>
         <header>
@@ -88,8 +115,27 @@ const shoppingBag = darkMode ? shoppingBagdark : shoppingBaglight;
     </header>
   <nav className={`navbar ${darkMode ? "dark" : "light"}`}>
     <Link to='/'><img className="logo" src={logo} alt="Shopcart Logo"/></Link>
-    <input  type="text" className="searchbar" placeholder="Search for products, brands and more" value={search} onChange={handleSearchChange} onKeyDown={handleKeyPress} // Handle Enter key press
-                />
+    <div className="search-wrapper">
+    <div className="input-wrapper">
+          <input
+            type="text"
+            className="searchbar"
+            placeholder="Search for products, brands and more"
+            value={search}
+            onChange={handleSearchChange}
+            onKeyDown={handleKeyPress}
+          />
+          {showSuggestions && (
+            <ul className="suggestions-list">
+              {suggestions.map((item: string, index: number) => (
+                <li key={index} onClick={() => handleSuggestionClick(item)}>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          )}</div>
+          <button className="searchbtn"> <img src={find} alt="not_load" /> </button>
+        </div>
     <ul className="list"> 
 <li className="person"><div className="dropdown">
    <div className="dropbtn"> <a href="#"><img src={person} alt="not_load"/>Account<div className="Account-blank"><div className="Acblack-blank"></div></div></a>
@@ -158,7 +204,7 @@ const shoppingBag = darkMode ? shoppingBagdark : shoppingBaglight;
       logoutUser();
       handleLinkClick();
       }}
-      style={{width: "30%", height: "40px", background: "gray", border: "none", color: "purple", cursor: "pointer", fontWeight: "bold", paddingTop: "11px", paddingLeft: "15px" }}>
+      style={{width: "20%", height: "40px", background: "gray", border: "none", color: "purple", cursor: "pointer", fontWeight: "bold", paddingTop: "11px", paddingLeft: "15px" }}>
       LOGOUT
     </button>
 ): (<button

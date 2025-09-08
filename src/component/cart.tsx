@@ -40,7 +40,7 @@ const Cart: React.FC = () => {
                     -
                   </button>
                   <input className="cart-qty-input"
-                    type="number"
+                    type="text"
                     min="1"
                     value={item.quantity}
                     onChange={(e) =>

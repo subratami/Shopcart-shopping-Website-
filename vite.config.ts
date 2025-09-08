@@ -14,13 +14,13 @@ server: {
   host: true, // This makes it listen on 0.0.0.0
   port: Number(process.env.PORT) || 3000,
   allowedHosts,
-  proxy: {
+  /*proxy: {
     '/search': {
-      target: 'https://shopping-site-api-z8gg.onrender.com',
+      target: 'https://new-shopping-api.onrender.com',
       changeOrigin: true,
       secure: false,
     },
-  },
+  },*/
 },
 
 preview: {

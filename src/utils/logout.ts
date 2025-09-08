@@ -6,7 +6,7 @@ export const logoutUser = async (): Promise<void> => {
 
   try {
     if (token) {
-      await authFetch("https://shopping-site-api-z8gg.onrender.com/logout", {
+      await authFetch("https://new-shopping-api.onrender.com/auth/logout", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

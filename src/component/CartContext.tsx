@@ -42,7 +42,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [error, setError] = useState<string | null>(null);
 
   // Adjust this if your backend is hosted elsewhere
-  const API_BASE = "https://shopping-site-api-z8gg.onrender.com"; 
+  const API_BASE = "https://new-shopping-api.onrender.com"; 
 
   // --- Fetch Cart ---
   const refreshCart = async () => {

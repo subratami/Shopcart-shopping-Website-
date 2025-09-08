@@ -88,7 +88,7 @@ const brandFromQuery = params.get("brand"); // e.g. "Samsung"
       params.append("limit", "20");
 
       try {
-        const res = await fetch(`/search?${params.toString()}`);
+        const res = await fetch(`https://new-shopping-api.onrender.com/search?${params.toString()}`);
         const data = await res.json();
         // Defensive: handle both array and object response
         let filtered: Product[] = Array.isArray(data) ? data : (Array.isArray(data.products) ? data.products : []);
