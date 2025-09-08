@@ -33,8 +33,8 @@ const debouncedSearch = debounce((query: string, onSearch: (query: string) => vo
 function Header({ onSearch }: HeaderProps) {
   const { darkMode, toggleDarkMode } = useTheme();
   const [userName, setUserName] = useState<string | null>(null);
-  const [suggestions, setSuggestions] = useState<string[]>([]);
-  const [showSuggestions, setShowSuggestions] = useState(false); 
+  //const [suggestions, setSuggestions] = useState<string[]>([]);
+  //const [showSuggestions, setShowSuggestions] = useState(false); 
 
   useEffect(() => {
     const name = localStorage.getItem("userName");
@@ -44,7 +44,7 @@ function Header({ onSearch }: HeaderProps) {
     const navigate = useNavigate();
     const { cart } = useCart(); // Access cart from CartContext
 
-    const handleSearchChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    /*const handleSearchChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
        const value = e.target.value;
   setSearch(value);
   debouncedSearch(value, onSearch);
@@ -116,7 +116,7 @@ const find = darkMode ? findlight: finddark;
   <nav className={`navbar ${darkMode ? "dark" : "light"}`}>
     <Link to='/'><img className="logo" src={logo} alt="Shopcart Logo"/></Link>
     <div className="search-wrapper">
-    <div className="input-wrapper">
+    {/*<div className="input-wrapper">
           <input
             type="text"
             className="searchbar"
@@ -133,7 +133,7 @@ const find = darkMode ? findlight: finddark;
                 </li>
               ))}
             </ul>
-          )}</div>
+          )}</div>*/}
           <button className="searchbtn"> <img src={find} alt="not_load" /> </button>
         </div>
     <ul className="list"> 

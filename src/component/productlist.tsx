@@ -32,7 +32,7 @@ const RAMS = ["2GB", "4GB", "6GB", "8GB"];
 
 const ProductList = ({ searchQuery }: ProductListProps) => {
   const { addToCart } = useCart();
-  const { wishlist, addToWishlist } = useWishlist();
+//  const { wishlist, addToWishlist } = useWishlist();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -203,7 +203,7 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
           ) : (
             <ul className="product-list">
               {products.map((product) => {
-                const isInWishlist = wishlist.some((item) => item._id === product._id);
+                //const isInWishlist = wishlist.some((item) => item._id === product._id);
                 return (
                   <li key={product._id}>
                     <div
@@ -224,13 +224,13 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
                     </button>
 
                     {/* Add to Wishlist */}
-                    <button
+                    {/*<button
                       className={`add-to-wishlist ${isInWishlist ? "disabled" : ""}`}
                       onClick={() => addToWishlist(product._id)}
                       disabled={isInWishlist}
                     >
                       {isInWishlist ? "In Wishlist" : "Add to Wishlist"}
-                    </button>
+                    </button>  */}
                   </li>
                 );
               })}
