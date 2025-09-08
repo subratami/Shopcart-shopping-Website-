@@ -35,7 +35,7 @@ const Signin = () => {
     }
 
     try {
-      const res = await fetch('https://shopping-site-api-z8gg.onrender.com/signup', {
+      const res = await fetch('https://new-shopping-api.onrender.com/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

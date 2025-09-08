@@ -157,6 +157,10 @@ height:20px;
   z-index: 1;
   top: 140%;
   right: 3%;
+  color: black;
+}
+.button .btnlink a{
+  color: black;
 }
 .Account-blank{
   display: none;
@@ -948,7 +952,7 @@ nav{
 .second .side-menu{
   display: block;
   position: fixed;
-  top: 11.5%;
+  top: 0%;
   left: -110%;
   width: 60%;
   height: fit-content;
@@ -961,7 +965,7 @@ nav{
     left: 0; /* Moves into view */
 }
 .side-menu.open .closebtn{
-display: none;
+width: 100%;
 }
 .menu-list {
   background-color: #adaaaa;
@@ -1045,22 +1049,10 @@ nav .list{
    .logo{
     width: 80%;
   }
-  .search-wrapper img{
-  left: 85%;
-  width: 30px;
-  height: 30px;
-  top: 1.5%;
-  }
-  nav .list{
-    right: 15%;
-    padding-right: 17px;
-  }
   .list .person{
     display: none;
   }
-  .list .Wishlist{
-    display: none;
-  }
+  
   .second .toogle-btn{
     padding: 2px;
   }

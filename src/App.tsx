@@ -11,7 +11,9 @@ import PublicRoute from './utils/PublicRoute';
 import { useState,useEffect } from 'react'
 import ProductList from './component/productlist';
 import   { CartProvider } from "./component/CartContext";
-import CartPage from './component/cart'
+import CartPage from './component/cart';
+import { WishlistProvider } from "./component/WishlistContext";
+import Wishlist from "./component/Wishlist";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ThemeProvider } from "./component/themeContext";
@@ -35,6 +37,7 @@ function App() {
     <> 
     <ThemeProvider>
 <CartProvider>
+  <WishlistProvider>
     <Router basename="/Shopcart-shopping-Website-">
     <Header onSearch={setSearchQuery}/>
      <Routes>    
@@ -44,10 +47,12 @@ function App() {
           <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
           <Route path="/search" element={<ProductList searchQuery={searchQuery} />} />
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/wishlist" element={<Wishlist />} />
           <Route path="*" element={<h1>Page Not Found</h1>} />
     </Routes>
     <Footer />
     </Router>
+    </WishlistProvider>
 </CartProvider>
 </ThemeProvider>
 <ToastContainer position={toastPosition} autoClose={5000} />

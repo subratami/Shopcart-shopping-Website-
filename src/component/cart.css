@@ -1,13 +1,13 @@
 .cart-container{
     min-height: 90vh;
     padding: 20px;
-    margin-bottom: 80px;
+    margin: auto;
+    max-width: 1000px;
 }
 .cartlist{
     padding: 20px 20px 0px 20px;
     min-height: 180vh;   
 }
-
 .cartlist ul{
     list-style: none;
     padding: 0;
@@ -52,7 +52,7 @@
 }
 .cart-qty-input{
     background-color: #ddd;
-    width: 12px;
+    width: 18px;
     padding: 0px 4px;
     text-align: center;
 }
@@ -63,6 +63,9 @@
 }
 .cart-delete-btn{
     margin-left: 10px;
+    color: white;
+    background-color: #ba2525;
+    border-radius: 5px;
 }
 .subtotal{
     text-align: right;
@@ -72,8 +75,18 @@
 .cart-bottom{
     float: right;
 }
-.cart-clear-btn, .cart-checkout-btn{
+.cart-clear-btn{
     background-color: #ba2525;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 5px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background 0.2s;
+}
+.cart-checkout-btn{
+    background-color: #0b441e;
     color: #fff;
     border: none;
     border-radius: 4px;
