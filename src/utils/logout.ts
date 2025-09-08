@@ -26,6 +26,7 @@ export const logoutUser = async (): Promise<void> => {
   localStorage.removeItem("refresh_token");
   localStorage.removeItem("isLoggedIn");
   localStorage.removeItem("userName");
+  localStorage.removeItem("email");
   
   // Optional: reload or redirect
   window.location.href="/";

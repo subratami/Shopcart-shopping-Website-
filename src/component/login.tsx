@@ -4,6 +4,7 @@ import { useCart } from "../component/CartContext";
 import { toast } from "react-toastify";
 
 import './login.css';
+import { useWishlist } from './WishlistContext';
 
 interface LoginForm {
   email: string;
@@ -13,6 +14,7 @@ interface LoginForm {
 const Login = () => {
   const navigate = useNavigate();
   const { refreshCart } = useCart();
+  const { refreshWishlist } = useWishlist();
   const [formData, setFormData] = useState<LoginForm>({ email: '', password: '' });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -36,10 +38,12 @@ const Login = () => {
       
       if (res.ok) {
   localStorage.setItem("isLoggedIn", "true");
-  localStorage.setItem("userName", data.name); // Save user name if available
+  localStorage.setItem("email", data.email); // Save user email
+  localStorage.setItem("userName", data.name); // Save user name
   localStorage.setItem("access_token", data.access_token); // Save access token
   localStorage.setItem("refresh_token", data.refresh_token); // Save refresh token
   await refreshCart();
+  await refreshWishlist();
   toast.success("Login successful!");
   navigate('/');
 }

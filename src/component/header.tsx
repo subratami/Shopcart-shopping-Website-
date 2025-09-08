@@ -51,7 +51,7 @@ function Header({ onSearch }: HeaderProps) {
 
   if (value.trim().length > 0) {
     try {
-      const response = await fetch(`http://127.0.0.1:8000/suggestions?q=${value}`);
+      const response = await fetch(`https://new-shopping-api.onrender.com/suggestions?q=${value}`);
       const data: string[] = await response.json(); // 👈 TypeScript expects an array of strings
       setSuggestions(data);
       setShowSuggestions(true);
@@ -138,7 +138,7 @@ const find = darkMode ? findlight: finddark;
         </div>
     <ul className="list"> 
 <li className="person"><div className="dropdown">
-   <div className="dropbtn"> <a href="#"><img src={person} alt="not_load"/>Account<div className="Account-blank"><div className="Acblack-blank"></div></div></a>
+   <div className="dropbtn"> <Link to="/dashboard"><img src={person} alt="not_load"/>Account<div className="Account-blank"><div className="Acblack-blank"></div></div></Link>
    </div>
 <div className="dropdown-content">
 {/*
