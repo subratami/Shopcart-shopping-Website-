@@ -5,7 +5,7 @@ import Login from "./component/login";
 import Header from "./component/header";
 import Footer from "./component/footer";
 import Signup from "./component/signup";
-import Dashboard from './component/dashboard';
+import Dashboard from './component/Dashboard';
 import ProtectedRoute from './utils/ProtectedRoute';
 import PublicRoute from './utils/PublicRoute';
 import { useState,useEffect } from 'react'
