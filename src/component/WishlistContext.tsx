@@ -55,8 +55,8 @@ export const WishlistProvider = ({ children }: { children: ReactNode }) => {
     try {
       const res = await authFetch(`${API_BASE}/wishlist`);
       if (res.ok) {
-        const data: WishlistItem[] = await res.json();
-        setWishlist(data);
+        const data = await res.json();
+        setWishlist(data.wishlist);
       } else if (res.status === 401) {
         setWishlist([]);
         setError("Please log in to view your wishlist.");

@@ -55,8 +55,8 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         },
       });
       if (res.ok) {
-        const data: CartItem[] = await res.json();
-        setCart(data);
+        const data = await res.json();
+        setCart(data.cart);
       } else if (res.status === 401) {
         setError("Please log in to view your cart.");
         setCart([]);
