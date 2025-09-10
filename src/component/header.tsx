@@ -51,7 +51,7 @@ function Header({ onSearch }: HeaderProps) {
 
   if (value.trim().length > 0) {
     try {
-      const response = await fetch(`https://new-shopping-api.onrender.com/suggestions?q=${value}`);
+      const response = await fetch(`https://new-shopping-api.onrender.com/search/suggestions?q=${value}`);
       const data: string[] = await response.json(); // 👈 TypeScript expects an array of strings
       setSuggestions(data);
       setShowSuggestions(true);
