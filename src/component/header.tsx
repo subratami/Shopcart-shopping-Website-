@@ -35,6 +35,7 @@ function Header({ onSearch }: HeaderProps) {
   const [userName, setUserName] = useState<string | null>(null);
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false); 
+  const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
 
   useEffect(() => {
     const name = localStorage.getItem("userName");
@@ -113,6 +114,36 @@ const find = darkMode ? findlight: finddark;
          
        </ul>
     </header>
+    {isMobileSearchOpen && (
+      <div className={`mobile-search-overlay ${darkMode ? "dark" : "light"}`}>
+        <div className="mobile-search-wrapper">
+          <input
+            type="text"
+            className="searchbar"
+            placeholder="Search for products, brands and more"
+            value={search}
+            onChange={handleSearchChange}
+            onKeyDown={handleKeyPress}
+            autoFocus
+          />
+          <button onClick={() => setIsMobileSearchOpen(false)} className="mobile-search-close-btn">
+            <img src={close} alt="close icon" />
+          </button>
+        </div>
+        {showSuggestions && (
+          <ul className="suggestions-list">
+            {suggestions.map((item: string, index: number) => (
+              <li key={index} onClick={(e) => {
+                  handleSuggestionClick(item);
+                  setIsMobileSearchOpen(false);
+              }}>
+                {item}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    )}
   <nav className={`navbar ${darkMode ? "dark" : "light"}`}>
     <Link to='/'><img className="logo" src={logo} alt="Shopcart Logo"/></Link>
     <div className="search-wrapper">
@@ -134,7 +165,7 @@ const find = darkMode ? findlight: finddark;
               ))}
             </ul>
           )} </div>
-          <button className="searchbtn"> <img src={find} alt="not_load" /> </button>
+          {/*<button className="searchbtn"> <img src={find} alt="not_load" /> </button>*/}
         </div>
     <ul className="list"> 
 <li className="person"><div className="dropdown">
@@ -182,6 +213,11 @@ const find = darkMode ? findlight: finddark;
 </div>
   </div></li>
 <li className="Wishlist"> <Link to="/wishlist"><img src={wishlist} alt="not_load"/> Wishlist </Link> </li>
+<li className="mobile-search-icon">
+    <button onClick={() => setIsMobileSearchOpen(true)} className="icon-btn">
+        <img src={find} alt="Search" />
+    </button>
+</li>
 <li className="Shoppingbag"> <Link to="/cart"> <img src={shoppingBag} alt="not_load"/>Cart<span className="cart-count">{cart.length}</span></Link> </li>
 </ul>
 <button onClick={toggleDarkMode} className="theme-toggle-btn">

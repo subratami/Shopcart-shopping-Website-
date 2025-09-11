@@ -680,10 +680,10 @@ font-weight: normal;
  text-decoration: none; 
  color: gray;
  }
- .headphonelist ul li a:hover {
+.headphonelist ul li a:hover {
  color: black;
  }
- .Headphone:hover .headphonelist
+.Headphone:hover .headphonelist
 { display: flex;
 }
 /* Smartwatch */
@@ -731,10 +731,10 @@ font-weight: normal;
  text-decoration: none; 
  color: gray;
  }
- .Smartwatchlist ul li a:hover {
+.Smartwatchlist ul li a:hover {
  color: black;
  }
- .Smartwatch:hover .Smartwatchlist
+.Smartwatch:hover .Smartwatchlist
 { display: flex;
 }
 /* Portable Speaker*/
@@ -782,10 +782,10 @@ font-weight: normal;
  text-decoration: none; 
  color: gray;
  }
- .Portablespeakerlist ul li a:hover {
+.Portablespeakerlist ul li a:hover {
  color: black;
  }
- .Portablespeaker:hover .Portablespeakerlist
+.Portablespeaker:hover .Portablespeakerlist
 { display: flex;
 }
 /* Digital Camera*/
@@ -832,10 +832,10 @@ font-weight: normal;
  text-decoration: none; 
  color: gray;
  }
- .Cameralist ul li a:hover {
+.Cameralist ul li a:hover {
  color: black;
  }
- .Camera:hover .Cameralist
+.Camera:hover .Cameralist
 { display: flex;
 }
 .movelist-blank{
@@ -1090,4 +1090,107 @@ nav .list{
   .second .menu-list{
     height: max-content;
   }
+}
+
+/* Mobile Search Styles */
+.mobile-search-icon {
+    display: none; /* Hidden by default */
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.icon-btn img {
+    width: 24px; /* Adjust size as needed */
+    height: 24px;
+}
+
+.mobile-search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.mobile-search-overlay.light {
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+.mobile-search-overlay.dark {
+    background-color: rgba(18, 18, 18, 0.95);
+}
+
+.mobile-search-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.mobile-search-wrapper .searchbar {
+    width: 100%;
+    padding-right: 40px; /* Space for the close button */
+}
+
+.mobile-search-close-btn {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.mobile-search-close-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+.mobile-search-overlay .suggestions-list {
+    position: static;
+    width: 100%;
+    margin-top: 0.5rem;
+    box-shadow: none;
+    border-top: 1px solid #ccc;
+}
+
+/* Responsive adjustments */
+@media (max-width: 850px) {
+    .search-wrapper {
+        display: none; /* Hide desktop search bar on mobile */
+    }
+
+    .mobile-search-icon {
+        display: block; 
+        margin-right: 1rem;
+    }
+
+    .Wishlist {
+        display: none; /* Hide wishlist on mobile */
+    }
+
+    .list {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .list .person {
+        display: none; /* Hide Account on smaller mobile screens */
+    }
+    .theme-toggle-btn {
+        display: none; /* Hide theme toggle next to cart on small screens */
+    }
 }
