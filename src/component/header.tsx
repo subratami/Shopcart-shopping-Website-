@@ -69,11 +69,12 @@ function Header({ onSearch }: HeaderProps) {
    const handleSuggestionClick = (suggestion: string): void => {
     setSearch(suggestion);
     setShowSuggestions(false);
-    navigate("/search");
+     setIsMobileSearchOpen(false);
+    navigate(`/search?brand=${suggestion}`);
   };
       const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === "Enter") {
-            navigate("/search"); // Navigate to search results page
+            navigate(`/search?brand=${search}`); // Navigate to search results page
         }
     };
     /*  collaspible side menu */
@@ -99,6 +100,20 @@ const person = darkMode ? persondark : personlight;
 const wishlist = darkMode ? wishlistdark : wishlistlight;
 const shoppingBag = darkMode ? shoppingBagdark : shoppingBaglight;
 const find = darkMode ? findlight: finddark;
+
+useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (!(event.target as HTMLElement).closest('.search-wrapper')) {
+        setShowSuggestions(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
     return (
         <>
         <header>
@@ -133,10 +148,7 @@ const find = darkMode ? findlight: finddark;
         {showSuggestions && (
           <ul className="suggestions-list">
             {suggestions.map((item: string, index: number) => (
-              <li key={index} onClick={(e) => {
-                  handleSuggestionClick(item);
-                  setIsMobileSearchOpen(false);
-              }}>
+              <li key={index} onClick={() => handleSuggestionClick(item)}>
                 {item}
               </li>
             ))}
