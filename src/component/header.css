@@ -61,13 +61,14 @@ nav .input-wrapper .searchbar{
   margin-right:30px;
   position: absolute;
   top: 38px;
+  z-index: 1000;
 }
 .search-wrapper {
   width: 30%;
 }
 .suggestions-list {
   position: relative;
-  top: 210px;
+  top: 160px;
   width: 100%;
   left: 0;
   right: 0;
@@ -75,10 +76,12 @@ nav .input-wrapper .searchbar{
   color: var(--text-color);
   border: 1px solid #ccc;
   border-top: none;
-  z-index: 100;
   list-style: none;
   margin: 0;
   padding: 0;
+   z-index: 100;
+    max-height: 300px;
+    overflow-y: auto;
 }
 .suggestions-list li {
   padding: 10px;
@@ -1140,7 +1143,11 @@ nav .list{
 
 .mobile-search-wrapper .searchbar {
     width: 100%;
-    padding-right: 40px; /* Space for the close button */
+    padding-right: 40px;
+    position: relative; 
+    top: 40px;
+    height: 30px; 
+    border-radius: 20px;/* Space for the close button */
 }
 
 .mobile-search-close-btn {
@@ -1159,17 +1166,17 @@ nav .list{
 }
 
 .mobile-search-overlay .suggestions-list {
-    position: static;
+    position: relative;
+    top: 50px;
     width: 100%;
     margin-top: 0.5rem;
     box-shadow: none;
     border-top: 1px solid #ccc;
 }
 
-/* Responsive adjustments */
 @media (max-width: 850px) {
     .search-wrapper {
-        display: none; /* Hide desktop search bar on mobile */
+        display: none; 
     }
 
     .mobile-search-icon {
@@ -1178,19 +1185,10 @@ nav .list{
     }
 
     .Wishlist {
-        display: none; /* Hide wishlist on mobile */
+        display: none; 
     }
 
     .list {
         gap: 1rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .list .person {
-        display: none; /* Hide Account on smaller mobile screens */
-    }
-    .theme-toggle-btn {
-        display: none; /* Hide theme toggle next to cart on small screens */
     }
 }
