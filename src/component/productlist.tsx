@@ -98,7 +98,7 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
           const storageMatch = !selectedStorage || p.Storage === selectedStorage;
           const ramMatch = !selectedRam || p.Memory === selectedRam;
           return priceMatch && storageMatch && ramMatch;
-        });
+        }); 
 
         if (sortBy === "price") {
           filtered = filtered.sort((a: Product, b: Product) =>
@@ -124,7 +124,7 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
     };
 
     fetchProducts();
-  }, [searchQuery, selectedBrand, selectedPrice, selectedStorage, selectedRam, page]);
+  }, [searchQuery, selectedBrand, selectedPrice, selectedStorage, selectedRam, page, order, sortBy]);
 
   return (
     <>
@@ -172,22 +172,22 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
           onChange={() => { setSelectedBrand(""); setPage(1); }} /> All </label> 
           </div> <div style={{ marginTop: 12 }}> 
             <strong>Price</strong> {PRICE_RANGES.map((range, idx) => ( <label key={range.label}>
-               <input type="radio" name="price" checked={selectedPrice === idx} onChange={() => setSelectedPrice(idx)} /> 
+               <input type="radio" name="price" checked={selectedPrice === idx} onChange={() => {setSelectedPrice(idx); setPage(1);}} /> 
                {range.label} </label> 
               ))} 
                <label> 
-                <input type="radio" name="price" checked={selectedPrice === -1} onChange={() => setSelectedPrice(-1)} /> All </label>
+                <input type="radio" name="price" checked={selectedPrice === -1} onChange={() => {setSelectedPrice(-1); setPage(1);}} /> All </label>
                  </div> <div style={{ marginTop: 12 }}>
                    <strong>Storage</strong> {STORAGES.map((s) => ( <label key={s}> 
-                    <input type="radio" name="storage" checked={selectedStorage === s} onChange={() => setSelectedStorage(s)} /> {s} </label>
+                    <input type="radio" name="storage" checked={selectedStorage === s} onChange={() => {setSelectedStorage(s); setPage(1);}} /> {s} </label>
                      ))} 
                      <label> 
-                      <input type="radio" name="storage" checked={selectedStorage === ""} onChange={() => setSelectedStorage("")} /> All </label> 
+                      <input type="radio" name="storage" checked={selectedStorage === ""} onChange={() => {setSelectedStorage(""); setPage(1);}} /> All </label> 
                       </div> <div style={{ marginTop: 12 }}> 
                         <strong>RAM</strong> {RAMS.map((r) => ( <label key={r}> <input type="radio" name="ram" checked={selectedRam === r} onChange={() => setSelectedRam(r)} /> {r} </label>
                        ))} 
                        <label> 
-                        <input type="radio" name="ram" checked={selectedRam === ""} onChange={() => setSelectedRam("")} /> All </label> 
+                        <input type="radio" name="ram" checked={selectedRam === ""} onChange={() => {setSelectedRam(""); setPage(1);}} /> All </label> 
                         </div> 
                         </aside> 
                       )}

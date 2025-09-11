@@ -267,6 +267,7 @@ useEffect(() => {
           {darkMode ? <MdLightMode size={24} /> : <MdDarkMode size={24} />}
         </button>
     <Link to="/login" onClick={handleLinkClick} style={{textDecoration:"NONE", color: "black"}}> Your Account <img src={person} alt="not support" style={{width:"1.5rem"}}/></Link></li>
+    <li className="Wishlistlite"> <Link to="/wishlist"><img src={wishlist} alt="not_load"/> Wishlist </Link> </li>
   <li>
    <button className="menu-item" onClick={() => toogleSubmenu("electronics")}>
     Consumer Electronics {activeMenu === "electronics" ? "▲" : "▼"}

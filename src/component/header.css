@@ -52,7 +52,7 @@ nav{
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 .logo{
-  padding-left: 50%;
+  padding-left: 80%;
 }
 nav .input-wrapper .searchbar{
   width: 30%;
@@ -62,9 +62,11 @@ nav .input-wrapper .searchbar{
   position: absolute;
   top: 38px;
   z-index: 1000;
+  border: solid 1px gray;
 }
 .search-wrapper {
   width: 30%;
+  padding-left: 100px;
 }
 .suggestions-list {
   position: relative;
@@ -107,7 +109,7 @@ nav .input-wrapper .searchbar{
 display: flex;
 gap: 30px;
 height: 30px;
-right:10%;
+/*right:10%; */
 position: relative;
 }
 
@@ -864,7 +866,7 @@ font-weight: normal;
     padding-right: 10px;
   }
   .logo{
-    padding-left: 5%;
+    padding-left: 50%;
   }
   nav{
     height: 3rem;
@@ -895,10 +897,9 @@ nav{
   }
   .logo{
     width: 85%;
+    padding-left: 0%;
   }
   nav .input-wrapper{
-   /* width: 70%;
-    margin-bottom: 10px; */
     position: absolute;
     display: none;
   }
@@ -959,13 +960,12 @@ nav{
   left: -110%;
   width: 60%;
   height: fit-content;
-  /*background-color: rgb(236, 232, 232);*/
    transition: left 0.3s ease-in-out;
   padding: 0px;
   z-index: 1000;
 }
 .side-menu.open {
-    left: 0; /* Moves into view */
+    left: 0; 
 }
 .side-menu.open .closebtn{
 width: 100%;
@@ -982,7 +982,13 @@ width: 100%;
   padding: 0%;
 }
 .menu-list .User{
-  display: none;
+  display: flex;
+  justify-content: space-between; 
+  align-content: last baseline;
+}
+.menu-list .User a{
+  float: right;
+  position: sticky;
 }
 .menu-item {
     background: none;
@@ -992,7 +998,24 @@ width: 100%;
     padding: 5% 20%  5% 20%;
     cursor: pointer;
 }
-
+.Wishlistlite{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  padding: 5% 20%  5% 20%;
+}
+.Wishlistlite a{
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  font-size: large;
+}
+.Wishlistlite img{
+  width: 24px;
+  height: 24px;
+}
 .submenu {
   display: flex;
   flex-direction: column;
@@ -1047,15 +1070,14 @@ nav .list{
 .theme-toggle-btn2:hover {
   transform: scale(1.1);
 }
+.list .person{
+    display: none;
+  }
 }
 @media screen and (max-width: 650px) {
    .logo{
     width: 80%;
   }
-  .list .person{
-    display: none;
-  }
-  
   .second .toogle-btn{
     padding: 2px;
   }
@@ -1095,9 +1117,8 @@ nav .list{
   }
 }
 
-/* Mobile Search Styles */
 .mobile-search-icon {
-    display: none; /* Hidden by default */
+    display: none; 
 }
 
 .icon-btn {
@@ -1110,7 +1131,7 @@ nav .list{
 }
 
 .icon-btn img {
-    width: 24px; /* Adjust size as needed */
+    width: 24px; 
     height: 24px;
 }
 
@@ -1147,7 +1168,7 @@ nav .list{
     position: relative; 
     top: 40px;
     height: 30px; 
-    border-radius: 20px;/* Space for the close button */
+    border-radius: 20px;
 }
 
 .mobile-search-close-btn {
