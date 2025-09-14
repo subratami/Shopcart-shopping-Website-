@@ -48,6 +48,23 @@ float: right;
   margin-right: 6px;
 }
 
+.clear-filters {
+  display: block;
+  margin-top: 12px;
+  padding: 6px 12px;
+  background: #ba2525;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.clear-filters:hover {
+  background: #850505;
+}
+
+
 .productlist-wrapper {
   display: flex;
   align-items: flex-start;
@@ -110,7 +127,7 @@ float: right;
 }
 
 .product-list .add-to-cart:hover {
-  background-color: #a01e1e;
+  background-color: #850505;
 }
 
 .product-list .product-item h3 {
@@ -135,7 +152,8 @@ float: right;
   position: relative;
   top: -20px; 
   left: 16px;
-  padding: 8px 16px;
+  padding: 8px 10px;
+  font-size: 12px;
   background: #ba2525;
   color: #fff;
   border: none;
@@ -144,6 +162,9 @@ float: right;
   font-weight: bold;
 
 }
+.filter-toggle-btn:hover {
+  background: #850505;
+} 
 .producterror{
     min-height: 100vh;
     text-align: center;
@@ -162,7 +183,7 @@ float: right;
 }
 
 .add-to-wishlist:hover {
-  background-color: #e91e63;
+  background-color: #850505;
 }
 
 .add-to-wishlist.disabled {
@@ -226,6 +247,11 @@ float: right;
   }
   .filter-panel h4 {
     font-size: 1em;
+  }
+  .filter-toggle-btn {
+    left: 10px;
+    padding: 6px 8px;
+    font-size: 12px;
   }
   .product-list {
     gap: 16px;
