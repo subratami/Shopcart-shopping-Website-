@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useCart } from "../component/CartContext";
 import { useWishlist } from "../component/WishlistContext";
 import "./productlist.css";
+import { Range } from "react-range";
 /*import { param } from "framer-motion/client";
 import { set } from "lodash";*/
 
@@ -23,12 +24,6 @@ interface Product {
 }
 
 const BRANDS = ["Apple", "Samsung", "Realme", "Xiaomi"];
-const PRICE_RANGES = [
-  { label: "Below ₹10,000", min: 0, max: 10000 },
-  { label: "₹10,000 - ₹20,000", min: 10000, max: 20000 },
-  { label: "₹20,000 - ₹40,000", min: 20000, max: 40000 },
-  { label: "Above ₹40,000", min: 40000, max: Infinity },
-];
 const STORAGES = ["32 GB", "64 GB", "128 GB", "256 GB"];
 const RAMS = ["2 GB", "4 GB", "6 GB", "8 GB"];
 
@@ -44,13 +39,13 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
   const [loading, setLoading] = useState(false);
   const [maxPages, setMaxPages] = useState<number>(1);
   const [selectedBrand, setSelectedBrand] = useState("");
-  const [selectedPrice, setSelectedPrice] = useState(-1);
   const [selectedStorage, setSelectedStorage] = useState("");
   const [selectedRam, setSelectedRam] = useState("");
   const [isFilterOpen, setIsFilterOpen] = useState(window.innerWidth >= 900);
   const [sortBy, setSortBy] = useState<"" | "price" | "rating">("");
   const [order, setOrder] = useState<"asc" | "desc">("asc");
-
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 100000]);
+  const [tempPriceRange, setTempPriceRange] = useState<[number, number]>([0, 100000]);
 
 
   useEffect(() => {
@@ -67,28 +62,29 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
 
   useEffect(() => {
     setPage(1);
-  }, [searchQuery, selectedBrand, selectedPrice, selectedStorage, selectedRam]);
+  }, [searchQuery, selectedBrand, selectedStorage, selectedRam]);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchProducts = async ( 
+      pageNumber: number = page,
+      overridePriceRange?: [number, number]
+      ) => {
       setLoading(true);
       const params = new URLSearchParams();
+
       if (searchQuery) params.append("brand", searchQuery);
       if (selectedBrand) params.append("brand", selectedBrand);
       if (selectedStorage) params.append("storage", selectedStorage);
       if (selectedRam) params.append("memory", selectedRam);
-     
-      if (selectedPrice !== -1) {
-        params.append("min_price", PRICE_RANGES[selectedPrice].min.toString());
-        if (PRICE_RANGES[selectedPrice].max !== Infinity){
-        params.append("max_price", PRICE_RANGES[selectedPrice].max.toString());
-      }
-    }
+      
+      const appliedRange = overridePriceRange || priceRange;
+      if (appliedRange[0] > 0) params.append("min_price", String(appliedRange[0]));
+      if (appliedRange[1] < 100000) params.append("max_price", String(appliedRange[1]));
+      
       if (sortBy) params.append("sort_by", sortBy);
       params.append("order", order);
 
 
-      params.append("page", String(page));
+      params.append("page", String(pageNumber));
       params.append("limit", "20");
 
       try {
@@ -101,17 +97,19 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
         console.error("Error fetching products:", err);
         setProducts([]);
         setTotal(0);
+         setMaxPages(1);
       } finally {
         setLoading(false);
       }
     };
-    
+    useEffect(() => {
     fetchProducts();
-  }, [searchQuery, selectedBrand, selectedPrice, selectedStorage, selectedRam, page, order, sortBy]);
+  }, [searchQuery, selectedBrand, selectedStorage, selectedRam, page, order, sortBy, priceRange]);
     
    const clearFilters = () => {
     setSelectedBrand("");
-    setSelectedPrice(-1);
+    setPriceRange([0, 100000]);
+    setTempPriceRange([0, 100000]);
     setSelectedStorage("");
     setSelectedRam("");
     setSortBy("");
@@ -159,11 +157,48 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
          &nbsp;  {brand} 
           </label> 
         ))} 
-          </div> <div style={{ marginTop: 12 }}> 
-            <strong>Price</strong> {PRICE_RANGES.map((range, idx) => ( <label key={range.label}>
-               <input type="checkbox" name="price" checked={selectedPrice === idx} onChange={() => setSelectedPrice(prev => prev === idx ? -1 : idx)} /> 
-              &nbsp;  {range.label} </label> 
-              ))} 
+        <div className="mt-4">
+              <strong className="block mb-2">Price Range</strong>
+              <Range
+  step={500}
+  min={0}
+  max={100000}
+  values={tempPriceRange}
+  onChange={(values) => setTempPriceRange(values as [number, number])}
+  renderTrack={({ props, children }) => (
+    <div {...props} className="range-track">
+      {children}
+    </div>
+  )}
+  renderThumb={({ props }) => (
+    <div {...props} className="range-thumb" />
+  )}
+/>
+
+<div className="price-labels">
+  <span>₹{tempPriceRange[0]}</span>
+  <span>₹{tempPriceRange[1]}</span>
+</div>
+
+<button
+  style={{
+    marginTop: "8px",
+    padding: "5px 12px",
+    borderRadius: "6px",
+    background: "#0073e6",
+    color: "white",
+    cursor: "pointer",
+    border: "none"
+  }}
+    onClick={() => {
+    setPriceRange(tempPriceRange); // ✅ Apply temp slider values
+    setPage(1);
+    fetchProducts(1, tempPriceRange);
+  }}
+    >
+      Go
+      </button>
+          </div>
                  </div> <div style={{ marginTop: 12 }}>
                    <strong>Storage</strong> {STORAGES.map((s) => ( <label key={s}> 
                     <input type="checkbox" name="storage" checked={selectedStorage === s} onChange={() => setSelectedStorage(prev => prev === s ? "" : s)} />&nbsp;  {s} </label>
@@ -241,8 +276,8 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
             </span>
              <button style={{padding: "5px", borderRadius: "8px", cursor: "pointer"}} onClick={() => setPage(page + 1)}>Next ➡️</button> 
              <button onClick={() => {
-        const lastPage = Math.ceil(maxPages / 8); 
-        setPage(lastPage);
+        //const lastPage = Math.ceil(maxPages / 8); 
+        setPage(maxPages);
       }} 
       style={{padding: "5px", marginLeft: "10px", borderRadius: "8px", cursor: "pointer"}}
                 >
