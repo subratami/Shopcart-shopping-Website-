@@ -3,6 +3,8 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useCart } from "../component/CartContext";
 import { useWishlist } from "../component/WishlistContext";
 import "./productlist.css";
+/*import { param } from "framer-motion/client";
+import { set } from "lodash";*/
 
 interface ProductListProps {
   searchQuery: string;
@@ -27,8 +29,8 @@ const PRICE_RANGES = [
   { label: "₹20,000 - ₹40,000", min: 20000, max: 40000 },
   { label: "Above ₹40,000", min: 40000, max: Infinity },
 ];
-const STORAGES = ["32GB", "64GB", "128GB", "256GB"];
-const RAMS = ["2GB", "4GB", "6GB", "8GB"];
+const STORAGES = ["32 GB", "64 GB", "128 GB", "256 GB"];
+const RAMS = ["2 GB", "4 GB", "6 GB", "8 GB"];
 
 const ProductList = ({ searchQuery }: ProductListProps) => {
   const { addToCart } = useCart();
@@ -46,11 +48,10 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
   const [selectedStorage, setSelectedStorage] = useState("");
   const [selectedRam, setSelectedRam] = useState("");
   const [isFilterOpen, setIsFilterOpen] = useState(window.innerWidth >= 900);
-  const [sortBy, setSortBy] = useState<string>("");
+  const [sortBy, setSortBy] = useState<"" | "price" | "rating">("");
   const [order, setOrder] = useState<"asc" | "desc">("asc");
 
-  const params = new URLSearchParams(location.search);
-  const brandFromQuery = params.get("brand");
+
 
   useEffect(() => {
     const handleResize = () => setIsFilterOpen(window.innerWidth >= 900);
@@ -59,8 +60,10 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
   }, []);
 
   useEffect(() => {
-    if (brandFromQuery) setSelectedBrand(brandFromQuery);
-  }, [brandFromQuery]);
+    const params = new URLSearchParams(location.search);
+  const brandFromQuery = params.get("brand");
+    setSelectedBrand(brandFromQuery || "");
+  }, [location.search]);
 
   useEffect(() => {
     setPage(1);
@@ -74,48 +77,27 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
       if (selectedBrand) params.append("brand", selectedBrand);
       if (selectedStorage) params.append("storage", selectedStorage);
       if (selectedRam) params.append("memory", selectedRam);
+     
       if (selectedPrice !== -1) {
         params.append("min_price", PRICE_RANGES[selectedPrice].min.toString());
+        if (PRICE_RANGES[selectedPrice].max !== Infinity){
         params.append("max_price", PRICE_RANGES[selectedPrice].max.toString());
       }
+    }
+      if (sortBy) params.append("sort_by", sortBy);
+      params.append("order", order);
+
+
       params.append("page", String(page));
       params.append("limit", "20");
 
       try {
         const res = await fetch(`https://new-shopping-api.onrender.com/search?${params.toString()}`);
         const data = await res.json();
-        let filtered: Product[] = Array.isArray(data)
-          ? data
-          : Array.isArray(data.products)
-          ? data.products
-          : [];
-
-        filtered = filtered.filter((p: Product) => {
-          const priceMatch =
-            selectedPrice === -1 ||
-            (p["Selling Price"] >= PRICE_RANGES[selectedPrice]?.min &&
-              p["Selling Price"] < PRICE_RANGES[selectedPrice]?.max);
-          const storageMatch = !selectedStorage || p.Storage === selectedStorage;
-          const ramMatch = !selectedRam || p.Memory === selectedRam;
-          return priceMatch && storageMatch && ramMatch;
-        }); 
-
-        if (sortBy === "price") {
-          filtered = filtered.sort((a: Product, b: Product) =>
-            order === "asc"
-              ? a["Selling Price"] - b["Selling Price"]
-              : b["Selling Price"] - a["Selling Price"]
-          );
-        } else if (sortBy === "rating") {
-          filtered = filtered.sort((a: Product, b: Product) =>
-            order === "asc" ? a.Rating - b.Rating : b.Rating - a.Rating
-          );
-        }
-
-        setProducts(filtered);
-        setTotal(filtered.length);
+        setProducts(data.products || []);
+        setTotal(data.total || 0);
       } catch (err) {
-        console.error("Error loading products:", err);
+        console.error("Error fetching products:", err);
         setProducts([]);
         setTotal(0);
       } finally {
@@ -125,21 +107,21 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
 
     fetchProducts();
   }, [searchQuery, selectedBrand, selectedPrice, selectedStorage, selectedRam, page, order, sortBy]);
-
+         
   return (
     <>
       <div className="sort" style={{ display: "flex", gap: 8 }}>
         <label>
-          Sort:
-          <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+          sort:
+          <select value={sortBy} onChange={e => setSortBy(e.target.value as "" | "price" | "rating" | "")}>
             <option value="">None</option>
             <option value="price">Price</option>
             <option value="rating">Rating</option>
           </select>
         </label>
         <label>
-          Order:
-          <select value={order} onChange={(e) => setOrder(e.target.value as "asc" | "desc")}>
+          order:
+          <select value={order} onChange={e => setOrder(e.target.value as "asc" | "desc")}>
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
           </select>
@@ -148,7 +130,6 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
 
       <div className="productlist-wrapper" style={{ display: "flex" }}>
         <button className="filter-toggle-btn" onClick={() => setIsFilterOpen((prev) => !prev)}>
-          {isFilterOpen ? "Filters" : "Filters"}
         </button>
 {isFilterOpen && ( 
   <aside className="filter-panel" style={{ width: 220, padding: 16 }}>
@@ -157,37 +138,28 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
       <strong>Brand</strong> 
       {BRANDS.map((brand) => ( 
         <label key={brand}> 
-        <input type="radio" 
+        <input type="checkbox" 
         name="brand" 
         checked={selectedBrand === brand}
-         onChange={() => { setSelectedBrand(brand); setPage(1);
+         onChange={() => { setSelectedBrand(prev => prev === brand ? "" : brand); setPage(1);
 
           }} 
           /> 
           {brand} 
           </label> 
         ))} 
-        <label> 
-          <input type="radio" name="brand" checked={selectedBrand === ""} 
-          onChange={() => { setSelectedBrand(""); setPage(1); }} /> All </label> 
           </div> <div style={{ marginTop: 12 }}> 
             <strong>Price</strong> {PRICE_RANGES.map((range, idx) => ( <label key={range.label}>
-               <input type="radio" name="price" checked={selectedPrice === idx} onChange={() => {setSelectedPrice(idx); setPage(1);}} /> 
+               <input type="checkbox" name="price" checked={selectedPrice === idx} onChange={() => setSelectedPrice(prev => prev === idx ? -1 : idx)} /> 
                {range.label} </label> 
               ))} 
-               <label> 
-                <input type="radio" name="price" checked={selectedPrice === -1} onChange={() => {setSelectedPrice(-1); setPage(1);}} /> All </label>
                  </div> <div style={{ marginTop: 12 }}>
                    <strong>Storage</strong> {STORAGES.map((s) => ( <label key={s}> 
-                    <input type="radio" name="storage" checked={selectedStorage === s} onChange={() => {setSelectedStorage(s); setPage(1);}} /> {s} </label>
+                    <input type="checkbox" name="storage" checked={selectedStorage === s} onChange={() => setSelectedStorage(prev => prev === s ? "" : s)} /> {s} </label>
                      ))} 
-                     <label> 
-                      <input type="radio" name="storage" checked={selectedStorage === ""} onChange={() => {setSelectedStorage(""); setPage(1);}} /> All </label> 
                       </div> <div style={{ marginTop: 12 }}> 
-                        <strong>RAM</strong> {RAMS.map((r) => ( <label key={r}> <input type="radio" name="ram" checked={selectedRam === r} onChange={() => setSelectedRam(r)} /> {r} </label>
+                        <strong>RAM</strong> {RAMS.map((r) => ( <label key={r}> <input type="checkbox" name="ram" checked={selectedRam === r} onChange={() => setSelectedRam(prev => prev === r ? "" : r)} /> {r} </label>
                        ))} 
-                       <label> 
-                        <input type="radio" name="ram" checked={selectedRam === ""} onChange={() => {setSelectedRam(""); setPage(1);}} /> All </label> 
                         </div> 
                         </aside> 
                       )}

@@ -138,9 +138,11 @@ gap: "8px";
 }
 .homepage .goToPrevious{
     top: 9%;
+    display: none;
   }
   .homepage .goToNext{
     top: 9%;
+    display: none;
   }
 
 nav{
