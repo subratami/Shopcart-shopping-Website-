@@ -21,6 +21,7 @@ interface Product {
   Memory: string;
   Storage: string;
   Rating: number;
+  "Product Photo": string
 }
 
 const BRANDS = ["Apple", "Samsung", "Realme", "Xiaomi"];
@@ -191,7 +192,7 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
     border: "none"
   }}
     onClick={() => {
-    setPriceRange(tempPriceRange); // ✅ Apply temp slider values
+    setPriceRange(tempPriceRange); 
     setPage(1);
     fetchProducts(1, tempPriceRange);
   }}
@@ -232,6 +233,7 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
                       onClick={() => navigate(`/product/${product._id}`)}
                       style={{ cursor: "pointer" }}
                     >
+                      <img className="product-image" src={product["Product Photo"][1]} alt={product.Model} />
                       {product.Brand} {product.Model} {product.Color} <br />
                       {product.Memory} {product.Storage} <br />
                       ₹{product["Selling Price"]}{" "}
@@ -239,12 +241,10 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
                       Rating: {product.Rating}
                     </div>
 
-                    {/* Add to Cart */}
                     <button className="add-to-cart" onClick={() => addToCart(product._id, 1)}>
                       Add to Cart
                     </button>
 
-                    {/* Add to Wishlist */}
                     <button
                       className={`add-to-wishlist ${isInWishlist ? "disabled" : ""}`}
                       onClick={() => addToWishlist(product._id)}
@@ -257,7 +257,7 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
               })}
             </ul>
           )}
-          {/* Pagination */} 
+ 
           {products.length > 0 && (
              <div style={{ marginTop: "1.5rem", textAlign: "center" 
         }}> 

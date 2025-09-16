@@ -147,6 +147,13 @@ float: right;
   font-size: 12px;
   margin-left: 6px;
 }
+.product-image {
+  width: 100%;
+  height: 140px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  object-fit: contain;
+}
 .filter-toggle-btn {
   display: none; 
   position: relative;
