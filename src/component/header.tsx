@@ -184,11 +184,9 @@ useEffect(() => {
    <div className="dropbtn"> <Link to="/dashboard"><img src={person} alt="not_load"/>Account<div className="Account-blank"><div className="Acblack-blank"></div></div></Link>
    </div>
 <div className="dropdown-content">
-{/*
-<p className="para1"><small>Signup/Login for best experience</small></p>
-*/}
-<span style={{paddingTop: "20px"}}>Welcome, {userName || "User"}!</span>
 {localStorage.getItem("isLoggedIn") === "true" ? (
+  <div>
+    <span style={{paddingTop: "20px"}}><strong>Welcome, {userName || "User"}!</strong></span>
   <div className="button">
     <button
       className="btnlink"
@@ -199,28 +197,32 @@ useEffect(() => {
       LOGOUT
     </button>
   </div>
+  </div>
 ) : (
   <div className="dropdtn">
-    <div className="button">
+    <p className="para1"><strong>Signup/Login for best experience</strong></p>
+    <div className="button-group">
+    <span className="button">
       <div className="btnlink">
         <Link to="/signup">SIGNUP </Link>
       </div>
-    </div>
+    </span>
     <span>Or</span>
-    <div className="button">
+    <span className="button">
       <div className="btnlink">
         <Link to="./login">&nbsp;LOGIN</Link>
       </div>
+    </span>
     </div>
   </div>
 )}
 <div className="droplink">
-  <Link className="hlink" to="/cart">Cart &nbsp;<span className="cart-count" style={{ color:"purple", fontWeight:'bold'}}>{cart.length}</span></Link>
-  <a className="hlink" href="#">Wishlist</a>
-  <a className="hlink" href="#">eGift Cards</a>
-  <a className="hlink" href="#">Find A Store</a>
-  <a className="hlink" href="#">Help & Contact</a>
-  <a className="hlink" href="#">FAQ</a>
+  <Link className="hlink" to="/cart"><strong>Cart</strong> &nbsp;<span className="cart-count" style={{ color:"purple", fontWeight:'bold'}}>{cart.length}</span></Link>
+  <a className="hlink" href="#"><strong>Wishlist</strong></a>
+  <a className="hlink" href="#"><strong>eGift Cards</strong></a>
+  <a className="hlink" href="#"><strong>Find A Store</strong></a>
+  <a className="hlink" href="#"><strong>Help & Contact</strong></a>
+  <a className="hlink" href="#"><strong>FAQ</strong></a>
 </div>
 </div>
   </div></li>

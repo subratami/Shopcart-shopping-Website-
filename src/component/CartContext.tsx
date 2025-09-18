@@ -11,7 +11,7 @@ export interface CartItem {
   Storage?: string;
   "Selling Price"?:number;
   quantity: number;
-  [key: string]: any; // For additional product fields
+  "Product Photo": string;
 }
 
 interface CartContextType {

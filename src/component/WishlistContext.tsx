@@ -16,7 +16,7 @@ export interface WishlistItem {
   Memory?: string;
   Storage?: string;
   "Selling Price"?: number;
-  [key: string]: any;
+  "Product Photo": string;
 }
 
 interface WishlistContextType {

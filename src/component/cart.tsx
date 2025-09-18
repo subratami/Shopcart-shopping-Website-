@@ -17,14 +17,14 @@ const Cart: React.FC = () => {
   return (
     <div className="cart-container">
     <div className="cartlist">
-      <h2>Your Cart</h2>
+      <h2>Your Cart 🛒</h2>
       <ul className="cart-ul-reset">
         {cart.map((item: CartItem) => {
-          const id = item.product_id || item._id; // <-- Add this line
+          const id = item._id; // <-- Add this line
           return (
             <li key={id} className="cart-li-reset">{/*style={{ marginBottom: "0.5em" }} */}
               <div className="product-photo"> {/* style={{display: "block", flexDirection: "column"}} */}
-                <img src="#" alt="Product" /> </div>
+                <img src={item["Product Photo"][1]} alt="Product" /> </div>
                 <div className="cart-description">
                   <div className="cart-item-name">
                 <strong>
