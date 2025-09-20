@@ -17,6 +17,7 @@ import Wishlist from "./component/Wishlist";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ThemeProvider } from "./component/themeContext";
+import { CheckoutPage } from "./component/CheckoutPage";
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
    const [toastPosition, setToastPosition] = useState<"top-right" | "bottom-center">("top-right");
@@ -48,6 +49,8 @@ function App() {
           <Route path="/search" element={<ProductList searchQuery={searchQuery} />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
+          {/*<Route path="/orders/:orderId" element={<OrderTrackingPage />} /> */}
           <Route path="*" element={<h1>Page Not Found</h1>} />
     </Routes>
     <Footer />
