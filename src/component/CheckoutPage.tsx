@@ -101,10 +101,10 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({
     }
   };
 
-  const handleTrackOrder = (orderId: string) => {
+  /*const handleTrackOrder = (orderId: string) => {
     // Simple navigation without router
     window.location.href = `/orders/${orderId}`;
-  };
+  };*/
 
   const handleGoBack = () => {
     if (onClose) {
