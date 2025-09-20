@@ -1,4 +1,4 @@
-// Product interface matching your existing Shopcaart structure
+
 export interface Product {
   id: string;
   name: string;
@@ -7,7 +7,6 @@ export interface Product {
   price: number;
   originalPrice?: number;
   quantity: number;
-  rating: number;
   image: string;
 }
 
@@ -23,7 +22,6 @@ export interface ShippingAddress {
   state: string;
 }
 
-// Delivery options for Indian market
 export interface DeliveryOption {
   id: 'standard' | 'express' | 'same-day';
   name: string;
@@ -32,7 +30,6 @@ export interface DeliveryOption {
   description: string;
 }
 
-// Indian payment methods
 export interface PaymentMethod {
   id: 'upi' | 'card' | 'netbanking' | 'cod';
   name: string;
@@ -41,10 +38,8 @@ export interface PaymentMethod {
   popular: boolean;
 }
 
-// Order calculations with Indian GST
 export interface OrderCalculation {
   subtotal: number;
-  gst: number;
   shipping: number;
   total: number;
   savings?: number;

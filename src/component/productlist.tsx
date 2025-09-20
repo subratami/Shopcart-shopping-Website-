@@ -118,6 +118,19 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
     setPage(1);
   };
 
+  const renderStars = (rating: number) => {
+    const fullStars = Math.floor(rating);
+    const hasHalfStar = rating % 1 !== 0;
+    
+    return (
+      <div className="rating">
+        {'★'.repeat(fullStars)}
+        {hasHalfStar && '☆'}
+        <span className="rating-number">{rating}</span>
+      </div>
+    );
+  };
+
   return (
     <>
       <div className="sort" style={{ display: "flex", gap: 8 }}>
@@ -238,9 +251,9 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
                       {product.Memory} {product.Storage} <br />
                       ₹{product["Selling Price"]}{" "}
                       <del>₹{product["Original Price"]}</del> <br />
-                      Rating: {product.Rating}
+                      {renderStars(product.Rating)}
                     </div>
-
+                    <div className="product-actions" style={{ display: "flex", justifyContent: "space-evenly"}}>
                     <button className="add-to-cart" onClick={() => addToCart(product._id, 1)}>
                       Add to Cart
                     </button>
@@ -252,6 +265,7 @@ const ProductList = ({ searchQuery }: ProductListProps) => {
                     >
                       {isInWishlist ? "In Wishlist" : "Add to Wishlist"}
                     </button>  
+                    </div>
                   </li>
                 );
               })}

@@ -25,9 +25,7 @@ const Cart: React.FC = () => {
       brand: item.Brand || 'Unknown',
       variant: `${item.Color || ''}, ${item.Memory || ''}, ${item.Storage || ''}`.replace(/^,\s*|,\s*$/g, '').trim(),
       price: item["Selling Price"] || 0,
-     // originalPrice: item["Original Price"] || item["Selling Price"] || 0,
       quantity: item.quantity,
-      rating: 4.5, // Default rating since it's not in your cart data
       image: item["Product Photo"] && item["Product Photo"][1] ? item["Product Photo"][1] : ''
     }));
   };

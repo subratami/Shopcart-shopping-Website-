@@ -27,7 +27,7 @@ export const useCheckout = (initialCartItems: Product[] = []) => {
       (sum, item) => sum + ((item.originalPrice || item.price) - item.price) * item.quantity, 0
     );
     
-    const gst = Math.floor(subtotal * 0.18); // 18% GST
+    //const gst = Math.floor(subtotal * 0.18); // 18% GST
     
     let shipping = 0;
     if (selectedDelivery === 'express') shipping = 99;
@@ -40,9 +40,9 @@ export const useCheckout = (initialCartItems: Product[] = []) => {
       shipping = 40;
     }
     
-    const total = subtotal + gst + shipping;
+    const total = subtotal + shipping;
 
-    return { subtotal, gst, shipping, total, savings };
+    return { subtotal, shipping, total, savings };
   }, [checkoutState.cartItems, checkoutState.selectedDelivery]);
 
   // Use React 19's improved useEffect

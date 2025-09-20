@@ -214,10 +214,10 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({
 
   return (
     <div className="checkout-page">
-      <header className="checkout-header">
+     {/* <header className="checkout-header">
         <div className="container">
           <div className="header-content">
-            <h1 className="logo">Shopcart</h1>
+            <h1 className="logo">Shopcart</h1> 
             <div className="header-actions">
             <div className="user-info">
               <span>Hi</span>
@@ -230,7 +230,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({
             </div>.
           </div>
         </div>
-      </header>
+      </header> */}
 
       <main className="main">
         <div className="container">
@@ -280,11 +280,6 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({
                           <span>-₹{checkoutState.orderCalculation.savings.toLocaleString('en-IN')}</span>
                         </div>
                       )}
-                      
-                      <div className="summary-line">
-                        <span>GST (18%)</span>
-                        <span>₹{checkoutState.orderCalculation.gst.toLocaleString('en-IN')}</span>
-                      </div>
                       
                       <div className="summary-line">
                         <span>Shipping</span>

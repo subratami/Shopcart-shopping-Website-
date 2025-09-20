@@ -4,6 +4,9 @@
     margin: auto;
     max-width: 1000px;
 }
+h2{
+    color: var(--text-color)
+}
 .cartlist{
     padding: 20px 20px 0px 20px;
     min-height: 180vh;   
@@ -71,6 +74,7 @@
     text-align: right;
     font-weight: bold;
     margin: 1em 0;
+    color: var(--text-color);
 }
 .cart-bottom{
     float: right;

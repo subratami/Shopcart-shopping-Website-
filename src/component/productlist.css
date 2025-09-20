@@ -203,6 +203,7 @@ float: right;
   cursor: pointer;
   transition: 0.3s;
   margin-left: 8px;
+  margin-top: 12px;
 }
 
 .add-to-wishlist:hover {

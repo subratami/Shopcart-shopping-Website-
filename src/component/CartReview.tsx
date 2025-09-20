@@ -12,24 +12,12 @@ export const CartReview: React.FC<CartReviewProps> = ({
   onNext,
   onUpdateQuantity
 }) => {
-  const renderStars = (rating: number) => {
-    const fullStars = Math.floor(rating);
-    const hasHalfStar = rating % 1 !== 0;
-    
-    return (
-      <div className="rating">
-        {'★'.repeat(fullStars)}
-        {hasHalfStar && '☆'}
-        <span className="rating-number">{rating}</span>
-      </div>
-    );
-  };
 
   return (
     <div className="step-content">
       <div className="step-header">
         <h2>Review Your Cart</h2>
-        <p>Check your items and quantities before proceeding to checkout</p>
+        <p>Check your items and quantities before proceeding</p>
       </div>
 
       <div className="cart-items">
@@ -45,7 +33,6 @@ export const CartReview: React.FC<CartReviewProps> = ({
                   <h4>{item.brand}</h4>
                   <h3>{item.name}</h3>
                 </div>
-                {renderStars(item.rating)}
               </div>
               
               <div className="item-variant">{item.variant}</div>

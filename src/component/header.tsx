@@ -218,11 +218,11 @@ useEffect(() => {
 )}
 <div className="droplink">
   <Link className="hlink" to="/cart"><strong>Cart</strong> &nbsp;<span className="cart-count" style={{ color:"purple", fontWeight:'bold'}}>{cart.length}</span></Link>
-  <a className="hlink" href="#"><strong>Wishlist</strong></a>
-  <a className="hlink" href="#"><strong>eGift Cards</strong></a>
-  <a className="hlink" href="#"><strong>Find A Store</strong></a>
-  <a className="hlink" href="#"><strong>Help & Contact</strong></a>
-  <a className="hlink" href="#"><strong>FAQ</strong></a>
+  <Link className="hlink" to="/wishlist"><strong>Wishlist</strong></Link>
+  <Link className="hlink" to="#"><strong>eGift Cards</strong></Link>
+  <Link className="hlink" to="#"><strong>Find A Store</strong></Link>
+  <Link className="hlink" to="#"><strong>Help & Contact</strong></Link>
+  <Link className="hlink" to="#"><strong>FAQ</strong></Link>
 </div>
 </div>
   </div></li>
